@@ -116,6 +116,16 @@ a:hover .thumb img{transform:scale(1.04)}
 .course .go{margin-top:auto;font-weight:600;font-size:15px;text-decoration:underline;text-underline-offset:4px}
 .course.free small{color:#7a5c00}
 
+.cards2f{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cards2f .course{padding:28px}
+.cards2f .course .art{height:190px}
+.cards2f .course .art img{max-height:170px}
+.cards2f h3{font-size:24px}
+.chk{list-style:none;margin:0 0 22px;font-size:15px}
+.chk li{position:relative;padding-left:24px;margin-bottom:6px}
+.chk li::before{content:"";position:absolute;left:2px;top:.45em;width:12px;height:7px;border-left:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(-45deg)}
+.course .btn{margin-top:auto;align-self:flex-start}
+
 /* paid */
 .paid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
 .pcard{display:flex;flex-direction:column;background:var(--night-card);border:1px solid var(--night-line);border-radius:18px;padding:20px;text-decoration:none}
@@ -176,7 +186,7 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
 }
 @media (max-width:600px){
   header .btn{display:none}
-  .steps,.vgrid,.cards3,.paid{grid-template-columns:1fr}
+  .steps,.vgrid,.cards3,.paid,.cards2f{grid-template-columns:1fr}
   .bigcard{grid-template-columns:1fr}
   .tabs{flex-wrap:nowrap;overflow-x:auto;margin-left:-20px;margin-right:-20px;padding:0 20px 6px;scrollbar-width:none}
   .tab{flex:0 0 auto}
@@ -323,14 +333,24 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
   <div class="wrap">
     <span class="tag">Бесплатные курсы</span>
     <h2>Учитесь системно и бесплатно</h2>
-    <p class="lead">Курсы с практикой на витрине iiuniversitet и полные курсы на YouTube.</p>
-    <div class="cards3">
-      <a class="course free" href="https://iiuniversitet.ru/free3/" target="_blank" rel="noopener"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l03.webp" alt="" loading="lazy"></div><small>Бесплатно на iiuniversitet</small><h3>Нейросети от А до Я</h3><p>За 2 недели освоите нейросети с нуля: промты, ИИ-ассистенты, изображения и видео. 10 уроков, 9 практических заданий, сертификат.</p><span class="go">Подробнее о курсе</span></a>
-      <a class="course free" href="https://iiuniversitet.online/kurs-antikrizis/" target="_blank" rel="noopener"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l06.webp" alt="" loading="lazy"></div><small>Бесплатно на iiuniversitet</small><h3>Антикризис с ИИ</h3><p>9 уроков в своём темпе: разберётесь, что изменилось на вашем рынке, и составите план на 30 дней с помощью нейросетей.</p><span class="go">Подробнее о курсе</span></a>
-      <a class="course" href="https://www.youtube.com/playlist?list=PLKzjY89TlrIA" target="_blank" rel="noopener"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l01.webp" alt="" loading="lazy"></div><small>Плейлист на YouTube</small><h3>Нейросети с нуля</h3><p>Подборка видео для старта: как учиться, какие сервисы выбрать и как начать применять ИИ в работе.</p><span class="go">Смотреть плейлист</span></a>
-      <a class="course" href="https://www.youtube.com/playlist?list=PLHR8s-XLaHp4" target="_blank" rel="noopener"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l07.webp" alt="" loading="lazy"></div><small>Плейлист на YouTube</small><h3>Claude: полный курс</h3><p>9 видео о Claude: от первых шагов до ИИ-сотрудников и оплаты из России.</p><span class="go">Смотреть плейлист</span></a>
-      <a class="course" href="https://www.youtube.com/playlist?list=PLbtro5KWRVmI" target="_blank" rel="noopener"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l09.webp" alt="" loading="lazy"></div><small>Плейлист на YouTube</small><h3>ИИ-агенты: полный курс</h3><p>5 видео о том, как собрать агентов, которые выполняют задачи без вашего участия.</p><span class="go">Смотреть плейлист</span></a>
-      <a class="course" href="https://www.youtube.com/playlist?list=PLPzJLqtPH-nNG3rzzXDuhEHWWcevoXm7E" target="_blank" rel="noopener"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/p-coin.webp" alt="" loading="lazy"></div><small>Плейлист на YouTube</small><h3>Нейросети: полный курс</h3><p>20 больших уроков по нейросетям для работы, бизнеса и контента.</p><span class="go">Смотреть плейлист</span></a>
+    <p class="lead">Два курса с практикой, которые можно пройти бесплатно прямо сейчас.</p>
+    <div class="cards2f">
+      <a class="course free" href="https://iiuniversitet.ru/free2_yd/" target="_blank" rel="noopener">
+        <div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l03.webp" alt="" loading="lazy"></div>
+        <small>Бесплатный мини-курс</small>
+        <h3>Путь в ИИ: нейросети от А до Я</h3>
+        <p>10 коротких уроков без воды для специалистов, руководителей и предпринимателей. Узнаете самые эффективные ИИ-инструменты, как применить их в работе и получить бесплатный доступ к популярным нейросетям.</p>
+        <ul class="chk"><li>Старт сразу после регистрации</li><li>Задания к урокам и чат участников</li><li>Рабочие тетради, гайды, подборки промтов</li></ul>
+        <span class="btn k">Начать бесплатно</span>
+      </a>
+      <a class="course free" href="https://iiuniversitet.online/kurs-antikrizis/" target="_blank" rel="noopener">
+        <div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l06.webp" alt="" loading="lazy"></div>
+        <small>Бесплатный практический курс</small>
+        <h3>Антикризис с ИИ</h3>
+        <p>9 уроков, которые можно проходить в своём темпе: с помощью нейросетей разберётесь, что изменилось на вашем рынке или в профессии, и составите план выхода из кризиса на 30 дней.</p>
+        <ul class="chk"><li>Практические задания на своём рынке и своих цифрах</li><li>Бесплатные нейросети: Qwen, Kimi, Nano Banana, Gemini</li><li>Доступ сразу после регистрации</li></ul>
+        <span class="btn k">Начать бесплатно</span>
+      </a>
     </div>
   </div>
 </section>
