@@ -68,27 +68,27 @@ nav a:hover{color:var(--ink)}
 header .btn{padding:10px 20px;font-size:14px}
 
 /* hero */
-.hero{padding:0;min-height:620px;display:flex}
-.hero-photo{position:absolute;inset:0 0 0 auto;width:56%;background:url("https://iiuniversitet.online/kurs-antikrizis/img/author.jpg") 35% 22%/cover no-repeat;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 38%);mask-image:linear-gradient(90deg,transparent 0,#000 38%)}
-.hero .wrap{display:flex;flex-direction:column;justify-content:center;padding-top:64px;width:100%}
-.hero-text{max-width:590px}
-.crumbs{font-size:13px;color:rgba(255,255,255,.55);margin-bottom:14px}
+.hero{padding:0;min-height:640px;display:flex;position:relative;overflow:hidden;background:linear-gradient(180deg,var(--linen),var(--paper))}
+.hero-photo{position:absolute;inset:0 0 0 auto;width:60%;background:url("https://iiuniversitet.online/img/hero/work-8.jpg") 62% 30%/cover no-repeat;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 34%);mask-image:linear-gradient(90deg,transparent 0,#000 34%)}
+.hero .wrap{position:relative;display:flex;flex-direction:column;justify-content:center;padding-top:64px;width:100%}
+.hero-text{max-width:560px}
+.crumbs{font-size:13px;color:var(--muted);margin-bottom:14px}
 .hero h1{margin-bottom:20px}
-.hero p.sub{font-size:19px;color:rgba(255,255,255,.8);margin-bottom:30px;max-width:540px}
+.hero p.sub{font-size:19px;color:#3d3a36;margin-bottom:30px;max-width:520px}
 .btns{display:flex;flex-wrap:wrap;gap:12px}
-.start{margin-top:16px;font-size:14px;color:rgba(255,255,255,.6)}
-.start b{color:var(--yellow);font-weight:600}
-.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:58px;padding:24px 0 30px;border-top:1px solid var(--night-line)}
-.fact{display:flex;gap:12px;align-items:flex-start}
-.fact .ico{stroke:var(--yellow);margin-top:2px}
+.start{margin-top:16px;font-size:14px;color:var(--muted)}
+.start b{color:var(--ink);font-weight:600}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px;margin-bottom:40px}
+.fact{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:16px;padding:16px 18px;box-shadow:0 0 0 1px var(--line)}
+.fact .ico{stroke:var(--ink);margin-top:2px}
 .fact b{display:block;font-family:Montserrat,sans-serif;font-weight:600;font-size:16px}
-.fact span{font-size:14px;color:rgba(255,255,255,.62)}
+.fact span{font-size:14px;color:var(--muted)}
 
 /* audiences */
 .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .aud{display:flex;flex-direction:column;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
 .aud .art{height:190px;background:var(--linen);display:flex;align-items:center;justify-content:center}
-.aud .art img{max-height:165px;width:auto}
+.aud .art img{max-height:140px;width:auto}
 .aud .tx{padding:22px 24px 26px}
 .aud h3{margin-bottom:8px}
 .aud p{font-size:15px;color:var(--muted)}
@@ -103,7 +103,7 @@ header .btn{padding:10px 20px;font-size:14px}
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
 .pill{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 14px}
 .pill .ico{width:16px;height:16px;flex-basis:16px;stroke:var(--yellow)}
-.free-card .art img{width:100%;height:auto}
+.free-card .art img{width:100%;max-width:200px;height:auto;margin:0 auto}
 
 /* learn */
 .learn{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -121,8 +121,8 @@ header .btn{padding:10px 20px;font-size:14px}
 /* products */
 .prods{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .prod{display:flex;flex-direction:column;background:var(--night-card);border:1px solid var(--night-line);border-radius:20px;padding:22px}
-.prod .art{height:130px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-.prod .art img{max-height:120px;width:auto}
+.prod .pico{width:56px;height:56px;border-radius:16px;background:var(--yellow);display:grid;place-items:center;margin-bottom:22px}
+.prod .pico .ico{stroke:var(--ink);width:26px;height:26px;flex-basis:26px}
 .prod small{font-size:12px;color:rgba(255,255,255,.5);margin-bottom:6px}
 .prod h3{font-size:19px;margin-bottom:8px}
 .prod p{font-size:14px;color:rgba(255,255,255,.66)}
@@ -202,7 +202,7 @@ details.mod .body .res{margin-top:10px;font-weight:600}
 .panel li{position:relative;padding-left:26px;margin-bottom:8px}
 .panel li .ico{position:absolute;left:0;top:3px;width:18px;height:18px;stroke:var(--ink);stroke-width:2.2}
 .panel .art{height:230px;background:var(--linen);border-radius:18px;display:flex;align-items:center;justify-content:center}
-.panel .art img{max-height:200px;width:auto}
+.panel .art img{max-height:170px;width:auto}
 
 /* speaker */
 .speaker-grid{display:grid;grid-template-columns:400px 1fr;gap:56px;align-items:center}
@@ -295,9 +295,9 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
   section{padding:66px 0}
   nav{display:none}
   .hero{display:block;min-height:0}
-  .hero-photo{position:relative;width:100%;height:340px;-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent);mask-image:linear-gradient(180deg,#000 55%,transparent)}
+  .hero-photo{position:relative;width:100%;height:320px;background-position:62% 30%;-webkit-mask-image:linear-gradient(180deg,#000 60%,transparent);mask-image:linear-gradient(180deg,#000 60%,transparent)}
   .hero .wrap{padding-top:0}
-  .facts{grid-template-columns:1fr 1fr;margin-top:40px}
+  .facts{grid-template-columns:1fr 1fr;margin-top:36px}
   .cards3,.learn{grid-template-columns:1fr 1fr}
   .market,.cert,.speaker-grid,.fgrid,.panel,.free-card,.ask{grid-template-columns:1fr}
   .free-card{padding:34px 26px}
@@ -362,7 +362,7 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
 </div>
 
 <!-- HERO -->
-<section class="hero dark glow-l" id="top">
+<section class="hero" id="top">
   <div class="hero-photo" role="img" aria-label="Павел Лебедев"></div>
   <div class="wrap">
     <div class="hero-text">
@@ -371,7 +371,7 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
       <p class="sub">За 6 недель научитесь собирать сайты, сервисы и Telegram-ботов без программиста. Вы описываете задачу словами, нейросеть пишет код, а вы запускаете готовый продукт.</p>
       <div class="btns">
         <a class="btn y" href="#free">Попробовать бесплатно</a>
-        <a class="btn o" href="#program">Смотреть программу</a>
+        <a class="btn w" href="#program">Смотреть программу</a>
       </div>
       <p class="start"><b>Первые уроки бесплатно.</b> Открываются сразу после регистрации.</p>
     </div>
@@ -393,9 +393,9 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
       <p class="lead">Тем, кто хочет делать продукты сам и не ждать разработчиков</p>
     </div>
     <div class="cards3">
-      <div class="aud"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/p-coin.webp" alt="" loading="lazy"></div><div class="tx"><h3>Предпринимателям</h3><p>Запускайте сайты и внутренние сервисы без подрядчиков, проверяйте идеи за вечер и не платите разработчику за каждую правку.</p></div></div>
-      <div class="aud"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/p-receipt.webp" alt="" loading="lazy"></div><div class="tx"><h3>Маркетологам и руководителям проектов</h3><p>Собирайте лендинги, прототипы и автоматизации сами, без очереди к разработчикам и долгих согласований.</p></div></div>
-      <div class="aud"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l09.webp" alt="" loading="lazy"></div><div class="tx"><h3>Тем, кто уже пробовал вайбкодинг</h3><p>Переходите от одноразовых страниц и чат-ботов к настоящим продуктам: с базой данных, входом по паролю и запуском в интернете.</p></div></div>
+      <div class="aud"><div class="art"><img src="https://iiuniversitet.online/img/particles/laptop.webp" alt="" loading="lazy"></div><div class="tx"><h3>Предпринимателям</h3><p>Запускайте сайты и внутренние сервисы без подрядчиков, проверяйте идеи за вечер и не платите разработчику за каждую правку.</p></div></div>
+      <div class="aud"><div class="art"><img src="https://iiuniversitet.online/img/particles/chat.webp" alt="" loading="lazy"></div><div class="tx"><h3>Маркетологам и руководителям проектов</h3><p>Собирайте лендинги, прототипы и автоматизации сами, без очереди к разработчикам и долгих согласований.</p></div></div>
+      <div class="aud"><div class="art"><img src="https://iiuniversitet.online/img/particles/chip.webp" alt="" loading="lazy"></div><div class="tx"><h3>Тем, кто уже пробовал вайбкодинг</h3><p>Переходите от одноразовых страниц и чат-ботов к настоящим продуктам: с базой данных, входом по паролю и запуском в интернете.</p></div></div>
     </div>
   </div>
 </section>
@@ -415,7 +415,7 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
         <!-- ЗАМЕНИТЕ ссылку на форму регистрации в GetCourse -->
         <a class="btn y" href="https://t.me/pmlebedev_support" target="_blank" rel="noopener">Начать бесплатную часть</a>
       </div>
-      <div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l03.webp" alt="" loading="lazy"></div>
+      <div class="art"><img src="https://iiuniversitet.online/img/particles/spark.webp" alt="" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -461,10 +461,10 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
     <h2>Соберёте 4 продукта, готовых к работе</h2>
     <p class="lead">Не учебные упражнения, а то, чем можно пользоваться сразу после курса или показать заказчику</p>
     <div class="prods">
-      <div class="prod"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l01.webp" alt="" loading="lazy"></div><small>Проект 1</small><h3>Лендинг с заявками</h3><p>Свой дизайн, версия для телефона, форма, заявки сразу приходят в Telegram.</p></div>
-      <div class="prod"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l06.webp" alt="" loading="lazy"></div><small>Проект 2</small><h3>Мини-CRM</h3><p>База клиентов, статусы сделок, напоминания и выгрузка в таблицу.</p></div>
-      <div class="prod"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/p-receipt.webp" alt="" loading="lazy"></div><small>Проект 3</small><h3>Сервис онлайн-записи</h3><p>Календарь свободных окон, подтверждение записи и панель администратора.</p></div>
-      <div class="prod"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l07.webp" alt="" loading="lazy"></div><small>Проект 4</small><h3>Telegram-бот</h3><p>Принимает заявки, отвечает на частые вопросы и собирает отзывы.</p></div>
+      <div class="prod"><div class="pico"><svg class="ico"><use href="#i-code"/></svg></div><small>Проект 1</small><h3>Лендинг с заявками</h3><p>Свой дизайн, версия для телефона, форма, заявки сразу приходят в Telegram.</p></div>
+      <div class="prod"><div class="pico"><svg class="ico"><use href="#i-layers"/></svg></div><small>Проект 2</small><h3>Мини-CRM</h3><p>База клиентов, статусы сделок, напоминания и выгрузка в таблицу.</p></div>
+      <div class="prod"><div class="pico"><svg class="ico"><use href="#i-clock"/></svg></div><small>Проект 3</small><h3>Сервис онлайн-записи</h3><p>Календарь свободных окон, подтверждение записи и панель администратора.</p></div>
+      <div class="prod"><div class="pico"><svg class="ico"><use href="#i-chat"/></svg></div><small>Проект 4</small><h3>Telegram-бот</h3><p>Принимает заявки, отвечает на частые вопросы и собирает отзывы.</p></div>
     </div>
     <div class="own">
       <p><b>В тарифе ВИП</b> добавляется пятый проект: ваша собственная идея. Пишете мини-техзадание, собираете продукт, куратор проверяет его перед запуском.</p>
@@ -613,19 +613,19 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
     </div>
     <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
       <div><h3>Короткие уроки без воды</h3><p>Каждый урок показывает один шаг на реальном примере. Смотрите с компьютера или телефона, когда удобно.</p><ul><li><svg class="ico"><use href="#i-check"/></svg>Уроки по 10-20 минут</li><li><svg class="ico"><use href="#i-check"/></svg>Повторяете за Павлом шаг за шагом</li><li><svg class="ico"><use href="#i-check"/></svg>Материалы остаются у вас после курса</li></ul></div>
-      <div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l03.webp" alt="" loading="lazy"></div>
+      <div class="art"><img src="https://iiuniversitet.online/img/particles/laptop.webp" alt="" loading="lazy"></div>
     </div>
     <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
       <div><h3>Каждый модуль заканчивается проектом</h3><p>70% времени вы собираете продукты, а не слушаете теорию. К концу курса у вас будет портфолио из 4 проектов.</p><ul><li><svg class="ico"><use href="#i-check"/></svg>Задания на своих данных и задачах</li><li><svg class="ico"><use href="#i-check"/></svg>Готовые шаблоны техзаданий</li><li><svg class="ico"><use href="#i-check"/></svg>Пошаговые чек-листы запуска</li></ul></div>
-      <div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l06.webp" alt="" loading="lazy"></div>
+      <div class="art"><img src="https://iiuniversitet.online/img/particles/chip.webp" alt="" loading="lazy"></div>
     </div>
     <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
       <div><h3>Куратор проверяет и подсказывает</h3><p>В тарифах «С поддержкой» и «ВИП» куратор разбирает ваши проекты и помогает, если что-то не получается.</p><ul><li><svg class="ico"><use href="#i-check"/></svg>Обратная связь по каждому проекту</li><li><svg class="ico"><use href="#i-check"/></svg>Онлайн-практикумы с ответами на вопросы</li><li><svg class="ico"><use href="#i-check"/></svg>Записи практикумов остаются у вас</li></ul></div>
-      <div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l09.webp" alt="" loading="lazy"></div>
+      <div class="art"><img src="https://iiuniversitet.online/img/particles/cap.webp" alt="" loading="lazy"></div>
     </div>
     <div class="panel" role="tabpanel" id="p4" aria-labelledby="t4" hidden>
       <div><h3>Вы не один на один с нейросетью</h3><p>Общий чат студентов, где можно спросить совета, и база готовых промтов для вайбкодинга.</p><ul><li><svg class="ico"><use href="#i-check"/></svg>Чат студентов потока</li><li><svg class="ico"><use href="#i-check"/></svg>Промты и шаблоны техзаданий</li><li><svg class="ico"><use href="#i-check"/></svg>Разборы частых ошибок</li></ul></div>
-      <div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l07.webp" alt="" loading="lazy"></div>
+      <div class="art"><img src="https://iiuniversitet.online/img/particles/chat.webp" alt="" loading="lazy"></div>
     </div>
   </div>
 </section>
