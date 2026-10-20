@@ -78,7 +78,15 @@ header .btn{padding:10px 20px;font-size:14px}
 .btns{display:flex;flex-wrap:wrap;gap:12px}
 .start{margin-top:16px;font-size:14px;color:var(--muted)}
 .start b{color:var(--ink);font-weight:600}
-.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px;margin-bottom:40px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:48px;margin-bottom:40px}
+.proof{position:absolute;right:24px;bottom:150px;display:flex;flex-direction:column;gap:10px;z-index:1}
+.pc{width:180px;border-radius:18px;padding:16px 18px;box-shadow:0 18px 40px -16px rgba(0,0,0,.35)}
+.pc b{display:block;font-family:Montserrat,sans-serif;font-weight:700;font-size:28px;letter-spacing:-.02em;line-height:1.1;margin-bottom:4px}
+.pc span{display:block;font-size:13px;line-height:1.35}
+.pc.ai{background:var(--night);color:#fff}
+.pc.ai b{color:var(--yellow)}
+.pc.ai span{color:rgba(255,255,255,.75)}
+.pc.num{background:var(--yellow);color:var(--ink)}
 .fact{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:16px;padding:16px 18px;box-shadow:0 0 0 1px var(--line)}
 .fact .ico{stroke:var(--ink);margin-top:2px}
 .fact b{display:block;font-family:Montserrat,sans-serif;font-weight:600;font-size:16px}
@@ -298,6 +306,9 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
   .hero-photo{position:relative;width:100%;height:320px;background-position:62% 30%;-webkit-mask-image:linear-gradient(180deg,#000 60%,transparent);mask-image:linear-gradient(180deg,#000 60%,transparent)}
   .hero .wrap{padding-top:0}
   .facts{grid-template-columns:1fr 1fr;margin-top:36px}
+  .proof{position:static;flex-direction:row;padding:0 20px;margin:-24px 0 24px}
+  .pc{flex:1;width:auto;padding:12px 14px}
+  .pc b{font-size:22px}
   .cards3,.learn{grid-template-columns:1fr 1fr}
   .market,.cert,.speaker-grid,.fgrid,.panel,.free-card,.ask{grid-template-columns:1fr}
   .free-card{padding:34px 26px}
@@ -364,22 +375,28 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-photo" role="img" aria-label="Павел Лебедев"></div>
+  <div class="proof">
+    <div class="pc ai"><b>AI</b><span>Освоите ИИ для работы и жизни</span></div>
+    <div class="pc num"><b>1 000 000+</b><span>человек уже посмотрели курсы Павла</span></div>
+  </div>
   <div class="wrap">
     <div class="hero-text">
-      <div class="crumbs">Курсы iiuniversitet / Нейросети / Новый курс</div>
+      <div class="crumbs">Нейросети / Искусственный интеллект / Новый курс</div>
       <h1>Вайбкодинг с Claude</h1>
-      <p class="sub">За 6 недель научитесь собирать сайты, сервисы и Telegram-ботов без программиста. Вы описываете задачу словами, нейросеть пишет код, а вы запускаете готовый продукт.</p>
+      <p class="sub">За 6 недель научитесь с нуля собирать и запускать IT-продукты без разработчиков, только с помощью нейросетей</p>
       <div class="btns">
         <a class="btn y" href="#free">Попробовать бесплатно</a>
         <a class="btn w" href="#program">Смотреть программу</a>
       </div>
-      <p class="start"><b>Первые уроки бесплатно.</b> Открываются сразу после регистрации.</p>
+      <p class="start"><b>Ещё успеете начать с ближайшим потоком.</b> Первые уроки бесплатно.</p>
     </div>
     <div class="facts">
-      <div class="fact"><svg class="ico"><use href="#i-code"/></svg><div><b>Код писать не нужно</b><span>достаточно уверенно пользоваться компьютером</span></div></div>
-      <div class="fact"><svg class="ico"><use href="#i-hand"/></svg><div><b>70% практики</b><span>каждый модуль заканчивается рабочим проектом</span></div></div>
-      <div class="fact"><svg class="ico"><use href="#i-box"/></svg><div><b>4 готовых продукта</b><span>сайт, мини-CRM, сервис записи и бот</span></div></div>
-      <div class="fact"><svg class="ico"><use href="#i-clock"/></svg><div><b>Совмещается с работой</b><span>около 4 часов в неделю, уроки в записи</span></div></div>
+      <div class="fact"><svg class="ico"><use href="#i-spark"/></svg><div><b>Программа 2026 года</b><span>70% практики</span></div></div>
+      <div class="fact"><svg class="ico"><use href="#i-layers"/></svg><div><b>7+ ИИ-инструментов</b><span>в том числе бесплатные и доступные в РФ</span></div></div>
+      <div class="fact"><svg class="ico"><use href="#i-box"/></svg><div><b>3+ проекта</b><span>лендинг, мини-CRM, сервис записи и Telegram-бот</span></div></div>
+      <div class="fact"><svg class="ico"><use href="#i-code"/></svg><div><b>Необязательно уметь писать код</b><span>или работать с нейросетями</span></div></div>
+      <div class="fact"><svg class="ico"><use href="#i-team"/></svg><div><b>4 онлайн-практикума</b><span>а в тарифе ВИП ещё 3 личные встречи с куратором</span></div></div>
+      <div class="fact"><svg class="ico"><use href="#i-clock"/></svg><div><b>Продуманная нагрузка</b><span>чтобы совмещать курс с работой</span></div></div>
     </div>
   </div>
 </section>
@@ -390,12 +407,12 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
     <div class="center">
       <span class="tag">Для кого</span>
       <h2>Кому подойдёт курс</h2>
-      <p class="lead">Тем, кто хочет делать продукты сам и не ждать разработчиков</p>
+      <p class="lead">Тем, кто хочет делать IT-продукты сам и не зависеть от разработчиков</p>
     </div>
     <div class="cards3">
-      <div class="aud"><div class="art"><img src="https://iiuniversitet.online/img/particles/laptop.webp" alt="" loading="lazy"></div><div class="tx"><h3>Предпринимателям</h3><p>Запускайте сайты и внутренние сервисы без подрядчиков, проверяйте идеи за вечер и не платите разработчику за каждую правку.</p></div></div>
-      <div class="aud"><div class="art"><img src="https://iiuniversitet.online/img/particles/chat.webp" alt="" loading="lazy"></div><div class="tx"><h3>Маркетологам и руководителям проектов</h3><p>Собирайте лендинги, прототипы и автоматизации сами, без очереди к разработчикам и долгих согласований.</p></div></div>
-      <div class="aud"><div class="art"><img src="https://iiuniversitet.online/img/particles/chip.webp" alt="" loading="lazy"></div><div class="tx"><h3>Тем, кто уже пробовал вайбкодинг</h3><p>Переходите от одноразовых страниц и чат-ботов к настоящим продуктам: с базой данных, входом по паролю и запуском в интернете.</p></div></div>
+      <div class="aud"><div class="art"><img src="https://iiuniversitet.online/img/particles/laptop.webp" alt="" loading="lazy"></div><div class="tx"><h3>Предпринимателям</h3><p>Сможете быстро выводить на рынок новые продукты, проверять бизнес-гипотезы и экономить на разработке у подрядчиков.</p></div></div>
+      <div class="aud"><div class="art"><img src="https://iiuniversitet.online/img/particles/chat.webp" alt="" loading="lazy"></div><div class="tx"><h3>Продактам, проджектам, маркетологам</h3><p>Научитесь создавать рабочие прототипы, снизите зависимость от разработчиков и автоматизируете рутинные задачи.</p></div></div>
+      <div class="aud"><div class="art"><img src="https://iiuniversitet.online/img/particles/chip.webp" alt="" loading="lazy"></div><div class="tx"><h3>Тем, кто уже пробовал вайбкодинг</h3><p>Перейдёте от простых чат-ботов к более сложным IT-продуктам, настроите профессиональное окружение и сможете сами публиковать проекты.</p></div></div>
     </div>
   </div>
 </section>
@@ -406,10 +423,10 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
     <div class="free-card">
       <div>
         <h2>Попробуйте первые уроки бесплатно</h2>
-        <p>Узнаете, подходит ли вам формат, и за один вечер соберёте свою первую страницу вместе с Claude.</p>
+        <p>Узнаете, подходят ли вам формат и программа обучения. А заодно за один вечер соберёте первый прототип вместе с Claude.</p>
         <div class="pills">
           <span class="pill"><svg class="ico"><use href="#i-percent"/></svg>Скидка после прохождения</span>
-          <span class="pill"><svg class="ico"><use href="#i-card"/></svg>Карту привязывать не нужно</span>
+          <span class="pill"><svg class="ico"><use href="#i-card"/></svg>Не нужно привязывать карту</span>
           <span class="pill"><svg class="ico"><use href="#i-clock"/></svg>Доступ сразу</span>
         </div>
         <!-- ЗАМЕНИТЕ ссылку на форму регистрации в GetCourse -->
@@ -429,12 +446,12 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
       <p class="lead">Навыки, которые пригодятся в любом проекте, даже когда инструменты сменятся</p>
     </div>
     <div class="learn">
-      <div class="lcard"><div class="check"><svg class="ico"><use href="#i-check"/></svg></div><p>Ставить задачу нейросети и вместе с ней писать короткое техзадание, чтобы код работал с первого раза</p></div>
-      <div class="lcard"><div class="check"><svg class="ico"><use href="#i-check"/></svg></div><p>Собирать интерфейсы: страницы, формы, личные кабинеты и панели администратора</p></div>
-      <div class="lcard"><div class="check"><svg class="ico"><use href="#i-check"/></svg></div><p>Подключать базу данных и хранить в ней заявки, клиентов и записи</p></div>
-      <div class="lcard"><div class="check"><svg class="ico"><use href="#i-check"/></svg></div><p>Связывать сервисы между собой: формы, Telegram, таблицы и уведомления</p></div>
-      <div class="lcard"><div class="check"><svg class="ico"><use href="#i-check"/></svg></div><p>Находить и исправлять ошибки вместе с Claude, даже не разбираясь в коде</p></div>
-      <div class="lcard"><div class="check"><svg class="ico"><use href="#i-check"/></svg></div><p>Публиковать проекты в интернете и хранить все версии на GitHub, чтобы ничего не потерять</p></div>
+      <div class="lcard"><div class="check"><svg class="ico"><use href="#i-check"/></svg></div><p>Генерировать техзадания и программный код, тестировать и улучшать его</p></div>
+      <div class="lcard"><div class="check"><svg class="ico"><use href="#i-check"/></svg></div><p>Создавать интерфейсы, добавлять интерактивные элементы и админ-панели</p></div>
+      <div class="lcard"><div class="check"><svg class="ico"><use href="#i-check"/></svg></div><p>Настраивать базовые интеграции по API</p></div>
+      <div class="lcard"><div class="check"><svg class="ico"><use href="#i-check"/></svg></div><p>Проектировать структуру продукта и подключать базы данных</p></div>
+      <div class="lcard"><div class="check"><svg class="ico"><use href="#i-check"/></svg></div><p>Размещать проекты в интернете и отслеживать изменения в коде через GitHub</p></div>
+      <div class="lcard"><div class="check"><svg class="ico"><use href="#i-check"/></svg></div><p>Автоматизировать сбор заявок, настройку уведомлений и подготовку отчётов</p></div>
     </div>
   </div>
 </section>
@@ -458,13 +475,13 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
 <section class="dark glow-r">
   <div class="wrap">
     <span class="tag">Проекты</span>
-    <h2>Соберёте 4 продукта, готовых к работе</h2>
+    <h2>Соберёте 3+ продукта, полностью готовых к работе</h2>
     <p class="lead">Не учебные упражнения, а то, чем можно пользоваться сразу после курса или показать заказчику</p>
     <div class="prods">
-      <div class="prod"><div class="pico"><svg class="ico"><use href="#i-code"/></svg></div><small>Проект 1</small><h3>Лендинг с заявками</h3><p>Свой дизайн, версия для телефона, форма, заявки сразу приходят в Telegram.</p></div>
-      <div class="prod"><div class="pico"><svg class="ico"><use href="#i-layers"/></svg></div><small>Проект 2</small><h3>Мини-CRM</h3><p>База клиентов, статусы сделок, напоминания и выгрузка в таблицу.</p></div>
-      <div class="prod"><div class="pico"><svg class="ico"><use href="#i-clock"/></svg></div><small>Проект 3</small><h3>Сервис онлайн-записи</h3><p>Календарь свободных окон, подтверждение записи и панель администратора.</p></div>
-      <div class="prod"><div class="pico"><svg class="ico"><use href="#i-chat"/></svg></div><small>Проект 4</small><h3>Telegram-бот</h3><p>Принимает заявки, отвечает на частые вопросы и собирает отзывы.</p></div>
+      <div class="prod"><div class="pico"><svg class="ico"><use href="#i-code"/></svg></div><small>Проект 1</small><h3>Лендинг</h3><p>С дизайн-системой, готовыми блоками и обработкой заявок.</p></div>
+      <div class="prod"><div class="pico"><svg class="ico"><use href="#i-layers"/></svg></div><small>Проект 2</small><h3>CRM-система</h3><p>С админ-панелью, историей действий и автоматическими уведомлениями.</p></div>
+      <div class="prod"><div class="pico"><svg class="ico"><use href="#i-clock"/></svg></div><small>Проект 3</small><h3>Сервис онлайн-записи</h3><p>С проверкой статусов, защитой от ошибок и панелью управления для администратора.</p></div>
+      <div class="prod"><div class="pico"><svg class="ico"><use href="#i-chat"/></svg></div><small>Проект 4</small><h3>Бизнес-бот в Telegram</h3><p>На тарифах «С поддержкой» и «ВИП». Бот для реальных задач: приём заявок, сбор отзывов.</p></div>
     </div>
     <div class="own">
       <p><b>В тарифе ВИП</b> добавляется пятый проект: ваша собственная идея. Пишете мини-техзадание, собираете продукт, куратор проверяет его перед запуском.</p>
@@ -478,14 +495,14 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
   <div class="wrap market">
     <div>
       <span class="tag">Зачем это сейчас</span>
-      <h2>Инструменты будут меняться, а навык собирать продукты с ИИ останется</h2>
+      <h2>Рынок поменяется ещё не раз, а ИИ-навыки останутся</h2>
       <p class="lead" style="margin-bottom:0">Каждые несколько месяцев выходят новые нейросети. Кто умеет ставить им задачи и доводить результат до запуска, тот быстро осваивает любую из них.</p>
     </div>
     <div class="stat-big">
       <b>9 из 10</b>
       <p>работодателей ожидают, что сотрудники умеют работать с нейросетями</p>
-      <small>Где особенно пригодится вайбкодинг</small>
-      <div class="chips"><span class="chip">Маркетинг</span><span class="chip">Продажи</span><span class="chip">HR</span><span class="chip">Обучение</span><span class="chip">Сервис</span><span class="chip">Аналитика</span><span class="chip">Своё дело</span></div>
+      <small>Где особенно нужны ИИ-навыки</small>
+      <div class="chips"><span class="chip">Маркетинг</span><span class="chip">Реклама</span><span class="chip">PR</span><span class="chip">Дизайн</span><span class="chip">IT</span><span class="chip">Клиентский сервис</span><span class="chip">Продажи</span><span class="chip">HR</span><span class="chip">Финансы</span><span class="chip">Своё дело</span></div>
     </div>
   </div>
 </section>
@@ -495,7 +512,7 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
   <div class="wrap">
     <div class="prog-head">
       <div>
-        <span class="badge">Актуально на осень 2026</span>
+        <span class="badge">Актуально в 2026 году</span>
         <h2>Программа курса</h2>
         <p class="lead" style="margin-bottom:0">Каждый следующий тариф включает всё из предыдущего</p>
       </div>
@@ -506,12 +523,12 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
       <div>
         <div class="lv-ico"><svg class="ico"><use href="#i-flag"/></svg></div>
         <h3>Бесплатная часть</h3>
-        <p class="desc">До покупки поймёте, подходит ли вам курс</p>
+        <p class="desc">Ещё до покупки поймёте, подходит ли вам курс</p>
       </div>
       <div>
         <details class="mod" open>
-          <summary><span class="n">Модуль 0</span><span class="t">Знакомство и первая практика</span><span class="pr">1 проект</span><svg class="chev"><use href="#i-chev"/></svg></summary>
-          <div class="body"><ul><li>Что такое вайбкодинг и где он экономит время и деньги</li><li>Как поставить первую задачу Claude</li><li>Собираем страницу-визитку за один вечер</li></ul><p class="res">Результат: ваша первая страница в интернете</p></div>
+          <summary><span class="n">Модуль 0</span><span class="t">Знакомство с курсом и первая практика вайбкодинга</span><span class="pr">1 проект</span><svg class="chev"><use href="#i-chev"/></svg></summary>
+          <div class="body"><ul><li>Как ставить задачу ИИ</li><li>Практика: создание прототипа</li><li>Как устроен курс</li></ul><p class="res">Попробуете себя в вайбкодинге и протестируете формат iiuniversitet. Скидка за прохождение.</p></div>
         </details>
         <a class="btn k" href="#free">Начать бесплатную часть</a>
       </div>
@@ -521,17 +538,17 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
       <div>
         <div class="lv-ico"><svg class="ico"><use href="#i-layers"/></svg></div>
         <h3>Тариф «Я сам»</h3>
-        <p class="desc">Всё, чтобы самостоятельно собирать и запускать работающие продукты</p>
+        <p class="desc">Всё необходимое, чтобы активно применять ИИ для разработки без навыков программирования</p>
         <span class="dur">6 недель</span>
         <ul class="meta"><li>4 модуля с видеоуроками</li><li>4 проекта</li><li>Чат студентов и база промтов</li></ul>
       </div>
       <div>
         <details class="mod">
-          <summary><span class="n">Модуль 1</span><span class="t">Инструменты и первый запуск</span><span class="pr">1 проект</span><svg class="chev"><use href="#i-chev"/></svg></summary>
-          <div class="body"><ul><li>Как нейросеть пишет код и где её ограничения</li><li>Настраиваем Claude Code и Cursor</li><li>GitHub без страха: версии, откат, резервные копии</li><li>Публикуем страницу в интернете</li></ul><p class="res">Результат: рабочее окружение и опубликованная страница</p></div>
+          <summary><span class="n">Модуль 1</span><span class="t">Цикл и инструменты вайбкодинга</span><span class="pr">1 проект</span><svg class="chev"><use href="#i-chev"/></svg></summary>
+          <div class="body"><ul><li>Что такое вайбкодинг</li><li>Инструменты и рабочее окружение: Claude Code и Cursor</li><li>Цикл работы с ИИ: задача, код, проверка, исправление</li><li>GitHub: версии, откат и резервные копии</li></ul><p class="res">Практика: соберёте своё первое работающее мини-приложение с помощью ИИ</p></div>
         </details>
         <details class="mod">
-          <summary><span class="n">Модуль 2</span><span class="t">Лендинг с заявками</span><span class="pr">1 проект</span><svg class="chev"><use href="#i-chev"/></svg></summary>
+          <summary><span class="n">Модуль 2</span><span class="t">Сборка и запуск лендинга</span><span class="pr">1 проект</span><svg class="chev"><use href="#i-chev"/></svg></summary>
           <div class="body"><ul><li>Пишем техзадание вместе с ИИ</li><li>Дизайн-система: цвета, шрифты, блоки</li><li>Версия для телефона и проверка на разных экранах</li><li>Форма заявки и уведомления в Telegram</li></ul><p class="res">Результат: лендинг, который собирает заявки</p></div>
         </details>
         <details class="mod">
@@ -550,14 +567,14 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
         <div class="lv-ico"><svg class="ico"><use href="#i-team"/></svg></div>
         <h3>Тариф «С поддержкой»</h3>
         <span class="incl">Включает тариф «Я сам»</span>
-        <p class="desc">Добавляем бота, автоматизацию и обратную связь от куратора</p>
+        <p class="desc">Будете делать комплексные продукты с ботами, формами и автоматизацией</p>
         <span class="dur">8 недель</span>
         <ul class="meta"><li>+1 модуль и проект</li><li>Проверка проектов куратором</li><li>4 онлайн-практикума с ответами на вопросы</li></ul>
       </div>
       <div>
         <details class="mod">
-          <summary><span class="n">Модуль 5</span><span class="t">Telegram-бот и автоматизация</span><span class="pr">1 проект</span><svg class="chev"><use href="#i-chev"/></svg></summary>
-          <div class="body"><ul><li>Бот, который принимает заявки и отвечает на частые вопросы</li><li>Запуск бота на сервере, чтобы он работал круглосуточно</li><li>Связка бота с таблицами и CRM</li><li>ИИ как второй пилот: что поручать, а что проверять самому</li></ul><p class="res">Результат: бот, который решает реальную задачу бизнеса</p></div>
+          <summary><span class="n">Модуль 5</span><span class="t">Бизнес-бот, запуск на сервере, автоматизация</span><span class="pr">1 проект</span><svg class="chev"><use href="#i-chev"/></svg></summary>
+          <div class="body"><ul><li>Бизнес-сценарий бота</li><li>ИИ как второй пилот</li><li>Сборка бота и связка с таблицами и CRM</li><li>Запуск на сервере, чтобы бот работал круглосуточно</li></ul><p class="res">Практика: бот, который решает реальную задачу бизнеса</p></div>
         </details>
         <details class="mod">
           <summary><span class="n">Практикумы</span><span class="t">Разборы с куратором</span><svg class="chev"><use href="#i-chev"/></svg></summary>
@@ -573,12 +590,12 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
         <span class="incl">Включает тариф «С поддержкой»</span>
         <p class="desc">Личная работа с куратором и собственный проект</p>
         <span class="dur">10 недель</span>
-        <ul class="meta"><li>3 личные встречи с куратором</li><li>Работа над своей идеей</li></ul>
+        <ul class="meta"><li>+ 3 встречи с куратором</li><li>+ Можно работать над своим проектом</li></ul>
       </div>
       <div>
         <details class="mod">
-          <summary><span class="n">Модуль 6</span><span class="t">Ваш собственный проект</span><span class="pr">1 проект</span><svg class="chev"><use href="#i-chev"/></svg></summary>
-          <div class="body"><ul><li>Приходите со своей идеей или выбираете из наших</li><li>Пишете мини-техзадание и план запуска</li><li>Собираете продукт с поддержкой куратора</li><li>Финальная проверка перед запуском</li></ul><p class="res">Результат: ваш продукт, запущенный и проверенный</p></div>
+          <summary><span class="n">Модуль 6</span><span class="t">Индивидуальный проект</span><span class="pr">1 проект</span><svg class="chev"><use href="#i-chev"/></svg></summary>
+          <div class="body"><ul><li>Принесёте свою идею или выберете из предложенных</li><li>Напишете мини-техзадание</li><li>Создадите собственный IT-продукт с поддержкой куратора</li><li>Пройдёте финальную проверку перед запуском</li></ul><p class="res">Результат: ваш продукт, запущенный и проверенный</p></div>
         </details>
       </div>
     </div>
@@ -608,7 +625,7 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
     <div class="tabs" role="tablist" aria-label="Как устроен курс">
       <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true">Видеоуроки</button>
       <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">Практика</button>
-      <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">Разборы с куратором</button>
+      <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">Онлайн-практикумы</button>
       <button class="tab" role="tab" id="t4" aria-controls="p4" aria-selected="false" tabindex="-1">Чат и база промтов</button>
     </div>
     <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
@@ -616,11 +633,11 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
       <div class="art"><img src="https://iiuniversitet.online/img/particles/laptop.webp" alt="" loading="lazy"></div>
     </div>
     <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
-      <div><h3>Каждый модуль заканчивается проектом</h3><p>70% времени вы собираете продукты, а не слушаете теорию. К концу курса у вас будет портфолио из 4 проектов.</p><ul><li><svg class="ico"><use href="#i-check"/></svg>Задания на своих данных и задачах</li><li><svg class="ico"><use href="#i-check"/></svg>Готовые шаблоны техзаданий</li><li><svg class="ico"><use href="#i-check"/></svg>Пошаговые чек-листы запуска</li></ul></div>
+      <div><h3>Постоянная практика</h3><p>70% времени вы собираете продукты, а не слушаете теорию. К концу курса у вас будет портфолио из 4 проектов.</p><ul><li><svg class="ico"><use href="#i-check"/></svg>Задания на своих данных и задачах</li><li><svg class="ico"><use href="#i-check"/></svg>Готовые шаблоны техзаданий</li><li><svg class="ico"><use href="#i-check"/></svg>Пошаговые чек-листы запуска</li></ul></div>
       <div class="art"><img src="https://iiuniversitet.online/img/particles/chip.webp" alt="" loading="lazy"></div>
     </div>
     <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
-      <div><h3>Куратор проверяет и подсказывает</h3><p>В тарифах «С поддержкой» и «ВИП» куратор разбирает ваши проекты и помогает, если что-то не получается.</p><ul><li><svg class="ico"><use href="#i-check"/></svg>Обратная связь по каждому проекту</li><li><svg class="ico"><use href="#i-check"/></svg>Онлайн-практикумы с ответами на вопросы</li><li><svg class="ico"><use href="#i-check"/></svg>Записи практикумов остаются у вас</li></ul></div>
+      <div><h3>Онлайн-практикумы с куратором</h3><p>Разберёте, как эксперт подходит к задачам, похожим на ваши, и получите ответы на свои вопросы. Если не успеваете, можно смотреть в записи.</p><ul><li><svg class="ico"><use href="#i-check"/></svg>Обратная связь по каждому проекту</li><li><svg class="ico"><use href="#i-check"/></svg>Онлайн-практикумы с ответами на вопросы</li><li><svg class="ico"><use href="#i-check"/></svg>Записи практикумов остаются у вас</li></ul></div>
       <div class="art"><img src="https://iiuniversitet.online/img/particles/cap.webp" alt="" loading="lazy"></div>
     </div>
     <div class="panel" role="tabpanel" id="p4" aria-labelledby="t4" hidden>
@@ -635,7 +652,7 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
   <div class="wrap speaker-grid">
     <div class="sp-photo"><img src="https://iiuniversitet.ru/img/40400586_1280_q90.webp" alt="Павел Лебедев" loading="lazy"></div>
     <div class="sp-text">
-      <span class="tag">Автор курса</span>
+      <span class="tag">Вас поддержат Павел Лебедев и команда iiuniversitet</span>
       <h2>Павел Лебедев</h2>
       <p>Основатель Центра обучения нейросетям iiuniversitet.ru. 23 года в маркетинге и презентациях, с 2011 года изучает искусственный интеллект. Автор трёх книг по ИИ, консультирует бизнес и первых лиц.</p>
       <div class="stats">
@@ -655,14 +672,14 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
   <div class="wrap">
     <div class="center">
       <span class="tag w">Тарифы</span>
-      <h2>Выберите формат участия</h2>
-      <p class="lead">Пройдите бесплатную часть и получите скидку на любой тариф</p>
+      <h2>Тарифы курса «Вайбкодинг с Claude»</h2>
+      <p class="lead">Можно платить частями. Есть оплата через работодателя, свою компанию или ИП: <a href="https://t.me/pmlebedev_support" target="_blank" rel="noopener">оставить заявку</a></p>
     </div>
     <div class="tariffs">
       <div class="tariff">
-        <div class="goal">Чтобы освоить всё самостоятельно</div>
+        <div class="goal">Вайбкодинг: самостоятельно</div>
         <div class="name">Я сам</div>
-        <p class="what">Соберёте 4 продукта по видеоурокам в своём темпе</p>
+        <p class="what">Освоите всё, чтобы быстро создавать и выпускать работающие прототипы</p>
         <div class="price">14 990 рублей</div>
         <div class="price-note">или частями, уточните у службы заботы</div>
         <a class="btn k" href="#free">Попробовать бесплатно</a>
@@ -678,9 +695,9 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
         </ul>
       </div>
       <div class="tariff">
-        <div class="goal">Чтобы делать продукты с ботами и автоматизацией</div>
+        <div class="goal">Вайбкодинг: с поддержкой</div>
         <div class="name">С поддержкой</div>
-        <p class="what">Плюс бот, автоматизация и обратная связь куратора</p>
+        <p class="what">Будете делать комплексные продукты с ботами, формами и автоматизацией</p>
         <div class="price">29 990 рублей</div>
         <div class="price-note">или частями, уточните у службы заботы</div>
         <a class="btn k" href="#free">Попробовать бесплатно</a>
@@ -697,9 +714,9 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
       </div>
       <div class="tariff hot">
         <span class="ribbon">Больше всего практики</span>
-        <div class="goal">Чтобы запустить свой продукт с куратором</div>
+        <div class="goal">Вайбкодинг: ВИП</div>
         <div class="name">ВИП</div>
-        <p class="what">Личная поддержка и работа над собственной идеей</p>
+        <p class="what">Получите индивидуальную поддержку и сможете работать над своим проектом</p>
         <div class="price">59 990 рублей</div>
         <div class="price-note">или частями, уточните у службы заботы</div>
         <a class="btn y" href="#free">Попробовать бесплатно</a>
@@ -723,13 +740,13 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
   <div class="wrap">
     <div class="center">
       <span class="tag">Оплата</span>
-      <h2>Как удобно оплатить курс</h2>
-      <p class="lead">Без искусственных скидок с таймером, только понятные способы сэкономить</p>
+      <h2>Как выгодно оплатить курс</h2>
+      <p class="lead">Не играем скидками, а реально помогаем экономить</p>
     </div>
     <div class="pay">
-      <div class="pcard big"><svg class="ico"><use href="#i-gift"/></svg><h3>Скидка за бесплатную часть</h3><p>Пройдите первые уроки и получите скидку на любой тариф.</p></div>
+      <div class="pcard big"><svg class="ico"><use href="#i-gift"/></svg><h3>Скидка за прохождение бесплатной части</h3><p>Пройдите первые уроки и получите скидку на любой тариф.</p></div>
       <div class="pcard"><svg class="ico"><use href="#i-split"/></svg><h3>Оплата частями</h3><p>Разделите платёж на несколько месяцев. Варианты подскажет служба заботы.</p></div>
-      <div class="pcard"><svg class="ico"><use href="#i-build"/></svg><h3>Оплата от компании или ИП</h3><p>Пришлём договор и счёт, чтобы обучение оплатил работодатель.</p></div>
+      <div class="pcard"><svg class="ico"><use href="#i-build"/></svg><h3>Курс может оплатить ваш работодатель</h3><p>Полностью или частично. Пришлём договор и счёт на компанию или ИП.</p></div>
       <div class="pcard"><svg class="ico"><use href="#i-team"/></svg><h3>Обучение команды</h3><p>Для групп сотрудников подберём программу и условия. <a href="https://iiuniversitet.ru/" target="_blank" rel="noopener">Корпоративное обучение</a></p></div>
     </div>
   </div>
@@ -744,14 +761,14 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
       <p class="lead">Если ответа здесь нет, напишите в службу заботы</p>
     </div>
     <div class="faq">
-      <details class="q"><summary>Нужно ли уметь программировать?<svg class="plus"><use href="#i-plus"/></svg></summary><p>Нет. Достаточно уверенно пользоваться компьютером. Код пишет нейросеть, а вы учитесь ставить задачу, проверять результат и запускать продукт.</p></details>
-      <details class="q"><summary>Придётся ли платить за нейросети?<svg class="plus"><use href="#i-plus"/></svg></summary><p>Часть инструментов бесплатна. Для Claude понадобится подписка, в первом модуле покажем, как оплатить её из России.</p></details>
+      <details class="q"><summary>Какие навыки нужны для старта? Нужно ли уметь программировать?<svg class="plus"><use href="#i-plus"/></svg></summary><p>Нет. Достаточно уверенно пользоваться компьютером. Код пишет нейросеть, а вы учитесь ставить задачу, проверять результат и запускать продукт.</p></details>
+      <details class="q"><summary>Придётся ли мне оплачивать подписку на нейросети?<svg class="plus"><use href="#i-plus"/></svg></summary><p>Часть инструментов бесплатна. Для Claude понадобится подписка, в первом модуле покажем, как оплатить её из России.</p></details>
       <details class="q"><summary>Сколько времени нужно на учёбу?<svg class="plus"><use href="#i-plus"/></svg></summary><p>Около 4 часов в неделю. Уроки в записи, поэтому курс легко совмещать с работой.</p></details>
-      <details class="q"><summary>Что делать, если не успеваю?<svg class="plus"><use href="#i-plus"/></svg></summary><p>Материалы остаются у вас, их можно пройти в своём темпе. В тарифах с куратором он поможет сдвинуть сроки сдачи проектов.</p></details>
-      <details class="q"><summary>Какой документ я получу?<svg class="plus"><use href="#i-plus"/></svg></summary><p>Именной сертификат iiuniversitet о прохождении курса для всех, кто сдал проекты.</p></details>
-      <details class="q"><summary>Поможете найти работу?<svg class="plus"><use href="#i-plus"/></svg></summary><p>Нет, трудоустройство в курс не входит. Он для тех, кто хочет применять вайбкодинг в своей работе или бизнесе.</p></details>
-      <details class="q"><summary>Можно ли вернуть деньги?<svg class="plus"><use href="#i-plus"/></svg></summary><p>Да, условия возврата описаны в <a href="https://kurs.iiuniversitet.ru/oferta" target="_blank" rel="noopener">оферте</a>. Чтобы не рисковать, сначала пройдите бесплатную часть.</p></details>
-      <details class="q"><summary>Можно ли оплатить курс от компании?<svg class="plus"><use href="#i-plus"/></svg></summary><p>Да. Напишите в службу заботы, пришлём договор и счёт на компанию или ИП.</p></details>
+      <details class="q"><summary>Что делать, если я не справлюсь с нагрузкой?<svg class="plus"><use href="#i-plus"/></svg></summary><p>Материалы остаются у вас, их можно пройти в своём темпе. В тарифах с куратором он поможет сдвинуть сроки сдачи проектов.</p></details>
+      <details class="q"><summary>Получу ли я какой-то документ после курса?<svg class="plus"><use href="#i-plus"/></svg></summary><p>Именной сертификат iiuniversitet о прохождении курса для всех, кто сдал проекты.</p></details>
+      <details class="q"><summary>Вы поможете сменить или найти работу?<svg class="plus"><use href="#i-plus"/></svg></summary><p>Нет, трудоустройство в курс не входит. Он для тех, кто хочет применять вайбкодинг в своей работе или бизнесе.</p></details>
+      <details class="q"><summary>Если не понравится, я могу вернуть деньги?<svg class="plus"><use href="#i-plus"/></svg></summary><p>Да, условия возврата описаны в <a href="https://kurs.iiuniversitet.ru/oferta" target="_blank" rel="noopener">оферте</a>. Чтобы не рисковать, сначала пройдите бесплатную часть.</p></details>
+      <details class="q"><summary>Можно ли оплатить курс за счёт работодателя?<svg class="plus"><use href="#i-plus"/></svg></summary><p>Да. Напишите в службу заботы, пришлём договор и счёт на компанию или ИП.</p></details>
     </div>
   </div>
 </section>
