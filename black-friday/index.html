@@ -316,13 +316,15 @@ footer .brand small{color:rgba(255,255,255,.5)}
   section{padding:44px 0}
   .hero .wrap{grid-template-columns:1fr}
   .pavel-hero{justify-self:center;width:min(280px,76%);order:-1;margin-bottom:18px}
-  .catalog,.packs,.ints{grid-template-columns:1fr 1fr}
+  .packs,.ints{grid-template-columns:1fr 1fr}
+  .catalog{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -20px;padding:4px 20px 14px;scroll-padding:0 20px;scrollbar-width:thin}
+  .catalog .course{flex:0 0 min(270px,74vw);scroll-snap-align:start}
   .vips,.final .wrap,.fgrid{grid-template-columns:1fr}
   #web{width:340px;height:340px;opacity:.7}
 }
 @media (max-width:620px){
-  .catalog,.packs,.ints,.hero-rules{grid-template-columns:1fr}
-  .course .cover{height:180px}
+  .packs,.ints,.hero-rules{grid-template-columns:1fr}
+  .course .cover{height:150px}
   .tcell{min-width:64px}
   .tcell b{font-size:36px}
   .cart-btn .lbl{display:none}
