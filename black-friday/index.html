@@ -180,6 +180,20 @@ nav a:hover{color:var(--ink)}
 .warn{font-size:13px;color:#7a5a1e;background:#f8f0dc;border-radius:12px;padding:10px 12px;margin-bottom:16px}
 
 /* intensives */
+.pack.wide{grid-column:1/-1;background:radial-gradient(600px 300px at 90% 0%,rgba(214,150,60,.22),transparent 65%),var(--night);color:#fff;box-shadow:0 0 0 1px rgba(217,184,120,.45)}
+.pack.wide h3{color:#f3e6c4;font-size:32px}
+.pack.wide ul{columns:2;column-gap:30px}
+.pack.wide li,.pack.wide .desc,.pack.wide .opt small{color:rgba(255,255,255,.82)}
+.pack.wide .opt{box-shadow:0 0 0 1px rgba(255,255,255,.2)}
+.pack.wide .opt[aria-pressed="true"]{background:rgba(246,238,160,.12);box-shadow:0 0 0 1.5px var(--btn)}
+.pack.wide .opt .nums{color:#fff}
+.pack.wide .opt s{color:rgba(255,255,255,.45)}
+.pack.wide .ptag{color:rgba(255,255,255,.6)}
+.pack.wide .opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pack.wide .add{background:var(--btn);color:#171716}
+.pack.wide .add svg{stroke:#171716}
+.pack.wide .add.in{background:rgba(246,238,160,.18);color:#f6eea0}
+.pack.wide .add.in svg{stroke:#f6eea0}
 .ints{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .int{display:flex;flex-direction:column;background:var(--card);border-radius:22px;padding:24px;box-shadow:0 0 0 1px var(--line)}
 .int .date{font-family:Oranienbaum,Georgia,serif;font-size:32px;line-height:1;margin-bottom:6px}
@@ -223,23 +237,39 @@ details.q td{padding:5px 18px 5px 0;border-bottom:1px solid var(--line)}
 .final .wrap{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
 .final h2{color:#f3e6c4}
 .final p{color:rgba(255,255,255,.72);margin-bottom:26px;max-width:540px}
-.after{border-radius:22px;padding:26px;background:rgba(255,255,255,.05);box-shadow:0 0 0 1px rgba(255,255,255,.12)}
-.after small{display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:10px}
-.after .r{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:15px}
-.after .r:last-child{border:0}
-.after .r b{color:var(--btn)}
+.final .h em.gold{color:var(--btn)}
+.final p.strong{color:#f4ead0;font-weight:500}
+.fin-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.btn.ghost-d{background:rgba(255,255,255,.08);color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.25)}
+.btn.ghost-d:hover{background:rgba(255,255,255,.14)}
+.chat{border-radius:22px;padding:18px;background:rgba(255,255,255,.05);box-shadow:0 0 0 1px rgba(217,184,120,.35),0 30px 60px -30px rgba(0,0,0,.6);font-size:14px;line-height:1.45}
+.chat-top{display:flex;align-items:center;gap:6px;padding-bottom:12px;margin-bottom:14px;border-bottom:1px solid rgba(255,255,255,.1)}
+.chat-top span{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.2)}
+.chat-top b{margin-left:8px;font-weight:600;font-size:13px;color:rgba(255,255,255,.7)}
+.msg{max-width:88%;padding:10px 14px;border-radius:16px;margin-bottom:10px;opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s}
+.msg.me{margin-left:auto;background:#f6eea0;color:#171716;border-bottom-right-radius:5px}
+.msg.ai{background:rgba(255,255,255,.08);color:#f4ead0;border-bottom-left-radius:5px}
+.chat.go .msg{opacity:1;transform:none}
+.chat.go .msg:nth-child(3){transition-delay:.6s}.chat.go .msg:nth-child(4){transition-delay:2.2s}.chat.go .msg:nth-child(5){transition-delay:3s}
+.typing{display:none}
+.chat-done{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:13px;font-weight:600;color:var(--btn);opacity:0;transition:opacity .5s 3.8s}
+.chat.go .chat-done{opacity:1}
+.chat-done svg{width:16px;height:16px;stroke:var(--btn);fill:none;stroke-width:2.4}
+.course.flash{box-shadow:0 0 0 2px var(--btn),0 24px 50px -22px rgba(150,100,30,.45);transform:translateY(-4px)}
 
 /* footer */
-footer{background:#0f0e0c;color:rgba(255,255,255,.6);padding:52px 0 110px;font-size:14px}
-.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
-footer h4{font-weight:600;font-size:15px;color:#fff;margin-bottom:12px}
+footer{background:var(--bg);color:#676966;padding:56px 0 120px;font-size:14px;border-top:1px solid var(--line)}
+.foot-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+footer h3{font-family:Onest,"Segoe UI",Arial,sans-serif;font-size:14px;font-weight:700;color:#171716;text-transform:none;margin-bottom:14px}
 footer ul{list-style:none}
-footer li{margin-bottom:9px}
-footer a{text-decoration:none;color:rgba(255,255,255,.85)}
-footer a:hover{color:var(--btn)}
-footer .brand b{color:#fff}
-footer .brand small{color:rgba(255,255,255,.5)}
-.fbottom{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:12px;line-height:1.8;color:rgba(255,255,255,.4)}
+footer li{margin-bottom:9px;line-height:1.4}
+footer a{text-decoration:none;color:#676966;transition:color .2s}
+footer a:hover{color:#171716}
+.foot-bottom{display:grid;grid-template-columns:2fr 1.5fr 1.5fr;gap:24px;margin-top:40px;padding-top:30px;border-top:1px solid var(--line)}
+.foot-req .brand{margin-bottom:14px}
+.foot-req .brand b{color:#171716}
+.foot-req p{font-size:12px;line-height:1.7}
+.foot-copy{display:flex;justify-content:space-between;gap:16px;margin-top:34px;padding-top:20px;border-top:1px solid var(--line);font-size:13px}
 
 /* cart drawer */
 .scrim{position:fixed;inset:0;background:rgba(10,9,8,.5);opacity:0;pointer-events:none;transition:opacity .3s;z-index:80}
@@ -321,7 +351,10 @@ footer .brand small{color:rgba(255,255,255,.5)}
   .packs,.ints{grid-template-columns:1fr 1fr}
   .catalog{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -20px;padding:4px 20px 14px;scroll-padding:0 20px;scrollbar-width:thin}
   .catalog .course{flex:0 0 min(270px,74vw);scroll-snap-align:start}
-  .vips,.final .wrap,.fgrid{grid-template-columns:1fr}
+  .vips,.final .wrap{grid-template-columns:1fr}
+  .foot-cols{grid-template-columns:1fr 1fr}
+  .foot-bottom{grid-template-columns:1fr}
+  .pack.wide ul{columns:1}
   #web{width:340px;height:340px;opacity:.7}
 }
 @media (max-width:620px){
@@ -497,57 +530,85 @@ footer .brand small{color:rgba(255,255,255,.5)}
 </section>
 
 <!-- FINAL -->
-<section class="final">
+<section class="final" id="madeclaude">
   <canvas id="web2" aria-hidden="true" style="position:absolute;right:0;bottom:0;width:420px;height:420px;transform:scaleY(-1);pointer-events:none"></canvas>
   <div class="grain"></div>
   <div class="wrap">
     <div>
-      <h2 class="h">Успейте <em>до 27 ноября</em></h2>
-      <p>После Чёрной пятницы цены вернутся к обычным. Соберите корзину сейчас, а учиться начнёте, когда удобно.</p>
-      <div class="timer" data-timer style="margin-bottom:30px">
-        <div class="lbl" data-tlabel>До конца акции</div>
-        <div class="tcell"><b data-u="d">00</b><span>дней</span></div>
-        <div class="tcell"><b data-u="h">00</b><span>часов</span></div>
-        <div class="tcell"><b data-u="m">00</b><span>минут</span></div>
-        <div class="tcell"><b data-u="s">00</b><span>секунд</span></div>
+      <div class="eyebrow" style="color:rgba(255,255,255,.55)">Небольшой секрет</div>
+      <h2 class="h">Этот сайт целиком <em class="gold">сделан в Claude</em></h2>
+      <p>Корзина, которая сама считает скидки, таймер, паутина, Павел с тыквой и всплывающие окна. Всё это собрано в Claude обычными сообщениями в чате, без программиста и конструктора сайтов.</p>
+      <p class="strong">Хотите делать так же? Листайте наверх и берите курс «Claude на максималках». А если хотите собрать своё приложение, добавьте интенсив «Вайбкодинг с Claude» 1 декабря.</p>
+      <div class="fin-cta">
+        <a class="btn y glow" href="#courses" data-goto="claude">Выбрать курс по Claude</a>
+        <a class="btn ghost-d" href="#intensives">Интенсив по вайбкодингу</a>
       </div>
-      <a class="btn y glow" href="#packs">Выбрать пакет</a>
     </div>
-    <div class="after">
-      <small>После 27 ноября будет так</small>
-      <div class="r"><span>Claude + таблицы, «Я сам»</span><span><s>22 980</s> → <b>11 490</b></span></div>
-      <div class="r"><span>Три курса в записи</span><span><s>52 970</s> → <b>26 480</b></span></div>
-      <div class="r"><span>Контент-конвейер</span><span><s>39 990</s> → <b>15 990</b></span></div>
-      <div class="r"><span>ВИП Claude</span><span><s>149 990</s> → <b>99 990</b></span></div>
+    <div class="chat" aria-hidden="true">
+      <div class="chat-top"><span></span><span></span><span></span><b>Claude</b></div>
+      <div class="msg me">Сделай сайт к Чёрной пятнице в стиле iiuniversitet: витрина курсов, корзина со скидками, таймер до 27 ноября</div>
+      <div class="msg ai"><i class="typing"><em></em><em></em><em></em></i><span class="ai-t">Готово. Собрал витрину из 4 курсов, пакеты, корзину с правилом −20% и −50% и таймер. Публикую страницу.</span></div>
+      <div class="msg me">Добавь фото Павла, пусть тыквой закрывает лицо</div>
+      <div class="msg ai"><span class="ai-t">Сделал. Тыква опускается в руки и улыбается, при наведении лицо открывается.</span></div>
+      <div class="chat-done"><svg><use href="#i-check"/></svg>Сайт опубликован</div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="fgrid">
-      <div>
-        <a class="brand" href="https://iiuniversitet.ru/" style="margin-bottom:14px"><svg><use href="#logo"/></svg><span><b>iiuniversitet</b><small>Центр обучения нейросетям</small></span></a>
-        <p>Центр обучения нейросетям Павла Лебедева. Курсы, мастер-классы и консультации по ИИ для работы и бизнеса.</p>
-      </div>
-      <div>
-        <h4>Навигация</h4>
-        <ul>
-          <li><a href="https://iiuniversitet.ru/">Основной сайт iiuniversitet.ru</a></li>
-          <li><a href="#courses">Курсы по одному</a></li>
-          <li><a href="#packs">Пакеты</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Контакты</h4>
-        <ul>
-          <li><a href="https://t.me/pmlebedev_support">Служба заботы в Telegram</a></li>
-          <li><a href="mailto:sales@pmlebedev.ru">sales@pmlebedev.ru</a></li>
-          <li><a href="https://t.me/marketograf">Telegram-канал Павла Лебедева</a></li>
-        </ul>
-      </div>
+    <div class="foot-cols">
+      <div><h3>Курсы</h3><ul>
+        <li><a href="https://iiuniversitet.online/kurs_neuroproducer/">Нейропродюсер</a></li>
+        <li><a href="https://iiuniversitet.online/kurs/claude/">Claude на максималках</a></li>
+        <li><a href="https://iiuniversitet.online/ai_for_scheets/">Нейросети для таблиц и аналитики</a></li>
+        <li><a href="https://iiuniversitet.online/content_certificate/">Контент конвейер</a></li>
+        <li><a href="https://kurs.iiuniversitet.ru/masterskaya">Мастерская презентаций</a></li>
+      </ul></div>
+      <div><h3>Бесплатно</h3><ul>
+        <li><a href="https://iiuniversitet.online/free3/">Нейросети от А до Я</a></li>
+        <li><a href="https://iiuniversitet.online/kurs-antikrizis/">Антикризис с ИИ</a></li>
+        <li><a href="https://iiuniversitet.online/mk/putvii/">Мастер-класс «Путь в ИИ»</a></li>
+        <li><a href="https://iiuniversitet.online/skills/">Каталог промтов и скиллов</a></li>
+      </ul></div>
+      <div><h3>Читать</h3><ul><li><a href="https://iiuniversitet.online/stati/">Статьи</a></li></ul></div>
+      <div><h3>IT-продукты</h3><ul>
+        <li><a href="https://diktantapp.ru/">Диктант</a></li>
+        <li><a href="https://tekstovod.ru/">Текстовод</a></li>
+        <li><a href="https://kalitabot.ru/">Калита</a></li>
+        <li><a href="https://iiuniversitet.online/vahter/">Вахтёр</a></li>
+        <li><a href="https://protokolya.ru/">Прото-Коля</a></li>
+        <li><a href="https://iiuniversitet.online/app/talantmetr/">TalantMeter</a></li>
+        <li><a href="https://iiuniversitet.online/app/iksometr/">Иксометр</a></li>
+        <li><a href="https://iiuniversitet.online/riskometr/">Рискометр</a></li>
+        <li><a href="https://iiuniversitet.online/skills/">Каталог скиллов</a></li>
+      </ul></div>
+      <div><h3>Школа</h3><ul>
+        <li><a href="https://iiuniversitet.online/#corporate">Корпоративное обучение</a></li>
+        <li><a href="https://t.me/pmlebedev_support">Служба заботы в Telegram</a></li>
+        <li><a href="tel:+79851663586">+7 985 166 35 86</a></li>
+        <li><a href="mailto:sales@pmlebedev.ru">sales@pmlebedev.ru</a></li>
+        <li><a href="https://t.me/marketograf">Telegram-канал</a></li>
+      </ul></div>
     </div>
-    <div class="fbottom">ИП Лебедев Павел Михайлович, ОГРНИП 309784729600549, ИНН 781133511119<br><a href="https://kurs.iiuniversitet.ru/oferta">Оферта</a>, <a href="https://kurs.iiuniversitet.ru/policy_privacy">Политика обработки персональных данных</a><br>© 2026 iiuniversitet.ru</div>
+    <div class="foot-bottom">
+      <div class="foot-req">
+        <a class="brand" href="https://iiuniversitet.online/"><svg><use href="#logo"/></svg><span><b>iiuniversitet</b></span></a>
+        <p>ОГРНИП: 309784729600549 · ИНН: 781133511119<br>ИП Лебедев Павел Михайлович<br>123308, Москва, Демьяна Бедного ул., дом 2, корп. 5, кв. 102<br>р/с 40802810600001646824<br>корр. сч. 30101810145250000974<br>БИК 044525974 в АО «ТБанк»</p>
+      </div>
+      <div><h3>Документы</h3><ul>
+        <li><a href="https://kurs.iiuniversitet.ru/oferta">Оферта</a></li>
+        <li><a href="https://kurs.iiuniversitet.ru/policy_privacy">Политика обработки персональных данных</a></li>
+        <li><a href="https://kurs.iiuniversitet.ru/consent/personal_data">Согласие на обработку персональных данных</a></li>
+      </ul></div>
+      <div><h3>Мы в соцсетях</h3><ul>
+        <li><a href="https://t.me/marketograf">Telegram-канал</a></li>
+        <li><a href="https://youtube.com/@marketograf">YouTube</a></li>
+        <li><a href="https://instagram.com/pmlebedev">Instagram</a></li>
+        <li><a href="https://vk.com/aiclub">ВКонтакте</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-copy"><span>© 2026 Центр обучения нейросетям iiuniversitet</span><a href="#top">Наверх</a></div>
   </div>
 </footer>
 
@@ -623,9 +684,11 @@ var PACKS = [
   {id:"contentp", tag:"Контент", name:"Контент на конвейере", items:["content"], desc:"Настраиваете контент-конвейер для Telegram, рилс и YouTube. Отдельное предложение по фиксированной цене."},
   {id:"report", tag:"Для руководителей", name:"Отчёт, который слушают", items:["tables","master"], supLabel:"С поддержкой по таблицам", desc:"Из таблицы выводы и дашборд, из выводов презентация для руководителя или совета директоров."},
   {id:"all", tag:"Три курса", name:"Всё в записи", items:["claude","tables","master"], supLabel:"С поддержкой по Claude и таблицам", desc:"Три курса одним платежом: Claude, таблицы и мастерская презентаций."},
-  {id:"max", tag:"Максимум", name:"Всё в записи + интенсив", special:true,
-   list:["Claude на максималках","Нейросети для таблиц и аналитики","Мастерская презентаций","Нейропродюсер в записи, тариф «Эксперт»","Нейропродюсер в записи, «Платинум», доступ навсегда","Консультация Павла Лебедева","Интенсив на выбор"],
-   self:{price:149990, old:262950}, sup:{price:249970, old:286950, label:"С поддержкой по Claude и таблицам"}}
+  {id:"max", tag:"Максимум", name:"Всё и сразу", special:true, wide:true,
+   base:["Claude на максималках","Нейросети для таблиц и аналитики","Мастерская презентаций","Консультация Павла Лебедева","Интенсив на выбор"],
+   desc:"Все курсы акции, Нейропродюсер и личная консультация Павла. Выберите тариф Нейропродюсера.",
+   self:{price:149990, old:262950, label:"Тариф «Эксперт»", extra:["Нейропродюсер в записи, тариф «Эксперт»"]},
+   sup:{price:249970, old:286950, label:"Тариф «Платинум»", extra:["Нейропродюсер, тариф «Платинум», доступ навсегда","Поддержка кураторов по Claude и таблицам"]}}
 ];
 var INTS = [
   {id:"i_agent", date:"17 ноября", wd:"вторник", name:"ИИ-агент: продавец, консультант, HR", res:"Результат: работающий ИИ-агент в Suvvy"},
@@ -634,7 +697,7 @@ var INTS = [
 ];
 var VIPS = [
   {id:"vip_claude", name:"ВИП Claude", sub:"Claude на максималках", old:149990, price:99990, list:["Весь курс Claude на максималках","Личная консультация Павла","Доступ навсегда"], extra:"2 встречи с куратором"},
-  {id:"vip_tables", name:"ВИП таблицы", sub:"Нейросети для таблиц и аналитики", old:200000, price:140000, list:["Весь курс по таблицам и аналитике","Личная консультация Павла"], extra:"2 встречи с куратором"}
+  {id:"vip_tables", name:"ВИП таблицы", sub:"Нейросети для таблиц и аналитики", old:149990, price:99990, list:["Весь курс по таблицам и аналитике","Личная консультация Павла"], extra:"2 встречи с куратором"}
 ];
 
 /* ===== helpers ===== */
@@ -663,7 +726,7 @@ function calc(){
   // per-line display share
   var acc=0;lines.forEach(function(l,i){if(i<lines.length-1){l.now=Math.round(l.old*courseTotal/base/10)*10;acc+=l.now}else{l.now=courseTotal-acc}});
   if(cart.courses.content){var cc=course("content"),cf=cc.formats[0];lines.push({kind:"course",c:cc,f:cf,old:cf.price,now:cc.fixed});full+=cf.price;total+=cc.fixed}
-  if(cart.max){var mp=PACKS[5],v=mp[cart.max];lines.push({kind:"max",name:"Пакет «Всё в записи + интенсив»",sub:cart.max==="sup"?v.label:"Я сам",old:v.old,now:v.price});full+=v.old;total+=v.price}
+  if(cart.max){var mp=PACKS[5],v=mp[cart.max];lines.push({kind:"max",name:"Пакет «Всё и сразу»",sub:v.label,old:v.old,now:v.price});full+=v.old;total+=v.price}
   VIPS.forEach(function(v){if(cart.vip[v.id]){lines.push({kind:"vip",name:v.name,sub:v.sub+", "+v.extra,old:v.old,now:v.price});full+=v.old;total+=v.price}});
   var withCourse = n>0 || !!cart.courses.content || !!cart.max;
   INTS.forEach(function(it){if(cart.ints[it.id]){var p=withCourse?8000:10000;lines.push({kind:"int",name:"Интенсив «"+it.name+"»",sub:it.date+(withCourse?", цена с курсом":""),old:10000,now:p});full+=10000;total+=p}});
@@ -721,11 +784,11 @@ function renderPacks(){
     var sel=packSel[p.id]||packInCart(p)||"self";
     var a=packPrice(p,"self"), opts;
     var hasSup=p.special||p.supLabel;
-    opts='<button class="opt" type="button" data-opt="self" aria-pressed="'+(sel==="self")+'"><span class="dot"></span><small>'+(p.items&&p.items[0]==="content"?"В записи, без поддержки":"Я сам")+'</small><span class="nums">'+fmt(a.now)+' рублей<s>'+fmt(a.old)+'</s></span></button>';
+    opts='<button class="opt" type="button" data-opt="self" aria-pressed="'+(sel==="self")+'"><span class="dot"></span><small>'+(p.special?p.self.label:p.items&&p.items[0]==="content"?"В записи, без поддержки":"Я сам")+'</small><span class="nums">'+fmt(a.now)+' рублей<s>'+fmt(a.old)+'</s></span></button>';
     if(hasSup){var b=packPrice(p,"sup");opts+='<button class="opt" type="button" data-opt="sup" aria-pressed="'+(sel==="sup")+'"><span class="dot"></span><small>'+(p.special?p.sup.label:p.supLabel)+'</small><span class="nums">'+fmt(b.now)+' рублей<s>'+fmt(b.old)+'</s></span></button>'}
     var cur=packPrice(p,sel), d=pct(cur.old,cur.now), inC=!!packInCart(p);
-    var list=p.special?p.list:p.items.map(function(id){return course(id).name});
-    return '<article class="pack'+(p.main?' main':'')+'" data-id="'+p.id+'">'+
+    var list=p.special?p.base.concat(p[sel].extra):p.items.map(function(id){return course(id).name});
+    return '<article class="pack'+(p.main?' main':'')+(p.wide?' wide':'')+'" data-id="'+p.id+'">'+
       '<div class="row1"><span class="ptag">'+p.tag+'</span><span class="disc'+(p.main?'':' dark')+'">−'+d+'%</span></div>'+
       '<h3>'+esc(p.name)+'</h3><ul>'+list.map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'</ul>'+
       (p.desc?'<p class="desc">'+esc(p.desc)+'</p>':'')+
@@ -851,7 +914,7 @@ var POPS={
     return {lbl:"Пока вы выбираете",h:"Не знаете, с чего начать?",t:"Начните с главного пакета «"+o.name+"»: Claude и таблицы за "+fmt(pr.now)+" рублей вместо "+fmt(pr.old)+". Документы, письма, отчёты и таблицы в одном пакете.",go:"Добавить пакет",act:"office",alt:"Помогите выбрать",altAct:"care"};
   },
   exit:function(){
-    if(count()>0){var c=calc();return {lbl:"Подождите минуту",h:"Скидка действует до 27 ноября",t:"Сейчас в корзине "+fmt(c.total)+" рублей вместо "+fmt(c.full)+". После 27 ноября эти курсы будут стоить полную цену.",go:"Оформить",act:"cart",alt:"Задать вопрос",altAct:"care"}}
+    if(count()>0){var c=calc();return {lbl:"Подождите минуту",h:"Скидка действует до 27 ноября",t:"Сейчас в корзине "+fmt(c.total)+" рублей вместо "+fmt(c.full)+".",go:"Оформить",act:"cart",alt:"Задать вопрос",altAct:"care"}}
     return {lbl:"Уже уходите?",h:"Второй курс почти бесплатно",t:"Claude «Я сам» по одному стоит 10 390 рублей, а вместе с курсом по таблицам 11 490. Разница 1 100 рублей. Не уверены, что подойдёт? Служба заботы подскажет, с чего начать.",go:"Смотреть пакеты",href:"#packs",alt:"Спросить в службе заботы",altAct:"care"};
   }
 };
@@ -894,6 +957,11 @@ $("#popClose").addEventListener("click",closePop);$("#popLater").addEventListene
 $("#popGo").addEventListener("click",function(e){var a=popMode.act;closePop();if(a){e.preventDefault();doAct(a)}});
 $("#popAlt").addEventListener("click",function(){var a=popMode.altAct;closePop();doAct(a)});
 pop.addEventListener("click",function(e){if(e.target===pop)closePop()});
+
+/* ===== made in Claude ===== */
+var chat=$(".chat");
+if(chat){if(reduce||!("IntersectionObserver" in window))chat.classList.add("go");else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){chat.classList.add("go");io.disconnect()}})},{threshold:.35});io.observe(chat)}}
+$$("[data-goto]").forEach(function(a){a.addEventListener("click",function(e){var c=$('.course[data-id="'+a.dataset.goto+'"]');if(!c)return;e.preventDefault();c.scrollIntoView({behavior:reduce?"auto":"smooth",block:"center",inline:"center"});c.classList.add("flash");setTimeout(function(){c.classList.remove("flash")},2200)})});
 
 /* ===== title shine follows cursor ===== */
 var title=$("#title");
