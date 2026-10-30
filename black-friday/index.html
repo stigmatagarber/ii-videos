@@ -299,12 +299,14 @@ footer .brand small{color:rgba(255,255,255,.5)}
 .pop-card .x{position:absolute;right:16px;top:16px;background:rgba(255,255,255,.08);box-shadow:none}
 .pop-card .x svg{stroke:#fff}
 .pop-card .eyebrow{color:rgba(255,255,255,.6)}
-.pop-card h3{font-family:Oranienbaum,Georgia,serif;font-weight:400;text-transform:uppercase;font-size:46px;line-height:.95;color:#f3e6c4;margin-bottom:10px}
-.pop-card .it{font-size:19px;font-weight:500;color:#f4ead0;display:block;margin-bottom:20px}
+.pop-card h3{font-family:Oranienbaum,Georgia,serif;font-weight:400;text-transform:uppercase;font-size:40px;line-height:.95;color:#f3e6c4;margin-bottom:16px}
+.pop-card .it{font-size:17px;line-height:1.5;font-weight:500;color:#f4ead0;display:block;margin-bottom:20px}
 .pop-card .timer{margin-bottom:26px}
 .pop-card .tcell{min-width:70px}
 .pop-card .tcell b{font-size:40px}
 .pop-card .actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.pop-card .ghost-l{background:rgba(255,255,255,.08);color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.22)}
+.pop-card .ghost-l:hover{background:rgba(255,255,255,.14)}
 .pop-card .later{font-size:14px;color:rgba(255,255,255,.6);text-decoration:underline;text-underline-offset:3px}
 
 @media (prefers-reduced-motion:reduce){
@@ -577,7 +579,7 @@ footer .brand small{color:rgba(255,255,255,.5)}
     <button class="x" id="popClose" aria-label="Закрыть"><svg><use href="#i-x"/></svg></button>
     <div class="eyebrow" data-plabel>Чёрная пятница iiuniversitet</div>
     <h3 id="popTitle">Чёрная пятница</h3>
-    <span class="it">−50% на пакеты курсов, −20% на один курс</span>
+    <span class="it" id="popText">−50% на пакеты курсов, −20% на один курс</span>
     <div class="timer" data-timer>
       <div class="lbl" data-tlabel>До конца акции</div>
       <div class="tcell" data-dcell><b data-u="d">00</b><span>дней</span></div>
@@ -587,6 +589,7 @@ footer .brand small{color:rgba(255,255,255,.5)}
     </div>
     <div class="actions">
       <a class="btn y" href="#packs" id="popGo">Смотреть пакеты</a>
+      <button class="btn ghost-l" id="popAlt" hidden></button>
       <button class="later" id="popLater">Не сейчас</button>
     </div>
   </div>
@@ -830,13 +833,66 @@ function tick(){
 var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
 tick();setInterval(tick,1000);
 
-/* ===== popup ===== */
-var pop=$("#pop");
-function openPop(){pop.classList.add("on");pop.setAttribute("aria-hidden","false");$("#popGo").focus()}
-function closePop(){if(!pop.classList.contains("on"))return;pop.classList.remove("on");pop.setAttribute("aria-hidden","true");try{sessionStorage.setItem("bf_pop","1")}catch(e){}}
-var seen=false;try{seen=!!sessionStorage.getItem("bf_pop")}catch(e){}
-if(!seen&&Date.now()<SALE_END)setTimeout(openPop,POPUP_DELAY_MS);
-$("#popClose").addEventListener("click",closePop);$("#popLater").addEventListener("click",closePop);$("#popGo").addEventListener("click",closePop);
+/* ===== popup =====
+   1) приветствие через POPUP_DELAY_MS;
+   2) «долго думает»: через REMIND_MS на странице без покупки или после долгого листания;
+   3) «уходит»: курсор ушёл вверх к вкладкам (ПК) или резкий скролл к началу (телефон).
+   Не чаще раза в POPUP_GAP_MS, не больше 3 за сессию, не поверх корзины. */
+var REMIND_MS = 90000, POPUP_GAP_MS = 40000;
+var pop=$("#pop"), popMode="hello", lastPop=0, shown={};
+try{shown=JSON.parse(sessionStorage.getItem("bf_pops")||"{}")}catch(e){}
+function markShown(k){shown[k]=1;try{sessionStorage.setItem("bf_pops",JSON.stringify(shown))}catch(e){}}
+function office(){return PACKS.filter(function(p){return p.main})[0]}
+var POPS={
+  hello:function(){return {lbl:"Чёрная пятница iiuniversitet",h:"Чёрная пятница",t:"−50% на пакеты курсов, −20% на один курс",go:"Смотреть пакеты",href:"#packs"}},
+  think:function(){
+    if(count()>0){var c=calc();return {lbl:"Корзина собрана",h:"Осталось оформить",t:"В корзине "+count()+" "+(count()===1?"позиция":count()<5?"позиции":"позиций")+" на "+fmt(c.total)+" рублей. Цены со скидкой действуют, пока идёт таймер.",go:"Открыть корзину",act:"cart"}}
+    var o=office(),pr=packPrice(o,"self");
+    return {lbl:"Пока вы выбираете",h:"Не знаете, с чего начать?",t:"Начните с главного пакета «"+o.name+"»: Claude и таблицы за "+fmt(pr.now)+" рублей вместо "+fmt(pr.old)+". Документы, письма, отчёты и таблицы в одном пакете.",go:"Добавить пакет",act:"office",alt:"Помогите выбрать",altAct:"care"};
+  },
+  exit:function(){
+    if(count()>0){var c=calc();return {lbl:"Подождите минуту",h:"Скидка действует до 27 ноября",t:"Сейчас в корзине "+fmt(c.total)+" рублей вместо "+fmt(c.full)+". После 27 ноября эти курсы будут стоить полную цену.",go:"Оформить",act:"cart",alt:"Задать вопрос",altAct:"care"}}
+    return {lbl:"Уже уходите?",h:"Второй курс почти бесплатно",t:"Claude «Я сам» по одному стоит 10 390 рублей, а вместе с курсом по таблицам 11 490. Разница 1 100 рублей. Не уверены, что подойдёт? Служба заботы подскажет, с чего начать.",go:"Смотреть пакеты",href:"#packs",alt:"Спросить в службе заботы",altAct:"care"};
+  }
+};
+function canPop(k){return !shown[k]&&Date.now()<SALE_END&&!pop.classList.contains("on")&&!$("#drawer").classList.contains("on")&&Date.now()-lastPop>POPUP_GAP_MS&&Object.keys(shown).length<3}
+function openPop(k){
+  k=k||"hello";if(!canPop(k))return;
+  var d=POPS[k]();popMode=d;
+  $("[data-plabel]",pop).textContent=d.lbl;$("#popTitle").textContent=d.h;$("#popText").textContent=d.t;
+  var go=$("#popGo");go.textContent=d.go;go.setAttribute("href",d.href||"#");
+  var alt=$("#popAlt");alt.hidden=!d.alt;if(d.alt)alt.textContent=d.alt;
+  pop.classList.add("on");pop.setAttribute("aria-hidden","false");go.focus();
+  lastPop=Date.now();markShown(k);
+}
+function closePop(){if(!pop.classList.contains("on"))return;pop.classList.remove("on");pop.setAttribute("aria-hidden","true");lastPop=Date.now()}
+function doAct(a){
+  if(a==="cart"){openCart()}
+  else if(a==="office"){var o=office();addPack(o,"self");toast("Пакет «"+o.name+"» в корзине")}
+  else if(a==="care"){setCare(true);careFab.focus()}
+}
+if(Date.now()<SALE_END){
+  setTimeout(function(){openPop("hello")},POPUP_DELAY_MS);
+  // «долго думает»: время на странице считаем только когда вкладка открыта
+  var visibleMs=0,lastT=Date.now();
+  setInterval(function(){var n=Date.now();if(!document.hidden)visibleMs+=n-lastT;lastT=n;if(visibleMs>=REMIND_MS)openPop("think")},1000);
+  var maxDepth=0,scrolled=0,lastY=window.scrollY;
+  window.addEventListener("scroll",function(){
+    var y=window.scrollY,h=document.documentElement.scrollHeight-innerHeight;
+    scrolled+=Math.abs(y-lastY);maxDepth=Math.max(maxDepth,y/h);
+    // пролистал страницу туда-обратно почти дважды и ничего не взял
+    if(scrolled>h*1.8&&count()===0)openPop("think");
+    // телефон: резко вернулся к началу после того, как долистал до середины
+    if(matchMedia("(pointer:coarse)").matches&&maxDepth>.5&&lastY-y>innerHeight*1.2&&y<innerHeight*1.5)openPop("exit");
+    lastY=y;
+  },{passive:true});
+  // ПК: курсор ушёл вверх, к вкладкам и крестику
+  document.addEventListener("mouseout",function(e){if(!e.relatedTarget&&e.clientY<=0&&Date.now()-pageStart>15000)openPop("exit")});
+}
+var pageStart=Date.now();
+$("#popClose").addEventListener("click",closePop);$("#popLater").addEventListener("click",closePop);
+$("#popGo").addEventListener("click",function(e){var a=popMode.act;closePop();if(a){e.preventDefault();doAct(a)}});
+$("#popAlt").addEventListener("click",function(){var a=popMode.altAct;closePop();doAct(a)});
 pop.addEventListener("click",function(e){if(e.target===pop)closePop()});
 
 /* ===== title shine follows cursor ===== */
