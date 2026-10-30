@@ -69,7 +69,7 @@ nav a:hover{color:var(--ink)}
 /* HERO */
 .hero{position:relative;overflow:hidden;background:radial-gradient(1000px 600px at 20% 0%,rgba(214,150,60,.18),transparent 60%),var(--night);color:#fff;padding:84px 0 56px}
 .grain{position:absolute;inset:0;pointer-events:none;opacity:.10;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
-#web{position:absolute;right:0;top:0;width:min(620px,60vw);height:min(620px,60vw);pointer-events:none}
+#web{position:absolute;right:0;top:0;width:min(560px,50vw);height:min(470px,46vw);pointer-events:none}
 .hero .wrap{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:end}
 .hero .eyebrow{color:rgba(255,255,255,.6)}
 .hero h1{font-family:Oranienbaum,Georgia,serif;font-weight:400;text-transform:uppercase;font-size:clamp(64px,10vw,138px);line-height:.92;letter-spacing:.005em;margin-bottom:22px;
@@ -90,7 +90,7 @@ nav a:hover{color:var(--ink)}
 .pumpkin-wrap svg{width:100%;height:auto;overflow:visible}
 .pk-line{fill:none;stroke:var(--gold);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
 .pk-hatch{fill:none;stroke:var(--gold-soft);stroke-width:.8}
-.pk-face{fill:#2a1a08;stroke:var(--gold);stroke-width:1.4;stroke-linejoin:round}
+.pk-face{fill:url(#pkin);stroke:var(--gold);stroke-width:1.4;stroke-linejoin:round;filter:drop-shadow(0 0 6px rgba(255,190,90,.55))}
 .pk-mouth{transition:d .9s cubic-bezier(.2,.7,.2,1)}
 .pk-eye{transform-box:fill-box;transform-origin:center;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
 .pk-glow{opacity:.55;animation:flame 4.5s ease-in-out infinite}
@@ -269,7 +269,8 @@ footer .brand small{color:rgba(255,255,255,.5)}
 
 /* toast */
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,140%);z-index:70;background:var(--ink);color:#fff;border-radius:999px;padding:12px 18px;font-size:14px;display:flex;gap:12px;align-items:center;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
-.toast.on{transform:translate(-50%,0)}
+.toast{visibility:hidden}
+.toast.on{transform:translate(-50%,0);visibility:visible}
 .toast button{color:var(--btn);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 
 /* popup */
