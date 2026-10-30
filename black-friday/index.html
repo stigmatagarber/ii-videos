@@ -118,14 +118,15 @@ nav a:hover{color:var(--ink)}
 .disc.dark{background:var(--ink);color:var(--btn)}
 .course h3{font-family:Oranienbaum,Georgia,serif;font-weight:400;text-transform:uppercase;font-size:34px;line-height:1;padding:16px 24px 0}
 .course h3 em{display:block;font-family:"Playfair Display",Georgia,serif;font-style:italic;text-transform:none;font-size:28px;margin-top:4px}
-.course .foot{margin-top:auto;padding:0 24px 24px}
+.course .foot{margin-top:auto;margin:auto 10px 10px;padding:16px 14px 14px;border-radius:16px;background:rgba(16,14,12,.58);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.course.lt .foot{background:rgba(255,255,255,.72)}
 .fmt{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
 .fmt button{font-size:13px;font-weight:600;border-radius:999px;padding:7px 12px;border:1px solid rgba(255,255,255,.4);color:inherit}
 .course.lt .fmt button{border-color:rgba(0,0,0,.25)}
 .fmt button[aria-pressed="true"]{background:#fff;color:var(--ink);border-color:#fff}
 .course.lt .fmt button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
 .fmt .solo{font-size:13px;font-weight:600;border-radius:999px;padding:7px 12px;border:1px dashed currentColor;opacity:.8}
-.note{font-size:13px;opacity:.85;margin-bottom:12px;min-height:38px}
+.note{font-size:13px;opacity:.9;margin-bottom:12px;min-height:38px;line-height:1.45}
 .price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:14px}
 .price b{font-size:30px;font-weight:700;letter-spacing:-.01em}
 .price small{font-size:15px;font-weight:600}
@@ -592,8 +593,8 @@ var INTS = [
   {id:"i_vibe", date:"1 декабря", wd:"вторник", name:"Вайбкодинг с Claude", res:"Результат: своё работающее приложение"}
 ];
 var VIPS = [
-  {id:"vip_claude", name:"ВИП Claude", sub:"Claude на максималках", old:149990, price:99990, list:["Консультация Павла","Персональный куратор","IT-специалист","Доступ навсегда"], extra:"+ 2 встречи с куратором"},
-  {id:"vip_tables", name:"ВИП таблицы", sub:"Нейросети для таблиц и аналитики", old:200000, price:140000, list:["Консультация Павла","Выделенный куратор","Безлимит консультаций куратора"], extra:"+ 2 встречи с куратором"}
+  {id:"vip_claude", name:"ВИП Claude", sub:"Claude на максималках", old:149990, price:99990, list:["Весь курс Claude на максималках","Личная консультация Павла","Доступ навсегда"], extra:"2 встречи с куратором"},
+  {id:"vip_tables", name:"ВИП таблицы", sub:"Нейросети для таблиц и аналитики", old:200000, price:140000, list:["Весь курс по таблицам и аналитике","Личная консультация Павла"], extra:"2 встречи с куратором"}
 ];
 
 /* ===== helpers ===== */
@@ -623,7 +624,7 @@ function calc(){
   var acc=0;lines.forEach(function(l,i){if(i<lines.length-1){l.now=Math.round(l.old*courseTotal/base/10)*10;acc+=l.now}else{l.now=courseTotal-acc}});
   if(cart.courses.content){var cc=course("content"),cf=cc.formats[0];lines.push({kind:"course",c:cc,f:cf,old:cf.price,now:cc.fixed});full+=cf.price;total+=cc.fixed}
   if(cart.max){var mp=PACKS[5],v=mp[cart.max];lines.push({kind:"max",name:"Пакет «Всё в записи + интенсив»",sub:cart.max==="sup"?v.label:"Я сам",old:v.old,now:v.price});full+=v.old;total+=v.price}
-  VIPS.forEach(function(v){if(cart.vip[v.id]){lines.push({kind:"vip",name:v.name,sub:v.sub+", "+v.extra.replace("+ ",""),old:v.old,now:v.price});full+=v.old;total+=v.price}});
+  VIPS.forEach(function(v){if(cart.vip[v.id]){lines.push({kind:"vip",name:v.name,sub:v.sub+", "+v.extra,old:v.old,now:v.price});full+=v.old;total+=v.price}});
   var withCourse = n>0 || !!cart.courses.content || !!cart.max;
   INTS.forEach(function(it){if(cart.ints[it.id]){var p=withCourse?8000:10000;lines.push({kind:"int",name:"Интенсив «"+it.name+"»",sub:it.date+(withCourse?", цена с курсом":""),old:10000,now:p});full+=10000;total+=p}});
   return {lines:lines,full:full,total:total,n:n,rule:rule,base:base,withCourse:withCourse};
@@ -721,7 +722,7 @@ function renderInts(){
 }
 $("#intList").addEventListener("click",function(e){var card=e.target.closest(".int");if(!card||!e.target.closest("[data-iadd]"))return;var id=card.dataset.id;if(cart.ints[id])delete cart.ints[id];else{cart.ints[id]=1;toast("Интенсив в корзине")}save();update()});
 function renderVips(){
-  $("#vipList").innerHTML=VIPS.map(function(v){var inC=!!cart.vip[v.id];return '<article class="vip" data-id="'+v.id+'"><span class="disc" style="align-self:flex-start">−'+pct(v.old,v.price)+'%</span><h3>'+esc(v.name)+'</h3><p style="color:rgba(255,255,255,.6);margin:-6px 0 12px">'+esc(v.sub)+'</p><ul>'+v.list.map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'<li class="new">'+esc(v.extra.replace("+ ",""))+' в подарок к акции</li></ul>'+
+  $("#vipList").innerHTML=VIPS.map(function(v){var inC=!!cart.vip[v.id];return '<article class="vip" data-id="'+v.id+'"><span class="disc" style="align-self:flex-start">−'+pct(v.old,v.price)+'%</span><h3>'+esc(v.name)+'</h3><p style="color:rgba(255,255,255,.6);margin:-6px 0 12px">'+esc(v.sub)+'</p><ul>'+v.list.map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'<li class="new">'+esc(v.extra)+'</li></ul>'+
     '<div class="price nums"><b>'+fmt(v.price)+'</b><small>рублей</small><s>'+fmt(v.old)+'</s></div>'+
     '<button class="add'+(inC?' in':'')+'" data-vadd>'+(inC?'<svg><use href="#i-check"/></svg>В корзине':'<svg><use href="#i-plus"/></svg>В корзину')+'</button></article>'}).join("");
 }
