@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Чёрная пятница в iiuniversitet: −50% на пакеты курсов по нейросетям</title>
-<meta name="description" content="Чёрная пятница iiuniversitet с 13 по 27 ноября: −20% на один курс, −50% на два курса и больше, ВИП −30%. Claude, нейросети для таблиц, мастерская презентаций, ChatGPT, контент-конвейер.">
+<meta name="description" content="Чёрная пятница iiuniversitet с 13 по 27 ноября: −20% на один курс, −50% на два курса и больше, ВИП −30%. Claude, нейросети для таблиц, мастерская презентаций, контент-конвейер.">
 <meta property="og:title" content="Чёрная пятница iiuniversitet: −50% на пакеты курсов">
 <meta property="og:description" content="С 13 по 27 ноября. Один курс −20%, два и больше −50%, ВИП −30%.">
 <meta name="theme-color" content="#141210">
@@ -444,7 +444,7 @@ footer .brand small{color:rgba(255,255,255,.5)}
   <div class="wrap">
     <div class="eyebrow">Пакеты</div>
     <h2 class="h">Готовые <em>связки</em> курсов</h2>
-    <p class="lead">Пять пакетов под конкретные задачи и отдельное предложение на «Контент-конвейер». Каждый пакет в двух форматах, скидка −50% на оба. Поддержка куратора есть только по Claude и таблицам, мастерская, ChatGPT и контент-конвейер идут в записи.</p>
+    <p class="lead">Пять пакетов под конкретные задачи и отдельное предложение на «Контент-конвейер». Каждый пакет в двух форматах, скидка −50% на оба. Поддержка куратора есть только по Claude и таблицам, мастерская и контент-конвейер идут в записи.</p>
     <div class="packs" id="packList"></div>
   </div>
 </section>
@@ -478,12 +478,11 @@ footer .brand small{color:rgba(255,255,255,.5)}
     <h2 class="h">Частые <em>вопросы</em></h2>
     <div class="faq">
       <details class="q"><summary>Как считается скидка?<svg><use href="#i-plus"/></svg></summary><div>Один курс в корзине −20%. Два курса и больше −50% на всю корзину, форматы «Я сам» и «С поддержкой» можно смешивать. ВИП всегда −30% и в число курсов не входит. «Контент-конвейер» стоит фиксированные 15 990 рублей. Скидка считается от текущей цены на сайте.</div></details>
-      <details class="q"><summary>Где есть поддержка куратора?<svg><use href="#i-plus"/></svg></summary><div>Только в курсах «Claude на максималках» и «Нейросети для таблиц и аналитики» в формате «С поддержкой». Мастерская презентаций, ChatGPT и «Контент-конвейер» в акции идут в записи, без куратора.</div></details>
+      <details class="q"><summary>Где есть поддержка куратора?<svg><use href="#i-plus"/></svg></summary><div>Только в курсах «Claude на максималках» и «Нейросети для таблиц и аналитики» в формате «С поддержкой». Мастерская презентаций и «Контент-конвейер» в акции идут в записи, без куратора.</div></details>
       <details class="q"><summary>Сколько длится доступ к курсам?<svg><use href="#i-plus"/></svg></summary><div><table>
         <tr><td>Claude на максималках</td><td>3 месяца, «С поддержкой» 6 месяцев</td></tr>
         <tr><td>Нейросети для таблиц и аналитики</td><td>3 месяца, «С поддержкой» 6 месяцев</td></tr>
         <tr><td>Мастерская презентаций</td><td>6 месяцев</td></tr>
-        <tr><td>ChatGPT основы</td><td>3 месяца</td></tr>
         <tr><td>Контент-конвейер</td><td>6 месяцев</td></tr>
       </table></div></details>
       <details class="q"><summary>Можно ли оплатить частями?<svg><use href="#i-plus"/></svg></summary><div>Напишите в <a href="https://t.me/pmlebedev_support" target="_blank" rel="noopener">службу заботы</a>, подскажем доступные варианты для вашего заказа.</div></details>
@@ -610,8 +609,6 @@ var COURSES = [
    formats:[{id:"self",name:"Я сам",price:9990,note:"10 уроков, шаблоны, доступ 3 месяца"},{id:"sup",name:"С поддержкой",price:21990,note:"Чат с кураторами, проверка заданий, доступ 6 месяцев"}]},
   {id:"master", name:"Мастерская презентаций", h:"Мастерская", em:"презентаций", kind:"Курс в записи", cover:C+"kurs-masterskaya.DfyU6Bjp.webp", url:"https://kurs.iiuniversitet.ru/masterskaya",
    formats:[{id:"rec",name:"В записи",price:29990,note:"77 уроков, шаблоны и рабочие тетради, доступ 6 месяцев, без поддержки"}]},
-  {id:"gpt", name:"ChatGPT основы", h:"ChatGPT", em:"основы", kind:"Курс в записи", cover:C+"kurs-gpt.DbffZu-b.webp", lt:true, url:"https://iiuniversitet.ru/gpt_certificate/",
-   formats:[{id:"rec",name:"В записи",price:4990,note:"20 уроков, 2000+ промптов, доступ 3 месяца, без куратора"}]},
   {id:"content", name:"Контент-конвейер", h:"Контент", em:"конвейер", kind:"Спецпредложение", cover:C+"kurs-content.Dv4xCGvo.webp", url:"https://iiuniversitet.ru/content_certificate/", fixed:15990,
    formats:[{id:"rec",name:"В записи",price:39990,note:"Модули в записи для Telegram, рилс и YouTube, доступ 6 месяцев, без встреч с кураторами"}]}
 ];
@@ -646,7 +643,7 @@ function esc(s){return String(s).replace(/[&<>"]/g,function(ch){return {"&":"&am
 
 /* ===== cart state ===== */
 var cart = {courses:{}, max:null, vip:{}, ints:{}};
-try{var saved=JSON.parse(localStorage.getItem("bf_cart")||"null");if(saved&&saved.courses)cart=saved}catch(e){}
+try{var saved=JSON.parse(localStorage.getItem("bf_cart")||"null");if(saved&&saved.courses){Object.keys(saved.courses).forEach(function(id){if(!course(id))delete saved.courses[id]});cart=saved}}catch(e){}
 function save(){try{localStorage.setItem("bf_cart",JSON.stringify(cart))}catch(e){}}
 
 function calc(){
