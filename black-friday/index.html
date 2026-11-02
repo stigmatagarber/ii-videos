@@ -70,7 +70,7 @@ nav a:hover{color:var(--ink)}
 /* HERO */
 .hero{position:relative;overflow:hidden;background:radial-gradient(1000px 600px at 20% 0%,rgba(214,150,60,.18),transparent 60%),var(--night);color:#fff;padding:56px 0 40px}
 .grain{position:absolute;inset:0;pointer-events:none;opacity:.10;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
-.hero .wrap{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:end}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:center}
 .hero .eyebrow{color:rgba(255,255,255,.6)}
 .hero h1{font-family:Oranienbaum,Georgia,serif;font-weight:400;text-transform:uppercase;font-size:clamp(50px,7vw,96px);line-height:.92;letter-spacing:.005em;margin-bottom:16px;
   background:linear-gradient(100deg,#c9a35f 0%,#f3dc9c calc(var(--sx,-20%) - 14%),#fff8dc var(--sx,-20%),#e9c983 calc(var(--sx,-20%) + 14%),#a8834a 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -87,16 +87,33 @@ nav a:hover{color:var(--ink)}
 .tcell b::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.6)}
 .tcell b.smoke{filter:blur(3px);opacity:.4}
 .tcell span{font-size:13px;color:rgba(255,255,255,.55)}
-.pavel-hero{position:relative;justify-self:end;width:min(380px,100%);aspect-ratio:4/5;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.pavel-hero .ph{position:absolute;inset:0;background:url("https://iiuniversitet.online/kurs-antikrizis/img/author.jpg") center/cover no-repeat;filter:saturate(.9) brightness(.97);
-  -webkit-mask-image:radial-gradient(120% 95% at 50% 38%,#000 55%,transparent 82%);mask-image:radial-gradient(120% 95% at 50% 38%,#000 55%,transparent 82%)}
-.pavel-hero .ph{border-radius:22px;box-shadow:0 0 0 1px rgba(217,184,120,.45),0 40px 80px -30px rgba(0,0,0,.8)}
-/* price tag */
-.hang{position:absolute;left:-34px;top:-14px;width:150px;transform-origin:62px 10px;animation:swing 5s ease-in-out infinite;filter:drop-shadow(0 18px 18px rgba(0,0,0,.5));pointer-events:none}
-.hang svg{width:100%;height:auto;overflow:visible}
-.pavel-hero:hover .hang{animation:swing2 1.6s ease-in-out infinite}
-@keyframes swing{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(-6deg)}}
-@keyframes swing2{0%,100%{transform:rotate(-22deg)}50%{transform:rotate(4deg)}}
+.pavel-hero{position:relative;width:100%;aspect-ratio:1200/670;border-radius:22px;overflow:hidden;background:#0d0c0a;box-shadow:0 0 0 1px rgba(217,184,120,.5),0 40px 90px -30px rgba(0,0,0,.9),0 0 80px -20px rgba(217,184,120,.25)}
+.pavel-hero .ph{position:absolute;inset:0;background:url("pavel-hud.jpg") center/cover no-repeat;transform:scale(1.03);animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{to{transform:scale(1.09) translate(-1%,1%)}}
+.pavel-hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px);pointer-events:none;mix-blend-mode:multiply}
+.scan{position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,#f6e3a8,transparent);box-shadow:0 0 18px 4px rgba(246,227,168,.45);animation:scan 4.5s cubic-bezier(.45,.05,.55,.95) infinite;z-index:2}
+@keyframes scan{0%{top:-2%;opacity:0}8%{opacity:1}92%{opacity:1}100%{top:101%;opacity:0}}
+.crn{position:absolute;width:26px;height:26px;border:2px solid #e9cf8f;z-index:2}
+.crn.tl{left:12px;top:12px;border-right:0;border-bottom:0}.crn.tr{right:12px;top:12px;border-left:0;border-bottom:0}
+.crn.bl{left:12px;bottom:12px;border-right:0;border-top:0}.crn.br{right:12px;bottom:12px;border-left:0;border-top:0}
+.hud{position:absolute;left:20px;bottom:20px;z-index:3;min-width:176px;padding:12px 14px 12px;border-radius:10px;background:rgba(10,9,8,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 0 0 1px rgba(217,184,120,.55);font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;color:#e9cf8f;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.hud .l1{display:flex;align-items:center;gap:8px}
+.hud .dot{width:7px;height:7px;border-radius:50%;background:#e9cf8f;box-shadow:0 0 8px #e9cf8f;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:.2}}
+.hud .bar{height:3px;margin:9px 0 2px;background:rgba(217,184,120,.2);border-radius:2px;overflow:hidden}
+.hud .bar i{display:block;height:100%;width:0;background:#f6e3a8}
+.hud .big{display:none;font-family:Oranienbaum,Georgia,serif;font-size:46px;line-height:1;letter-spacing:0;margin-top:6px}
+.hud.found .big{display:block;animation:pop .5s cubic-bezier(.2,1.4,.4,1)}
+.hud.found .bar{display:none}
+.hud.scanning .bar i{animation:load 2.6s linear forwards}
+@keyframes load{to{width:100%}}
+@keyframes pop{from{transform:scale(.6);opacity:0}}
+.ret{position:absolute;left:70%;top:24%;width:110px;height:110px;margin:-55px 0 0 -55px;z-index:2;opacity:0;transition:opacity .4s}
+.ret svg{width:100%;height:100%;overflow:visible}
+.ret .ring{transform-origin:55px 55px;animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hud.found~.ret{opacity:1}
+.hud .tagline{font-size:10px;color:rgba(233,207,143,.7);margin-top:4px}
 .foil{background:linear-gradient(110deg,#a8834a 0%,#f6e3a8 22%,#c9a35f 40%,#fff4cf 52%,#b48c4f 66%,#f3dc9c 84%,#a8834a 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:foil 6s linear infinite}
 @keyframes foil{to{background-position:-220% 0}}
 .bignum{position:absolute;right:-2vw;top:50%;transform:translateY(-52%);font-family:Oranienbaum,Georgia,serif;font-size:clamp(220px,34vw,520px);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(217,184,120,.22);pointer-events:none;user-select:none;letter-spacing:-.04em}
@@ -360,7 +377,11 @@ footer a:hover{color:#171716}
   nav{display:none}
   section{padding:44px 0}
   .hero .wrap{grid-template-columns:1fr}
-  .pavel-hero{justify-self:center;width:min(280px,76%);order:-1;margin-bottom:18px}
+  .pavel-hero{order:-1;margin-bottom:6px}
+  .hud{left:auto;right:10px;bottom:10px;min-width:0;padding:7px 9px;font-size:9px}
+  .hud .big{font-size:26px;margin-top:3px}
+  .hud .tagline{display:none}
+  .ret{width:80px;height:80px;margin:-40px 0 0 -40px}
   .packs,.ints{grid-template-columns:1fr 1fr}
   .catalog{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -20px;padding:4px 20px 14px;scroll-padding:0 20px;scrollbar-width:thin}
   .catalog .course{flex:0 0 min(270px,74vw);scroll-snap-align:start}
@@ -439,14 +460,15 @@ footer a:hover{color:#171716}
     </div>
     <div class="pavel-hero" id="pavel" role="img" aria-label="Павел Лебедев">
       <div class="ph"></div>
-      <div class="hang" aria-hidden="true"><svg viewBox="0 0 150 230">
-        <defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e3a8"/><stop offset=".45" stop-color="#c9a35f"/><stop offset="1" stop-color="#8f6d38"/></linearGradient></defs>
-        <path d="M62 10 C60 -10 98 -12 96 20" fill="none" stroke="#d9b878" stroke-width="1.6"/>
-        <path d="M30 52 L62 24 L94 52 L94 210 Q94 220 84 220 L40 220 Q30 220 30 210 Z" fill="#141210" stroke="url(#tg)" stroke-width="2"/>
-        <circle cx="62" cy="48" r="7" fill="none" stroke="url(#tg)" stroke-width="2"/>
-        <text x="62" y="140" text-anchor="middle" transform="rotate(-90 62 140)" font-family="Oranienbaum, Georgia, serif" font-size="46" fill="url(#tg)">−50%</text>
-        <text x="62" y="207" text-anchor="middle" font-family="Onest, Arial, sans-serif" font-size="9" letter-spacing="1.5" fill="#d9b878">BLACK</text>
-      </svg></div>
+      <div class="scan"></div>
+      <i class="crn tl"></i><i class="crn tr"></i><i class="crn bl"></i><i class="crn br"></i>
+      <div class="hud scanning" id="hud" aria-hidden="true">
+        <div class="l1"><span class="dot"></span><span id="hudTxt">Ищу лучшую цену</span></div>
+        <div class="bar"><i></i></div>
+        <div class="big foil">−50%</div>
+        <div class="tagline">Black Friday · до 27.11</div>
+      </div>
+      <div class="ret" aria-hidden="true"><svg viewBox="0 0 110 110"><g fill="none" stroke="#f6e3a8" stroke-width="1.5"><circle class="ring" cx="55" cy="55" r="44" stroke-dasharray="14 9"/><circle cx="55" cy="55" r="30" stroke-opacity=".6"/><path d="M55 0v20M55 90v20M0 55h20M90 55h20"/></g></svg></div>
     </div>
   </div>
   <div class="wrap rules-wrap">
@@ -536,7 +558,7 @@ footer a:hover{color:#171716}
     <div>
       <div class="eyebrow" style="color:rgba(255,255,255,.55)">Небольшой секрет</div>
       <h2 class="h">Этот сайт целиком <em class="gold">сделан в Claude</em></h2>
-      <p>Корзина, которая сама считает скидки, таймер, бегущие ленты, ценник на фото Павла и всплывающие окна. Всё это собрано в Claude обычными сообщениями в чате, без программиста и конструктора сайтов.</p>
+      <p>Корзина, которая сама считает скидки, таймер, бегущие ленты, Павел в интерфейсе, который ищет скидку и всплывающие окна. Всё это собрано в Claude обычными сообщениями в чате, без программиста и конструктора сайтов.</p>
       <p class="strong">Хотите делать так же? Листайте наверх и берите курс «Claude на максималках». А если хотите собрать своё приложение, добавьте интенсив «Вайбкодинг с Claude» 1 декабря.</p>
       <div class="fin-cta">
         <a class="btn y glow" href="#courses" data-goto="claude">Выбрать курс по Claude</a>
@@ -547,8 +569,8 @@ footer a:hover{color:#171716}
       <div class="chat-top"><span></span><span></span><span></span><b>Claude</b></div>
       <div class="msg me">Сделай сайт к Чёрной пятнице в стиле iiuniversitet: витрина курсов, корзина со скидками, таймер до 27 ноября</div>
       <div class="msg ai"><i class="typing"><em></em><em></em><em></em></i><span class="ai-t">Готово. Собрал витрину из 4 курсов, пакеты, корзину с правилом −20% и −50% и таймер. Публикую страницу.</span></div>
-      <div class="msg me">Добавь фото Павла и золотой ценник −50%, пусть качается</div>
-      <div class="msg ai"><span class="ai-t">Сделал. Ценник висит на фото и качается сильнее, если навести мышку.</span></div>
+      <div class="msg me">Возьми это фото Павла, перекрась в золото и пусть интерфейс ищет скидку</div>
+      <div class="msg ai"><span class="ai-t">Сделал. Линия сканирует фото, прицел наводится, и выпадает −50%.</span></div>
       <div class="chat-done"><svg><use href="#i-check"/></svg>Сайт опубликован</div>
     </div>
   </div>
@@ -953,6 +975,12 @@ $("#popClose").addEventListener("click",closePop);$("#popLater").addEventListene
 $("#popGo").addEventListener("click",function(e){var a=popMode.act;closePop();if(a){e.preventDefault();doAct(a)}});
 $("#popAlt").addEventListener("click",function(){var a=popMode.altAct;closePop();doAct(a)});
 pop.addEventListener("click",function(e){if(e.target===pop)closePop()});
+
+/* ===== HUD: ищем скидку ===== */
+var hud=$("#hud"),hudTxt=$("#hudTxt");
+function hudFound(){hud.classList.remove("scanning");hud.classList.add("found");hudTxt.textContent="Скидка найдена"}
+function hudScan(){hud.classList.remove("found");void hud.offsetWidth;hud.classList.add("scanning");hudTxt.textContent="Ищу лучшую цену"}
+if(reduce){hudFound()}else{(function cyc(){hudScan();setTimeout(hudFound,2700);setTimeout(cyc,8000)})()}
 
 /* ===== made in Claude ===== */
 var chat=$(".chat");
