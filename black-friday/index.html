@@ -70,11 +70,10 @@ nav a:hover{color:var(--ink)}
 /* HERO */
 .hero{position:relative;overflow:hidden;background:radial-gradient(1000px 600px at 20% 0%,rgba(214,150,60,.18),transparent 60%),var(--night);color:#fff;padding:56px 0 40px}
 .grain{position:absolute;inset:0;pointer-events:none;opacity:.10;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
-#web{position:absolute;right:0;top:0;width:min(560px,50vw);height:min(470px,46vw);pointer-events:none}
 .hero .wrap{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:end}
 .hero .eyebrow{color:rgba(255,255,255,.6)}
 .hero h1{font-family:Oranienbaum,Georgia,serif;font-weight:400;text-transform:uppercase;font-size:clamp(50px,7vw,96px);line-height:.92;letter-spacing:.005em;margin-bottom:16px;
-  background:linear-gradient(100deg,#f3e6c4 0%,#f3e6c4 calc(var(--sx,-20%) - 12%),#fffbe9 var(--sx,-20%),#f3e6c4 calc(var(--sx,-20%) + 12%),#d9b878 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  background:linear-gradient(100deg,#c9a35f 0%,#f3dc9c calc(var(--sx,-20%) - 14%),#fff8dc var(--sx,-20%),#e9c983 calc(var(--sx,-20%) + 14%),#a8834a 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero .sub{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:clamp(20px,2vw,26px);color:#f4ead0;margin-bottom:24px}
 .hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:26px}
 .mainpack{display:flex;flex-direction:column;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);border-radius:18px;padding:12px 18px}
@@ -83,28 +82,36 @@ nav a:hover{color:var(--ink)}
 .mainpack s{font-size:15px;color:rgba(255,255,255,.45);margin-left:8px;font-weight:500}
 .timer{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap}
 .timer .lbl{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);width:100%;margin-bottom:-2px}
-.tcell{min-width:82px}
-.tcell b{display:block;font-family:Oranienbaum,Georgia,serif;font-weight:400;font-size:44px;line-height:1;color:#fffbe9;transition:filter .6s,opacity .6s}
-.tcell b.smoke{filter:blur(4px);opacity:.25}
+.tcell{min-width:76px;text-align:center}
+.tcell b{position:relative;display:block;font-family:Oranienbaum,Georgia,serif;font-weight:400;font-size:44px;line-height:1;color:#fffbe9;padding:12px 8px 10px;margin-bottom:6px;border-radius:12px;background:linear-gradient(180deg,#24211c 0%,#24211c 50%,#1a1814 50%,#1a1814 100%);box-shadow:0 0 0 1px rgba(217,184,120,.3),inset 0 1px 0 rgba(255,255,255,.06);transition:filter .6s,opacity .6s}
+.tcell b::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.6)}
+.tcell b.smoke{filter:blur(3px);opacity:.4}
 .tcell span{font-size:13px;color:rgba(255,255,255,.55)}
 .pavel-hero{position:relative;justify-self:end;width:min(380px,100%);aspect-ratio:4/5;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .pavel-hero .ph{position:absolute;inset:0;background:url("https://iiuniversitet.online/kurs-antikrizis/img/author.jpg") center/cover no-repeat;filter:saturate(.9) brightness(.97);
   -webkit-mask-image:radial-gradient(120% 95% at 50% 38%,#000 55%,transparent 82%);mask-image:radial-gradient(120% 95% at 50% 38%,#000 55%,transparent 82%)}
-.pavel-hero .mover{position:absolute;inset:0;pointer-events:none;transform-origin:48% 22%;animation:mask 8s cubic-bezier(.45,.05,.25,1) infinite}
-.pavel-hero .pumpkin-wrap{position:absolute;left:16%;top:-7%;width:64%}
-.pavel-hero .pumpkin-wrap svg{width:100%;height:auto;overflow:visible;filter:drop-shadow(0 18px 24px rgba(0,0,0,.55))}
-.pavel-hero .pk-body{fill:#1a140d}
-@keyframes mask{0%,30%{transform:translateY(0) rotate(0)}44%,82%{transform:translateY(64%) rotate(-5deg) scale(.66)}96%,100%{transform:translateY(0) rotate(0)}}
-.pavel-hero:hover .mover,.pavel-hero.reveal .mover{animation:none;transform:translateY(64%) rotate(-5deg) scale(.66);transition:transform 1s cubic-bezier(.2,.7,.2,1)}
-.pk-line{fill:none;stroke:var(--gold);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
-.pk-hatch{fill:none;stroke:var(--gold-soft);stroke-width:.8}
-.pk-face{fill:url(#pkin);stroke:var(--gold);stroke-width:1.4;stroke-linejoin:round;filter:drop-shadow(0 0 6px rgba(255,190,90,.55))}
-.pk-mouth{transition:d .9s cubic-bezier(.2,.7,.2,1)}
-.pk-eye{transform-box:fill-box;transform-origin:center;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
-.pk-glow{opacity:.55;animation:flame 4.5s ease-in-out infinite}
-@keyframes flame{0%,100%{opacity:.5}35%{opacity:.68}55%{opacity:.46}75%{opacity:.62}}
-.pumpkin-wrap.smile .pk-eye{transform:scaleY(.72)}
-.pk-hint{position:absolute;left:0;right:0;bottom:-22px;text-align:center;font-size:12px;color:rgba(255,255,255,.45)}
+.pavel-hero .ph{border-radius:22px;box-shadow:0 0 0 1px rgba(217,184,120,.45),0 40px 80px -30px rgba(0,0,0,.8)}
+/* price tag */
+.hang{position:absolute;left:-34px;top:-14px;width:150px;transform-origin:62px 10px;animation:swing 5s ease-in-out infinite;filter:drop-shadow(0 18px 18px rgba(0,0,0,.5));pointer-events:none}
+.hang svg{width:100%;height:auto;overflow:visible}
+.pavel-hero:hover .hang{animation:swing2 1.6s ease-in-out infinite}
+@keyframes swing{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(-6deg)}}
+@keyframes swing2{0%,100%{transform:rotate(-22deg)}50%{transform:rotate(4deg)}}
+.foil{background:linear-gradient(110deg,#a8834a 0%,#f6e3a8 22%,#c9a35f 40%,#fff4cf 52%,#b48c4f 66%,#f3dc9c 84%,#a8834a 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:foil 6s linear infinite}
+@keyframes foil{to{background-position:-220% 0}}
+.bignum{position:absolute;right:-2vw;top:50%;transform:translateY(-52%);font-family:Oranienbaum,Georgia,serif;font-size:clamp(220px,34vw,520px);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(217,184,120,.22);pointer-events:none;user-select:none;letter-spacing:-.04em}
+.beam{position:absolute;inset:-40% -10% auto auto;width:60%;height:180%;background:linear-gradient(100deg,transparent 40%,rgba(246,227,168,.07) 50%,transparent 60%);transform:rotate(18deg);animation:beam 9s ease-in-out infinite;pointer-events:none}
+@keyframes beam{0%,100%{transform:translateX(-30%) rotate(18deg)}50%{transform:translateX(20%) rotate(18deg)}}
+/* tapes */
+.tapes{position:relative;height:150px;overflow:hidden;background:var(--night);margin-top:-1px}
+.tape{position:absolute;left:-5%;width:110%;display:flex;overflow:hidden;white-space:nowrap;padding:14px 0;font-family:Oranienbaum,Georgia,serif;font-size:30px;text-transform:uppercase;letter-spacing:.02em;line-height:1}
+.tape .run{display:flex;flex-shrink:0;animation:run 38s linear infinite}
+.tape .run span{padding:0 22px;display:inline-flex;align-items:center;gap:44px}
+.tape .run span::after{content:"✦";font-size:20px}
+.tape.a{top:26px;background:var(--btn);color:var(--ink);transform:rotate(-2.4deg);z-index:2;box-shadow:0 10px 30px -10px rgba(0,0,0,.6)}
+.tape.b{top:58px;background:#1c1a16;color:#e9cf8f;transform:rotate(2deg);box-shadow:0 0 0 1px rgba(217,184,120,.35)}
+.tape.b .run{animation-direction:reverse;animation-duration:46s}
+@keyframes run{to{transform:translateX(-100%)}}
 .hero .rules-wrap{display:block}
 .hero-rules{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
 .rule{border-top:1px solid var(--night-line);padding-top:18px}
@@ -211,7 +218,10 @@ nav a:hover{color:var(--ink)}
 .vip-sec .eyebrow{color:rgba(255,255,255,.55)}
 .vip-sec .lead{color:rgba(255,255,255,.75)}
 .vips{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.vip{display:flex;flex-direction:column;border-radius:22px;padding:28px;background:rgba(255,255,255,.05);box-shadow:0 0 0 1px rgba(255,255,255,.12)}
+.vip{position:relative;overflow:hidden;display:flex;flex-direction:column;border-radius:22px;padding:28px;background:linear-gradient(135deg,#26231d 0%,#111010 45%,#1d1b17 100%);box-shadow:0 0 0 1px rgba(217,184,120,.5),0 30px 60px -30px rgba(0,0,0,.8)}
+.vip::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(246,227,168,.12) 45%,transparent 60%);transform:translateX(-100%);transition:transform 1.1s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.vip:hover::before{transform:translateX(100%)}
+.vip::after{content:"BLACK";position:absolute;right:24px;top:22px;font-family:Oranienbaum,Georgia,serif;font-size:13px;letter-spacing:.4em;color:rgba(217,184,120,.55)}
 .vip h3{font-family:Oranienbaum,Georgia,serif;font-weight:400;text-transform:uppercase;font-size:28px;line-height:1;margin:10px 0 14px}
 .vip ul{list-style:none;margin-bottom:20px}
 .vip li{position:relative;padding:6px 0 6px 22px;color:rgba(255,255,255,.8);font-size:15px}
@@ -325,7 +335,10 @@ footer a:hover{color:#171716}
 .pop.on{opacity:1;pointer-events:auto}
 .pop-card{position:relative;overflow:hidden;width:min(560px,100%);background:radial-gradient(500px 300px at 15% 0%,rgba(214,150,60,.25),transparent 65%),var(--night);color:#fff;border-radius:26px;padding:40px 36px 32px;box-shadow:0 0 0 1px rgba(217,184,120,.4),0 40px 80px -20px rgba(0,0,0,.6);transform:translateY(16px) scale(.98);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
 .pop.on .pop-card{transform:none}
-.pop-card svg.web-mini{position:absolute;right:-10px;top:-10px;width:220px;height:220px;opacity:.7;pointer-events:none}
+.pop-tape{position:absolute;left:-10%;right:-10%;top:0;transform:rotate(-2deg) translateY(-6px);background:var(--btn);color:var(--ink);font-family:Oranienbaum,Georgia,serif;text-transform:uppercase;font-size:15px;white-space:nowrap;overflow:hidden;padding:7px 0}
+.pop-tape .run{display:flex;animation:run 22s linear infinite}
+.pop-tape .run span{padding:0 14px}
+.pop-card{padding-top:58px!important}
 .pop-card .x{position:absolute;right:16px;top:16px;background:rgba(255,255,255,.08);box-shadow:none}
 .pop-card .x svg{stroke:#fff}
 .pop-card .eyebrow{color:rgba(255,255,255,.6)}
@@ -355,7 +368,6 @@ footer a:hover{color:#171716}
   .foot-cols{grid-template-columns:1fr 1fr}
   .foot-bottom{grid-template-columns:1fr}
   .pack.wide ul{columns:1}
-  #web{width:340px;height:340px;opacity:.7}
 }
 @media (max-width:620px){
   .packs,.ints,.hero-rules{grid-template-columns:1fr}
@@ -405,7 +417,8 @@ footer a:hover{color:#171716}
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <canvas id="web" aria-hidden="true"></canvas>
+  <div class="beam" aria-hidden="true"></div>
+  <div class="bignum" aria-hidden="true">−50%</div>
   <div class="grain"></div>
   <div class="wrap">
     <div>
@@ -424,33 +437,16 @@ footer a:hover{color:#171716}
         <div class="tcell"><b data-u="s">00</b><span>секунд</span></div>
       </div>
     </div>
-    <div class="pavel-hero" id="pavel" role="img" aria-label="Павел Лебедев с тыквой-маской">
+    <div class="pavel-hero" id="pavel" role="img" aria-label="Павел Лебедев">
       <div class="ph"></div>
-      <div class="mover"><div class="pumpkin-wrap" id="pumpkin">
-      <svg viewBox="0 0 320 300">
-        <defs>
-          <radialGradient id="pkg" cx="50%" cy="58%" r="55%"><stop offset="0" stop-color="#ffcf73" stop-opacity=".95"/><stop offset=".35" stop-color="#e39a3a" stop-opacity=".55"/><stop offset="1" stop-color="#e39a3a" stop-opacity="0"/></radialGradient>
-          <radialGradient id="pkin" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffe2a0"/><stop offset=".6" stop-color="#f0a546"/><stop offset="1" stop-color="#9a5a17"/></radialGradient>
-        </defs>
-        <ellipse class="pk-glow" cx="160" cy="185" rx="170" ry="120" fill="url(#pkg)"/>
-        <!-- stem -->
-        <path class="pk-line" d="M152 72c2-16 0-30-8-42 10 2 20 10 22 22 2 8 0 16-2 22"/>
-        <path class="pk-hatch" d="M150 60c3-6 4-14 2-22M158 62c2-8 2-16 0-24"/>
-        <!-- body ribs -->
-        <path class="pk-body" d="M160 76c-58 0-118 40-118 112 0 56 52 92 118 92s118-36 118-92c0-72-60-112-118-112z"/>
-        <path class="pk-line" d="M160 76c-58 0-118 40-118 112 0 56 52 92 118 92s118-36 118-92c0-72-60-112-118-112z"/>
-        <path class="pk-line" d="M160 76c-34 6-62 52-62 112s28 88 62 92"/>
-        <path class="pk-line" d="M160 76c34 6 62 52 62 112s-28 88-62 92"/>
-        <path class="pk-hatch" d="M160 78c-14 10-24 56-24 110s10 82 24 92M160 78c14 10 24 56 24 110s-10 82-24 92"/>
-        <path class="pk-hatch" d="M70 140c-8 18-10 36-8 54M250 140c8 18 10 36 8 54M86 120c-10 22-14 46-12 70M234 120c10 22 14 46 12 70"/>
-        <!-- face: glowing interior -->
-        <path class="pk-face pk-eye" d="M104 160l26-30 18 34z" fill="url(#pkin)"/>
-        <path class="pk-face pk-eye" d="M216 160l-26-30-18 34z" fill="url(#pkin)"/>
-        <path class="pk-face" d="M152 186l8-14 8 14z" fill="url(#pkin)"/>
-        <path class="pk-face pk-mouth" id="mouth" fill="url(#pkin)" d="M100 214 C130 222 190 222 220 214 L214 228 C190 236 130 236 106 228 Z"/>
-      </svg>
-      </div></div>
-      <div class="pk-hint">Наведите на фото</div>
+      <div class="hang" aria-hidden="true"><svg viewBox="0 0 150 230">
+        <defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e3a8"/><stop offset=".45" stop-color="#c9a35f"/><stop offset="1" stop-color="#8f6d38"/></linearGradient></defs>
+        <path d="M62 10 C60 -10 98 -12 96 20" fill="none" stroke="#d9b878" stroke-width="1.6"/>
+        <path d="M30 52 L62 24 L94 52 L94 210 Q94 220 84 220 L40 220 Q30 220 30 210 Z" fill="#141210" stroke="url(#tg)" stroke-width="2"/>
+        <circle cx="62" cy="48" r="7" fill="none" stroke="url(#tg)" stroke-width="2"/>
+        <text x="62" y="140" text-anchor="middle" transform="rotate(-90 62 140)" font-family="Oranienbaum, Georgia, serif" font-size="46" fill="url(#tg)">−50%</text>
+        <text x="62" y="207" text-anchor="middle" font-family="Onest, Arial, sans-serif" font-size="9" letter-spacing="1.5" fill="#d9b878">BLACK</text>
+      </svg></div>
     </div>
   </div>
   <div class="wrap rules-wrap">
@@ -461,6 +457,10 @@ footer a:hover{color:#171716}
     </div>
   </div>
 </section>
+<div class="tapes" aria-hidden="true">
+  <div class="tape a"><div class="run"><span>Чёрная пятница</span><span>−50% на пакеты</span><span>−20% на один курс</span><span>ВИП за 99 990 рублей</span><span>до 27 ноября</span><span>Чёрная пятница</span><span>−50% на пакеты</span><span>−20% на один курс</span><span>ВИП за 99 990 рублей</span><span>до 27 ноября</span></div><div class="run"><span>Чёрная пятница</span><span>−50% на пакеты</span><span>−20% на один курс</span><span>ВИП за 99 990 рублей</span><span>до 27 ноября</span><span>Чёрная пятница</span><span>−50% на пакеты</span><span>−20% на один курс</span><span>ВИП за 99 990 рублей</span><span>до 27 ноября</span></div></div>
+  <div class="tape b"><div class="run"><span>Black Friday</span><span>iiuniversitet</span><span>Claude</span><span>Таблицы</span><span>Мастерская</span><span>Контент-конвейер</span><span>Black Friday</span><span>iiuniversitet</span><span>Claude</span><span>Таблицы</span><span>Мастерская</span><span>Контент-конвейер</span></div><div class="run"><span>Black Friday</span><span>iiuniversitet</span><span>Claude</span><span>Таблицы</span><span>Мастерская</span><span>Контент-конвейер</span><span>Black Friday</span><span>iiuniversitet</span><span>Claude</span><span>Таблицы</span><span>Мастерская</span><span>Контент-конвейер</span></div></div>
+</div>
 
 <!-- COURSES -->
 <section id="courses">
@@ -531,13 +531,12 @@ footer a:hover{color:#171716}
 
 <!-- FINAL -->
 <section class="final" id="madeclaude">
-  <canvas id="web2" aria-hidden="true" style="position:absolute;right:0;bottom:0;width:420px;height:420px;transform:scaleY(-1);pointer-events:none"></canvas>
   <div class="grain"></div>
   <div class="wrap">
     <div>
       <div class="eyebrow" style="color:rgba(255,255,255,.55)">Небольшой секрет</div>
       <h2 class="h">Этот сайт целиком <em class="gold">сделан в Claude</em></h2>
-      <p>Корзина, которая сама считает скидки, таймер, паутина, Павел с тыквой и всплывающие окна. Всё это собрано в Claude обычными сообщениями в чате, без программиста и конструктора сайтов.</p>
+      <p>Корзина, которая сама считает скидки, таймер, бегущие ленты, ценник на фото Павла и всплывающие окна. Всё это собрано в Claude обычными сообщениями в чате, без программиста и конструктора сайтов.</p>
       <p class="strong">Хотите делать так же? Листайте наверх и берите курс «Claude на максималках». А если хотите собрать своё приложение, добавьте интенсив «Вайбкодинг с Claude» 1 декабря.</p>
       <div class="fin-cta">
         <a class="btn y glow" href="#courses" data-goto="claude">Выбрать курс по Claude</a>
@@ -548,8 +547,8 @@ footer a:hover{color:#171716}
       <div class="chat-top"><span></span><span></span><span></span><b>Claude</b></div>
       <div class="msg me">Сделай сайт к Чёрной пятнице в стиле iiuniversitet: витрина курсов, корзина со скидками, таймер до 27 ноября</div>
       <div class="msg ai"><i class="typing"><em></em><em></em><em></em></i><span class="ai-t">Готово. Собрал витрину из 4 курсов, пакеты, корзину с правилом −20% и −50% и таймер. Публикую страницу.</span></div>
-      <div class="msg me">Добавь фото Павла, пусть тыквой закрывает лицо</div>
-      <div class="msg ai"><span class="ai-t">Сделал. Тыква опускается в руки и улыбается, при наведении лицо открывается.</span></div>
+      <div class="msg me">Добавь фото Павла и золотой ценник −50%, пусть качается</div>
+      <div class="msg ai"><span class="ai-t">Сделал. Ценник висит на фото и качается сильнее, если навести мышку.</span></div>
       <div class="chat-done"><svg><use href="#i-check"/></svg>Сайт опубликован</div>
     </div>
   </div>
@@ -633,10 +632,7 @@ footer a:hover{color:#171716}
 <!-- POPUP -->
 <div class="pop" id="pop" role="dialog" aria-modal="true" aria-labelledby="popTitle" aria-hidden="true">
   <div class="pop-card">
-    <svg class="web-mini" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#d9b878" stroke-opacity=".5" stroke-width=".8">
-      <path d="M200 0L40 0M200 0L60 70M200 0L110 130M200 0L170 170M200 0L200 160"/>
-      <path d="M160 0q8 14 18 22q-2 10 22 10"/><path d="M118 0q14 26 30 42q-2 18 52 24"/><path d="M78 0q20 40 46 64q-4 30 76 40"/><path d="M48 0q24 56 62 88q-6 40 90 54"/>
-    </g></svg>
+    <div class="pop-tape" aria-hidden="true"><div class="run"><span>Чёрная пятница ✦</span><span>−50% ✦</span><span>до 27 ноября ✦</span><span>Чёрная пятница ✦</span><span>−50% ✦</span><span>до 27 ноября ✦</span><span>Чёрная пятница ✦</span><span>−50% ✦</span><span>до 27 ноября ✦</span><span>Чёрная пятница ✦</span><span>−50% ✦</span><span>до 27 ноября ✦</span></div></div>
     <button class="x" id="popClose" aria-label="Закрыть"><svg><use href="#i-x"/></svg></button>
     <div class="eyebrow" data-plabel>Чёрная пятница iiuniversitet</div>
     <h3 id="popTitle">Чёрная пятница</h3>
@@ -970,50 +966,8 @@ if(!reduce){
   $(".hero").addEventListener("pointermove",function(e){var r=title.getBoundingClientRect();title.style.setProperty("--sx",((e.clientX-r.left)/r.width*100)+"%")});
 }
 
-/* ===== pumpkin smile ===== */
-var mouth=$("#mouth"), pk=$("#pumpkin");
-var M0="M100 214 C130 222 190 222 220 214 L214 228 C190 236 130 236 106 228 Z";
-var M1="M98 204 C130 232 190 232 222 204 L214 222 C190 250 130 250 106 222 Z";
-function smile(on){pk.classList.toggle("smile",on);mouth.setAttribute("d",on?M1:M0);mouth.style.d='path("'+(on?M1:M0)+'")'}
-var pav=$("#pavel"),hov=false;
-function loop(){if(hov||reduce)return;setTimeout(function(){if(!hov)smile(true)},3700);setTimeout(function(){if(!hov)smile(false)},6800)}
-if(!reduce){loop();setInterval(loop,8000)}else{pav.classList.add("reveal");smile(true)}
-pav.addEventListener("pointerenter",function(){hov=true;smile(true)});
-pav.addEventListener("pointerleave",function(){hov=false;smile(false);var m=$(".mover",pav);m.style.animation="none";void m.offsetWidth;m.style.animation=""});
-pav.addEventListener("click",function(){var on=!pav.classList.contains("reveal");pav.classList.toggle("reveal",on);smile(on)});
 
 /* ===== spider web with gentle physics ===== */
-function web(canvas,opt){
-  var ctx=canvas.getContext("2d"),W,H,dpr=Math.min(2,window.devicePixelRatio||1),nodes=[],spokes=10,rings=9,mouse={x:-999,y:-999},dew=[];
-  function build(){
-    var r=canvas.getBoundingClientRect();W=r.width;H=r.height;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
-    nodes=[];var R=Math.min(W,H)*1.15;
-    for(var s=0;s<=spokes;s++){var a=Math.PI/2+s/spokes*(Math.PI/2);var row=[];
-      for(var k=1;k<=rings;k++){var rr=R*k/rings*(0.92+0.08*Math.sin(s*1.7+k));var x=W+Math.cos(a)*rr,y=Math.sin(a)*rr;row.push({x:x,y:y,ox:x,oy:y,vx:0,vy:0})}
-      nodes.push(row)}
-    dew=[];for(var i=0;i<9;i++){dew.push([1+Math.floor(Math.random()*(spokes-1)),1+Math.floor(Math.random()*(rings-2)),Math.random()*6.28])}
-  }
-  function step(){
-    var t=performance.now()/1000;
-    for(var s=0;s<nodes.length;s++)for(var k=0;k<nodes[s].length;k++){var n=nodes[s][k];
-      var dx=n.x-mouse.x,dy=n.y-mouse.y,d2=dx*dx+dy*dy;
-      if(d2<14000){var f=(1-d2/14000)*0.9;n.vx+=dx/Math.sqrt(d2+1)*f;n.vy+=dy/Math.sqrt(d2+1)*f}
-      n.vx+=(n.ox-n.x)*0.012;n.vy+=(n.oy-n.y)*0.012;n.vx*=0.955;n.vy*=0.955;n.x+=n.vx;n.y+=n.vy}
-    ctx.clearRect(0,0,W,H);ctx.lineWidth=0.7;ctx.strokeStyle="rgba(217,184,120,"+opt.alpha+")";
-    ctx.beginPath();
-    for(var s2=0;s2<nodes.length;s2++){ctx.moveTo(W,0);for(var k2=0;k2<nodes[s2].length;k2++)ctx.lineTo(nodes[s2][k2].x,nodes[s2][k2].y)}
-    for(var k3=0;k3<rings;k3++){for(var s3=0;s3<nodes.length-1;s3++){var a=nodes[s3][k3],b=nodes[s3+1][k3];var mx=(a.x+b.x)/2,my=(a.y+b.y)/2,cx=W+(mx-W)*0.9,cy=my*0.9;if(s3===0)ctx.moveTo(a.x,a.y);ctx.quadraticCurveTo(cx,cy,b.x,b.y)}}
-    ctx.stroke();
-    dew.forEach(function(d){var n=nodes[d[0]][d[1]];var g=0.35+0.35*Math.sin(t*1.3+d[2]);ctx.beginPath();ctx.fillStyle="rgba(255,240,200,"+g*opt.alpha*2+")";ctx.arc(n.x,n.y,1.6,0,6.28);ctx.fill()});
-    if(!reduce)requestAnimationFrame(step);
-  }
-  var host=opt.host||canvas.parentNode;
-  host.addEventListener("pointermove",function(e){var r=canvas.getBoundingClientRect();var x=e.clientX-r.left,y=e.clientY-r.top;if(opt.flip)y=r.height-y;mouse.x=x;mouse.y=y});
-  host.addEventListener("pointerleave",function(){mouse.x=mouse.y=-999});
-  window.addEventListener("resize",build);build();step();
-}
-web($("#web"),{alpha:.5});
-web($("#web2"),{alpha:.35,flip:true});
 })();
 </script>
 </body>
