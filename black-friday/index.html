@@ -286,18 +286,22 @@ details.q td{padding:5px 18px 5px 0;border-bottom:1px solid var(--line)}
 .course.flash{box-shadow:0 0 0 2px var(--btn),0 24px 50px -22px rgba(150,100,30,.45);transform:translateY(-4px)}
 
 /* footer */
-footer{background:var(--bg);color:#676966;padding:56px 0 120px;font-size:14px;border-top:1px solid var(--line)}
-.foot-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
-footer h3{font-family:Onest,"Segoe UI",Arial,sans-serif;font-size:14px;font-weight:700;color:#171716;text-transform:none;margin-bottom:14px}
+footer{background:var(--bg);color:#676966;padding:44px 0 34px;font-size:14px;border-top:1px solid var(--line)}
+.foot-cols{display:grid;grid-template-columns:1.2fr 1.3fr 1.2fr 1.3fr 1.1fr;gap:28px}
+footer h3{font-family:Onest,"Segoe UI",Arial,sans-serif;font-size:14px;font-weight:700;color:#171716;text-transform:none;margin-bottom:12px}
 footer ul{list-style:none}
-footer li{margin-bottom:9px;line-height:1.4}
+footer li{margin-bottom:7px;line-height:1.35}
+footer ul.two{columns:2;column-gap:16px}
 footer a{text-decoration:none;color:#676966;transition:color .2s}
 footer a:hover{color:#171716}
-.foot-bottom{display:grid;grid-template-columns:2fr 1.5fr 1.5fr;gap:24px;margin-top:40px;padding-top:30px;border-top:1px solid var(--line)}
-.foot-req .brand{margin-bottom:14px}
-.foot-req .brand b{color:#171716}
-.foot-req p{font-size:12px;line-height:1.7}
-.foot-copy{display:flex;justify-content:space-between;gap:16px;margin-top:34px;padding-top:20px;border-top:1px solid var(--line);font-size:13px}
+.foot-brand .brand{margin-bottom:16px}
+.foot-brand .brand b{color:#171716}
+.foot-soc{display:flex;flex-wrap:wrap;gap:6px 14px}
+.foot-soc li{margin:0}
+.foot-copy{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px}
+.foot-docs{display:flex;flex-wrap:wrap;gap:6px 22px;align-items:center}
+.foot-docs a:last-child{margin-left:auto}
+.foot-req{margin-top:10px;font-size:11.5px;line-height:1.6;color:#8a8b88}
 
 /* cart drawer */
 .scrim{position:fixed;inset:0;background:rgba(10,9,8,.5);opacity:0;pointer-events:none;transition:opacity .3s;z-index:80}
@@ -388,7 +392,9 @@ footer a:hover{color:#171716}
   .catalog .course{flex:0 0 min(270px,74vw);scroll-snap-align:start}
   .vips,.final .wrap{grid-template-columns:1fr}
   .foot-cols{grid-template-columns:1fr 1fr}
-  .foot-bottom{grid-template-columns:1fr}
+  .foot-brand{grid-column:1/-1}
+  .foot-docs a:last-child{margin-left:0}
+  footer{padding-bottom:96px}
   .pack.wide ul{columns:1}
 }
 @media (max-width:620px){
@@ -580,6 +586,15 @@ footer a:hover{color:#171716}
 <footer>
   <div class="wrap">
     <div class="foot-cols">
+      <div class="foot-brand">
+        <a class="brand" href="https://iiuniversitet.online/"><svg><use href="#logo"/></svg><span><b>iiuniversitet</b><small>Центр обучения нейросетям</small></span></a>
+        <ul class="foot-soc">
+          <li><a href="https://t.me/marketograf">Telegram</a></li>
+          <li><a href="https://youtube.com/@marketograf">YouTube</a></li>
+          <li><a href="https://instagram.com/pmlebedev">Instagram</a></li>
+          <li><a href="https://vk.com/aiclub">ВКонтакте</a></li>
+        </ul>
+      </div>
       <div><h3>Курсы</h3><ul>
         <li><a href="https://iiuniversitet.online/kurs_neuroproducer/">Нейропродюсер</a></li>
         <li><a href="https://iiuniversitet.online/kurs/claude/">Claude на максималках</a></li>
@@ -592,9 +607,9 @@ footer a:hover{color:#171716}
         <li><a href="https://iiuniversitet.online/kurs-antikrizis/">Антикризис с ИИ</a></li>
         <li><a href="https://iiuniversitet.online/mk/putvii/">Мастер-класс «Путь в ИИ»</a></li>
         <li><a href="https://iiuniversitet.online/skills/">Каталог промтов и скиллов</a></li>
+        <li><a href="https://iiuniversitet.online/stati/">Статьи</a></li>
       </ul></div>
-      <div><h3>Читать</h3><ul><li><a href="https://iiuniversitet.online/stati/">Статьи</a></li></ul></div>
-      <div><h3>IT-продукты</h3><ul>
+      <div><h3>IT-продукты</h3><ul class="two">
         <li><a href="https://diktantapp.ru/">Диктант</a></li>
         <li><a href="https://tekstovod.ru/">Текстовод</a></li>
         <li><a href="https://kalitabot.ru/">Калита</a></li>
@@ -603,34 +618,18 @@ footer a:hover{color:#171716}
         <li><a href="https://iiuniversitet.online/app/talantmetr/">TalantMeter</a></li>
         <li><a href="https://iiuniversitet.online/app/iksometr/">Иксометр</a></li>
         <li><a href="https://iiuniversitet.online/riskometr/">Рискометр</a></li>
-        <li><a href="https://iiuniversitet.online/skills/">Каталог скиллов</a></li>
       </ul></div>
       <div><h3>Школа</h3><ul>
         <li><a href="https://iiuniversitet.online/#corporate">Корпоративное обучение</a></li>
-        <li><a href="https://t.me/pmlebedev_support">Служба заботы в Telegram</a></li>
+        <li><a href="https://t.me/pmlebedev_support">Служба заботы</a></li>
         <li><a href="tel:+79851663586">+7 985 166 35 86</a></li>
         <li><a href="mailto:sales@pmlebedev.ru">sales@pmlebedev.ru</a></li>
-        <li><a href="https://t.me/marketograf">Telegram-канал</a></li>
       </ul></div>
     </div>
-    <div class="foot-bottom">
-      <div class="foot-req">
-        <a class="brand" href="https://iiuniversitet.online/"><svg><use href="#logo"/></svg><span><b>iiuniversitet</b></span></a>
-        <p>ОГРНИП: 309784729600549 · ИНН: 781133511119<br>ИП Лебедев Павел Михайлович<br>123308, Москва, Демьяна Бедного ул., дом 2, корп. 5, кв. 102<br>р/с 40802810600001646824<br>корр. сч. 30101810145250000974<br>БИК 044525974 в АО «ТБанк»</p>
-      </div>
-      <div><h3>Документы</h3><ul>
-        <li><a href="https://kurs.iiuniversitet.ru/oferta">Оферта</a></li>
-        <li><a href="https://kurs.iiuniversitet.ru/policy_privacy">Политика обработки персональных данных</a></li>
-        <li><a href="https://kurs.iiuniversitet.ru/consent/personal_data">Согласие на обработку персональных данных</a></li>
-      </ul></div>
-      <div><h3>Мы в соцсетях</h3><ul>
-        <li><a href="https://t.me/marketograf">Telegram-канал</a></li>
-        <li><a href="https://youtube.com/@marketograf">YouTube</a></li>
-        <li><a href="https://instagram.com/pmlebedev">Instagram</a></li>
-        <li><a href="https://vk.com/aiclub">ВКонтакте</a></li>
-      </ul></div>
+    <div class="foot-copy">
+      <div class="foot-docs"><span>© 2026 Центр обучения нейросетям iiuniversitet</span><a href="https://kurs.iiuniversitet.ru/oferta">Оферта</a><a href="https://kurs.iiuniversitet.ru/policy_privacy">Политика обработки персональных данных</a><a href="https://kurs.iiuniversitet.ru/consent/personal_data">Согласие на обработку персональных данных</a><a href="#top">Наверх</a></div>
+      <p class="foot-req">ИП Лебедев Павел Михайлович · ОГРНИП 309784729600549 · ИНН 781133511119 · 123308, Москва, Демьяна Бедного ул., дом 2, корп. 5, кв. 102 · р/с 40802810600001646824 · корр. сч. 30101810145250000974 · БИК 044525974 в АО «ТБанк»</p>
     </div>
-    <div class="foot-copy"><span>© 2026 Центр обучения нейросетям iiuniversitet</span><a href="#top">Наверх</a></div>
   </div>
 </footer>
 
