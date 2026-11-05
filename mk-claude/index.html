@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#14120f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Montserrat:wght@600;700&family=Onest:wght@400;500;600;700&family=Oranienbaum&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <style>
 :root{
   --night:#14120f;
@@ -287,6 +287,44 @@ footer a{color:var(--ink)}
 .guide .btn{width:100%}
 .guide small{display:block;text-align:center;margin-top:12px;color:rgba(255,255,255,.55);font-size:13px}
 @media(max-width:900px){.guide{padding:24px}.guide h3{font-size:24px}}
+
+/* ===== claude2 style ===== */
+:root{--bg2:#ebedec;--soft:#f8f7f5;--btnY:#f6eea0;--beige:#a8865a}
+body{background:var(--bg2)}
+h1,h2{font-family:Oranienbaum,"Playfair Display",Georgia,serif;font-weight:400;text-transform:uppercase;letter-spacing:-.01em;line-height:.95}
+h1{font-size:clamp(64px,8.4vw,112px)}
+h2{font-size:clamp(38px,5vw,64px);margin-bottom:18px}
+h1 em,h2 em{font-family:"Playfair Display",Georgia,serif;font-style:italic;text-transform:none;letter-spacing:-.02em}
+h1 em{display:block;font-size:.62em;line-height:1.05;margin-top:6px}
+h3{font-family:Onest,"Segoe UI",Arial,sans-serif;font-weight:600;letter-spacing:-.01em}
+.tag,.guide .tag{background:none!important;padding:0;border-radius:0;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.guide .tag{color:var(--btnY)}
+.btn{font-weight:700}
+.btn.y{background:var(--btnY)}
+.btn.y:hover{background:#efe48a}
+.dark,.access,.final.dark{background:var(--soft)}
+section[style*="linen"]{background:var(--bg2)!important}
+section[style*="background:#fff"]{background:var(--soft)!important}
+.hero.dark{background:var(--bg2)}
+.glow-l::before,.glow-r::before{display:none}
+.hero{min-height:640px}
+.hero-photo{inset:0 4% 0 auto;width:46%;background:url("https://iiuniversitet.online/kurs/claude2/img/hero.jpg") 50% 100%/contain no-repeat;-webkit-mask-image:linear-gradient(180deg,#000 85%,transparent);mask-image:linear-gradient(180deg,#000 85%,transparent)}
+.pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:500;margin-bottom:22px;box-shadow:0 0 0 1px var(--line)}
+.pill i{width:8px;height:8px;border-radius:50%;background:#7bb36a;box-shadow:0 0 0 3px rgba(123,179,106,.2)}
+.h-strong{font-size:clamp(22px,2.2vw,28px);font-weight:700;line-height:1.2;letter-spacing:-.01em;margin:18px 0 10px;max-width:480px}
+.hero p.sub{font-size:17px;color:#4a4744}
+.note{position:absolute;font-family:Caveat,cursive;font-size:26px;color:var(--ink);white-space:nowrap;display:flex;align-items:flex-end;gap:2px}
+.note svg{width:54px;height:28px;fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round}
+.note.n1{left:-4%;top:14%;transform:rotate(-6deg);flex-direction:column;align-items:flex-start}
+.note.n2{right:-2%;top:9%;transform:rotate(5deg);flex-direction:column;align-items:flex-end}
+.lesson,.wcard,.pain div,.tariff{border-radius:22px}
+.lesson,.pain div{background:#fff}
+.mani .art{display:none}.mani{grid-template-columns:1fr}
+@media(max-width:900px){
+  .hero-photo{position:relative;inset:auto;width:100%;height:420px;margin-top:8px;background-position:50% 100%}
+  .note{font-size:21px}.note.n1{left:2%;top:8%}.note.n2{right:2%;top:2%}
+  h1{font-size:64px}
+}
 </style>
 </head>
 <body>
@@ -326,12 +364,16 @@ footer a{color:var(--ink)}
 
 <!-- HERO -->
 <section class="hero dark glow-l">
-  <div class="hero-photo" role="img" aria-label="Павел Лебедев"></div>
+  <div class="hero-photo" role="img" aria-label="Павел Лебедев с ноутбуком">
+    <span class="note n1">опыт не нужен!<svg viewBox="0 0 60 30"><path d="M4 6c14 2 30 8 46 20M50 26l-10 0M50 26l-3-10"/></svg></span>
+    <span class="note n2">видео, сайт, воронка<svg viewBox="0 0 60 30"><path d="M56 6C42 8 26 14 10 26M10 26l10 0M10 26l3-10"/></svg></span>
+  </div>
   <div class="wrap">
     <div class="hero-text">
-      <span class="tag">Бесплатный мастер-класс Павла Лебедева</span>
-      <h1>Claude за вечер</h1>
-      <p class="sub">С нуля, без программирования и блокировок. Как стать ТОП-1% специалистом с самым передовым ИИ человечества</p>
+      <span class="pill"><i></i>Бесплатный мастер-класс · 12 ноября</span>
+      <h1>Claude<br><em>за вечер</em></h1>
+      <p class="h-strong">С нуля, без программирования и&nbsp;блокировок</p>
+      <p class="sub">Как стать ТОП-1% специалистом с самым передовым ИИ человечества. Мастер-класс Павла Лебедева</p>
       <div class="btns">
         <a class="btn y" href="#tariffs">Участвовать и получить гайд</a>
         <a class="btn o" href="#program">Смотреть программу</a>
@@ -350,8 +392,8 @@ footer a{color:var(--ink)}
 <section class="access" id="access">
   <div class="wrap two">
     <div>
-      <span class="tag">Проблема номер один</span>
-      <h2>Не получается зайти в Claude?</h2>
+      <span class="tag">Сначала доступ</span>
+      <h2>Как получить <em>доступ</em> к Claude</h2>
       <p class="lead" style="margin-bottom:0">Это первое, на чём останавливаются почти все. Claude официально не работает в России, и без инструкции легко потерять время, деньги и аккаунт.</p>
       <div class="pain">
         <div><b>1</b><span>Не получается зарегистрироваться или пройти верификацию по телефону</span></div>
@@ -379,7 +421,7 @@ footer a{color:var(--ink)}
   <div class="wrap two">
     <div>
       <span class="tag">О мастер-классе</span>
-      <h2>Что разберём на эфире</h2>
+      <h2>Что разберём <em>на эфире</em></h2>
       <ul class="ilist">
         <li><svg><use href="#i-spark"/></svg><span>Новый подход к работе с Claude, про который ещё не говорят. Как делегировать всю рутину и почему это не могут делать другие ИИ</span></li>
         <li><svg><use href="#i-trend"/></svg><span>Новые кейсы, где Claude действительно ускоряет работу и приносит деньги</span></li>
@@ -404,7 +446,7 @@ footer a{color:var(--ink)}
 <section class="dark glow-r" id="program">
   <div class="wrap">
     <span class="tag">Программа мастер-класса</span>
-    <h2>Что вы узнаете на эфире</h2>
+    <h2>Что вы <em>узнаете</em> и получите</h2>
     <p class="lead">Без программирования и сложных настроек. Всё показываем на реальных задачах</p>
     <div class="cards3">
       <div class="lesson"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l01.webp" alt="" loading="lazy"></div><small>Блок 1</small><h3>Новый подход к Claude</h3><p>Подход к работе с Claude, про который ещё не говорят.</p></div>
@@ -422,27 +464,13 @@ footer a{color:var(--ink)}
 </section>
 
 <!-- VIDEO -->
-<section>
-  <div class="wrap">
-    <span class="tag">Результат</span>
-    <h2>Что вы получите после мастер-класса</h2>
-    <p class="lead">Поймёте, как работать с Claude так, чтобы он делал за вас целые задачи, а не только писал тексты</p>
-    <div class="cards2">
-      <div class="wcard"><svg><use href="#i-bolt"/></svg><h3>Рутина на автомате</h3><p>Узнаете, какие задачи отдавать Claude целиком и как это делать.</p></div>
-      <div class="wcard"><svg><use href="#i-trend"/></svg><h3>Кейсы, которые приносят деньги</h3><p>Увидите, где Claude ускоряет работу и помогает зарабатывать.</p></div>
-      <div class="wcard"><svg><use href="#i-cursor"/></svg><h3>Свои первые результаты</h3><p>Повторите за Павлом и соберёте видео, сайт, карусель или исследование под свою задачу.</p></div>
-      <div class="wcard"><svg><use href="#i-target"/></svg><h3>Доступ без блокировок</h3><p>Разберётесь с регистрацией и верификацией и сохраните свои данные.</p></div>
-      <div class="wcard accent" style="grid-column:1/-1"><svg><use href="#i-star"/></svg><h3>Специальное предложение для участников эфира</h3><p>Только для тех, кто будет на мастер-классе онлайн.</p></div>
-    </div>
-  </div>
-</section>
 
 <!-- MANIFESTO -->
 <section class="dark glow-l">
   <div class="wrap mani">
     <div>
       <span class="tag">Почему Claude</span>
-      <h2>ИИ для текстов уже не даёт преимущества</h2>
+      <h2>ИИ для текстов <em>уже не</em> преимущество</h2>
       <p>Большинство используют нейросети как собеседника: спросили, скопировали ответ, доделали руками. С Claude можно работать по-другому: отдавать задачу целиком и получать <b>готовый результат</b>: документ, сайт, исследование, презентацию.</p>
       <p><b>На эфире Павел покажет новый подход к работе с Claude, про который ещё не говорят,</b> и объяснит, почему другие ИИ так пока не умеют.</p>
     </div>
@@ -454,7 +482,7 @@ footer a{color:var(--ink)}
 <section style="background:#fff">
   <div class="wrap">
     <span class="tag">Прямой эфир</span>
-    <h2>Создадим в прямом эфире</h2>
+    <h2>Создадим <em>в прямом эфире</em></h2>
     <p class="lead">Пять рабочих результатов на глазах у зрителей. Без программирования</p>
     <div class="cards3"><div class="wcard"><svg><use href="#i-flow"/></svg><h3>Видео</h3><p>Соберём ролик от сценария до готового результата.</p></div><div class="wcard"><svg><use href="#i-laptop"/></svg><h3>Сайт</h3><p>Сделаем работающую страницу без программиста и конструктора.</p></div><div class="wcard"><svg><use href="#i-target"/></svg><h3>Исследование конкурентов</h3><p>Claude соберёт и разложит по полочкам, что делают конкуренты.</p></div><div class="wcard"><svg><use href="#i-pen"/></svg><h3>Карусель</h3><p>Подготовим карусель для соцсетей: тексты и оформление.</p></div><div class="wcard"><svg><use href="#i-trend"/></svg><h3>Воронку</h3><p>Выстроим воронку продаж: от первого касания до заявки.</p></div><div class="wcard accent"><svg><use href="#i-star"/></svg><h3>Повторите на своих задачах</h3><p>Покажем всё по шагам, чтобы вы могли сделать так же после эфира.</p></div></div>
   </div>
@@ -462,8 +490,8 @@ footer a{color:var(--ink)}
 
 <section style="background:var(--linen)">
   <div class="wrap">
-    <span class="tag" style="background:#fff">Для кого</span>
-    <h2>Мастер-класс будет особенно полезен</h2>
+    <span class="tag">Для кого</span>
+    <h2>Кому <em>особенно</em> полезно</h2>
     <p class="lead">Если вы хотите освоить Claude с нуля и применять его в своём деле</p>
     <div class="cards3">
       <div class="wcard"><svg><use href="#i-brief"/></svg><h3>Предпринимателям</h3><p>Отдать Claude рутину, исследования и подготовку материалов.</p></div>
@@ -513,7 +541,7 @@ footer a{color:var(--ink)}
   <div class="wrap cert">
     <div>
       <span class="tag">Сертификат</span>
-      <h2>Именной сертификат о прохождении</h2>
+      <h2>Именной <em>сертификат</em></h2>
       <p class="lead" style="margin-bottom:0">Выдаётся всем участникам, кто пройдёт мастер-класс до конца.</p>
     </div>
     <div class="cert-img"><img src="https://iiuniversitet.ru/img/40507549_1280_q90.webp" alt="Именной сертификат о прохождении мастер-класса" loading="lazy"></div>
@@ -523,8 +551,8 @@ footer a{color:var(--ink)}
 <!-- TARIFFS -->
 <section style="background:var(--linen)" id="tariffs">
   <div class="wrap">
-    <span class="tag" style="background:#fff">Тарифы</span>
-    <h2>Выберите подходящий тариф</h2>
+    <span class="tag">Тарифы</span>
+    <h2>Выберите <em>формат</em> участия</h2>
     <p class="lead">Участие в эфире бесплатное. Запись мастер-класса доступна в тарифе ВИП.</p>
     <div class="tariffs">
       <div class="tariff">
@@ -568,7 +596,7 @@ footer a{color:var(--ink)}
     <polyline fill="none" stroke="url(#gl)" stroke-width="2.5" points="0,250 60,262 120,236 180,258 240,240 300,266 360,232 420,256 480,238 540,260 600,226 660,248 720,214 780,232 840,188 900,206 960,150 1020,168 1080,112 1140,128 1200,70 1260,88 1320,30 1380,44 1440,0"/>
   </svg>
   <div class="wrap">
-    <h2>Освойте Claude за один вечер</h2>
+    <h2>Освойте Claude <em>за один вечер</em></h2>
     <p>12 ноября в 12:00 по Москве. Участие бесплатное, бонусы придут сразу после регистрации.</p>
     <a class="btn y" href="#tariffs">Участвовать и получить гайд</a>
   </div>
