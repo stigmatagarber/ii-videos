@@ -73,7 +73,7 @@ header .btn{padding:10px 20px;font-size:14px}
 
 /* hero */
 .hero{padding:0;min-height:600px;display:flex;align-items:stretch}
-.hero-photo{position:absolute;inset:0 0 0 auto;width:58%;background:url("pavel-hud.jpg") 50% 40%/cover no-repeat;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 38%);mask-image:linear-gradient(90deg,transparent 0,#000 38%)}
+.hero-photo{position:absolute;inset:0 0 0 auto;width:58%;background:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 38%);mask-image:linear-gradient(90deg,transparent 0,#000 38%)}
 .hero .wrap{display:flex;flex-direction:column;justify-content:center;padding-top:72px;padding-bottom:0;width:100%}
 .hero-text{max-width:560px}
 .hero h1{margin-bottom:20px}
@@ -308,15 +308,15 @@ section[style*="background:#fff"]{background:var(--soft)!important}
 .hero.dark{background:var(--bg2)}
 .glow-l::before,.glow-r::before{display:none}
 .hero{min-height:640px}
-.hero-photo{inset:0 4% 0 auto;width:46%;background:url("https://iiuniversitet.online/kurs/claude2/img/hero.jpg") 50% 100%/contain no-repeat;-webkit-mask-image:linear-gradient(180deg,#000 85%,transparent);mask-image:linear-gradient(180deg,#000 85%,transparent)}
+.hero-photo{inset:20px 4% 110px auto;width:46%;background:url("pavel-laptop.jpg") 50% 100%/contain no-repeat;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent),linear-gradient(180deg,transparent,#000 6%,#000 85%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent),linear-gradient(180deg,transparent,#000 6%,#000 85%,transparent);mask-composite:intersect}
 .pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:500;margin-bottom:22px;box-shadow:0 0 0 1px var(--line)}
 .pill i{width:8px;height:8px;border-radius:50%;background:#7bb36a;box-shadow:0 0 0 3px rgba(123,179,106,.2)}
 .h-strong{font-size:clamp(22px,2.2vw,28px);font-weight:700;line-height:1.2;letter-spacing:-.01em;margin:18px 0 10px;max-width:480px}
 .hero p.sub{font-size:17px;color:#4a4744}
 .note{position:absolute;font-family:Caveat,cursive;font-size:26px;color:var(--ink);white-space:nowrap;display:flex;align-items:flex-end;gap:2px}
 .note svg{width:54px;height:28px;fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round}
-.note.n1{left:-4%;top:14%;transform:rotate(-6deg);flex-direction:column;align-items:flex-start}
-.note.n2{right:-2%;top:9%;transform:rotate(5deg);flex-direction:column;align-items:flex-end}
+.note.n1{left:1%;top:24%;transform:rotate(-6deg);flex-direction:column;align-items:flex-start}
+.note.n2{right:1%;top:6%;transform:rotate(5deg);flex-direction:column;align-items:flex-end}
 .lesson,.wcard,.pain div,.tariff{border-radius:22px}
 .lesson,.pain div{background:#fff}
 .mani .art{display:none}.mani{grid-template-columns:1fr}
