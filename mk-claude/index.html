@@ -1,637 +1,1029 @@
 <!doctype html>
-<html lang="ru">
-<head>
+<html lang="ru"><head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Мастер-класс «Claude за вечер: с нуля, без программирования и блокировок»</title>
-<meta name="description" content="12 ноября в 12:00 по Москве. Как стать ТОП-1% специалистом с самым передовым ИИ человечества: новый подход к Claude, кейсы, создание видео, сайта, исследования и воронки в прямом эфире.">
-<meta property="og:title" content="Мастер-класс «Claude за вечер: с нуля, без программирования и блокировок»">
-<meta property="og:description" content="12 ноября в 12:00 по Москве. Как стать ТОП-1% специалистом с самым передовым ИИ человечества: новый подход к Claude, кейсы, создание видео, сайта, исследования и воронки в прямом эфире.">
-<meta name="theme-color" content="#14120f">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Мастер-класс «Claude за вечер: с нуля, без программирования и блокировок» | iiuniversitet.ru</title>
+<meta name="description" content="12 ноября в 12:00 по Москве. Бесплатный мастер-класс Павла Лебедева: как стать ТОП-1% специалистом с Claude. Видео, сайт, исследование конкурентов, карусель и воронка в прямом эфире.">
+<meta property="og:title" content="Мастер-класс «Claude за вечер»">
+<meta property="og:description" content="12 ноября в 12:00 по Москве. С нуля, без программирования и блокировок.">
+<link rel="icon" type="image/png" href="img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Montserrat:wght@600;700&family=Onest:wght@400;500;600;700&family=Oranienbaum&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oranienbaum&amp;family=Playfair+Display:ital,wght@1,400;1,500&amp;family=Onest:wght@400;500;600;700;800&amp;family=Caveat:wght@500;600&amp;display=swap">
 <style>
+/* Страница курса «Claude на максималках», вариант 2 — на дизайн-системе «Журнал» (21.10.2026).
+   Тексты — те же, что на /kurs/claude/ (версия 3 от 20.10.2026). Стиль — образец Павла: журнальная лента.
+   Видео первого экрана переехало в окошко слева внизу (как на raytsystem.ru/launch). */
+/* Дизайн-система «Журнал» — токены.
+   Журнальная лента: холодный светло-серый фон, белые и угольные плитки слоями,
+   узкая антиква капсом в заголовках, курсивное слово-акцент, рукописные пометки со стрелками.
+   Лимонный — только то, на что нажимают, и маркер под главной мыслью.
+   Источник стиля — образец Павла (артефакт 6BL7gx5L119tGdFtoHvU8s), 21.10.2026. */
 :root{
-  --night:#14120f;
-  --night-card:rgba(255,255,255,.055);
-  --night-line:rgba(255,255,255,.09);
-  --ink:#1a1a1a;
-  --muted:#6b6b6b;
-  --paper:#fbfaf7;
-  --linen:#f2ebe3;
-  --sand:#e7dacc;
-  --yellow:#f4ca1a;
-  --yellow-hi:#ffd83d;
-  --amber:rgba(212,160,70,.32);
-  --line:#e8e2d9;
+  /* цвет: фоны слоями */
+  --paper:#EBEDEC;        /* фон страницы, холодный светло-серый */
+  --white:#F8F7F5;        /* белые плитки и секции */
+  --char:#292929;         /* угольные секции */
+  --char-2:#333332;       /* плитки на угольной секции (тарифы) */
+  --sheet:#FBFBF9;        /* лист письма, постер */
+
+  /* цвет: текст и линии */
+  --ink:#171716;          /* основной текст */
+  --mute:#676966;         /* второстепенный текст на светлом, 4.7:1 на --paper */
+  --line:#D3D6D4;         /* тонкие линии и обводки */
+  --on-char:#F3F2EF;      /* текст на угольном */
+  --on-char-mute:#A9AAA6; /* второстепенный текст на угольном, 6.2:1 */
+  --line-on-char:rgba(255,255,255,.14);
+
+  /* цвет: акценты */
+  --lemon:#F6EEA0;        /* кнопки, маркер, цифры на угольном */
+  --lemon-2:#EFE37C;      /* наведение на лимонное */
+  --beige:#B9A385;        /* точки, пунктир, рукописные пометки крупно — цвет пиджака */
+  --beige-ink:#857154;    /* номера уроков и мелкие акценты текстом на светлом: 4.0:1, только от 19px */
+  --ok:#5BA36B;           /* точка «идёт набор» в бейдже */
+
+  /* шрифты */
+  --f-display:"Oranienbaum","Playfair Display",Georgia,serif;   /* заголовки капсом */
+  --f-accent:"Playfair Display",Georgia,serif;                  /* курсивное слово-акцент, номера */
+  --f-body:"Onest","Segoe UI",Arial,sans-serif;                 /* текст, кнопки, цифры цен */
+  --f-hand:"Caveat","Segoe Print",cursive;                      /* рукописные пометки */
+  --fonts-url:"https://fonts.googleapis.com/css2?family=Oranienbaum&family=Playfair+Display:ital,wght@1,400;1,500&family=Onest:wght@400;500;600;700;800&family=Caveat:wght@500;600&display=swap";
+
+  /* шкала текста */
+  --fs-disp:clamp(66px,10.4vw,140px);   /* название курса на первом экране */
+  --fs-h2:clamp(38px,5.6vw,72px);       /* заголовок секции */
+  --fs-h2-s:clamp(34px,4.4vw,56px);     /* заголовок в две колонки */
+  --fs-h1:clamp(23px,2.35vw,31px);      /* подзаголовок первого экрана, Onest 700 */
+  --fs-lead:clamp(18px,1.6vw,21px);
+  --fs-body:17px;
+  --fs-card:15.5px;                     /* текст в карточках */
+  --fs-small:14px;
+  --fs-eyebrow:13px;                    /* надзаголовок капсом, разрядка .14em */
+
+  /* сетка и отступы */
+  --wrap:1180px;
+  --gut:clamp(16px,4vw,40px);
+  --sec:clamp(64px,9vw,120px);          /* отступ секции сверху и снизу */
+  --gap:16px;                           /* между плитками */
+  --gap-col:clamp(28px,5vw,72px);       /* между колонками */
+
+  /* скругления */
+  --r:22px;                             /* плитки, окна, фото */
+  --r-s:14px;                           /* вложенные блоки */
+  --r-paper:4px;                        /* лист и постер — почти прямые */
+  --r-pill:999px;                       /* кнопки, бейджи, поля */
+
+  /* тени */
+  --sh-btn:0 1px 0 rgba(0,0,0,.08),0 10px 24px -12px rgba(120,110,20,.55);
+  --sh-win:0 30px 60px -36px rgba(0,0,0,.35),0 0 0 1px rgba(0,0,0,.05);
+  --sh-paper:0 30px 50px -34px rgba(0,0,0,.45);
+  --sh-pop:0 24px 48px -18px rgba(0,0,0,.45);
+
+  /* высоты */
+  --h-btn:56px;
+  --h-btn-s:44px;
+  --h-top:68px;
+  color-scheme:light;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Onest,Helvetica,Arial,sans-serif;font-size:17px;line-height:1.55;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
-img,video{display:block;max-width:100%}
+/* Дизайн-система «Журнал» — компоненты. Подключать после tokens.css.
+   Каждый блок — самостоятельный компонент; страница добавляет только раскладку своих секций. */
+
+/* ---------- основа ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--h-top) + 12px);-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 var(--fs-body)/1.55 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:8px}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-h1,h2,h3{font-family:Montserrat,Helvetica,Arial,sans-serif;text-wrap:balance}
-h1{font-size:clamp(42px,6vw,68px);font-weight:700;line-height:.98;letter-spacing:-.035em}
-h2{font-size:clamp(32px,4.2vw,46px);font-weight:600;line-height:1.1;letter-spacing:-.02em;margin-bottom:14px}
-h3{font-size:21px;font-weight:600;line-height:1.25;letter-spacing:-.015em}
-p,li{text-wrap:pretty}
-section{padding:96px 0}
-.lead{font-size:18px;color:var(--muted);max-width:640px;margin-bottom:40px}
-.dark{background:var(--night);color:#fff;position:relative;overflow:hidden}
-.dark .lead{color:rgba(255,255,255,.72)}
-.glow-l::before,.glow-r::before{content:"";position:absolute;width:780px;height:780px;border-radius:50%;background:radial-gradient(closest-side,var(--amber),transparent);pointer-events:none}
-.glow-l::before{left:-360px;top:-120px}
-.glow-r::before{right:-360px;top:-220px}
-.dark>.wrap{position:relative}
-.tag{display:inline-block;background:var(--sand);color:var(--ink);font-size:13px;font-weight:600;border-radius:8px;padding:5px 10px;margin-bottom:18px}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:6px}
+.bg-char :focus-visible{outline-color:var(--lemon)}
+h1,h2,h3,p,figure,blockquote{margin:0}
 
-/* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:600;font-size:16px;text-decoration:none;border-radius:999px;padding:17px 30px;border:1.5px solid transparent;transition:background .2s,border-color .2s,color .2s}
-.btn.y{background:var(--yellow);color:var(--ink)}
-.btn.y:hover{background:var(--yellow-hi)}
-.btn.o{border-color:rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.04)}
-.btn.o:hover{border-color:#fff}
-.btn.k{background:var(--ink);color:#fff}
-.btn.k:hover{background:#333}
-.btn.w{background:#fff;color:var(--ink);border-color:var(--line)}
-.btn.w:hover{border-color:var(--ink)}
+/* ---------- сетка и фоны секций ---------- */
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:max(var(--gut),env(safe-area-inset-left,0px)) max(var(--gut),env(safe-area-inset-right,0px))}
+.sec{padding-block:var(--sec)}
+.bg-white{background:var(--white)}
+.bg-char{background:var(--char);color:var(--on-char)}
+.bg-char .mute{color:var(--on-char-mute)}
+.cols{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--gap-col);align-items:center}
+.cols>*{min-width:0}
+.cols--top{align-items:start}
+@media (max-width:860px){.cols{grid-template-columns:1fr}}
+.grid-2,.grid-3,.grid-4{display:grid;gap:var(--gap)}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1000px){.grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.grid-2{grid-template-columns:1fr}}
+@media (max-width:560px){.grid-3,.grid-4{grid-template-columns:1fr}}
 
-/* header */
-header{position:sticky;top:0;z-index:40;background:rgba(251,250,247,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:68px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-.brand img{height:34px;width:auto}
-.brand b{display:block;font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;line-height:1.1;letter-spacing:-.01em}
-.brand small{display:block;font-size:11px;color:var(--muted);line-height:1.2}
-nav{display:flex;gap:26px;font-size:15px;color:var(--muted)}
-nav a{text-decoration:none}
-nav a:hover{color:var(--ink)}
-header .btn{padding:10px 20px;font-size:14px}
+/* ---------- типографика ---------- */
+.eyebrow{font:600 var(--fs-eyebrow)/1.3 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.bg-char .eyebrow{color:var(--on-char-mute)}
+.h2{font-family:var(--f-display);font-weight:400;text-transform:uppercase;font-size:var(--fs-h2);line-height:.98;letter-spacing:-.005em;margin:0 0 22px;text-wrap:balance}
+.h2--s{font-size:var(--fs-h2-s)}
+.h2 em,.disp em{font-family:var(--f-accent);font-style:italic;font-weight:400;text-transform:none;letter-spacing:-.01em}
+.bg-char .h2 em{color:var(--lemon)}
+.lead{font-size:var(--fs-lead);line-height:1.5;max-width:62ch}
+.mute{color:var(--mute)}
+.hand{font-family:var(--f-hand);font-weight:500;line-height:1.05}
+.mark{background:linear-gradient(transparent 52%,var(--lemon) 52%,var(--lemon) 92%,transparent 92%);padding:0 .1em}
+.head{margin-bottom:clamp(36px,5vw,56px)}
+.head .lead{margin-top:6px}
+.note{font-size:var(--fs-small);color:var(--mute)}
+.bg-char .note{color:var(--on-char-mute)}
+.note a,.lead a{text-underline-offset:3px}
+.nowrap{white-space:nowrap}
 
-/* hero */
-.hero{padding:0;min-height:600px;display:flex;align-items:stretch}
-.hero-photo{position:absolute;inset:0 0 0 auto;width:58%;background:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 38%);mask-image:linear-gradient(90deg,transparent 0,#000 38%)}
-.hero .wrap{display:flex;flex-direction:column;justify-content:center;padding-top:72px;padding-bottom:0;width:100%}
-.hero-text{max-width:560px}
-.hero h1{margin-bottom:20px}
-.hero p.sub{font-size:19px;color:rgba(255,255,255,.78);margin-bottom:32px;max-width:500px}
-.btns{display:flex;flex-wrap:wrap;gap:12px}
-.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px;padding:26px 0 30px;border-top:1px solid var(--night-line)}
-.fact{display:flex;gap:12px;align-items:flex-start}
-.fact svg{flex:0 0 22px;width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.8;margin-top:2px}
-.fact b{display:block;font-family:Montserrat,sans-serif;font-weight:600;font-size:16px}
-.fact span{font-size:14px;color:rgba(255,255,255,.62)}
+/* ---------- кнопки ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:var(--h-btn);padding:0 30px;border-radius:var(--r-pill);font:700 17px/1 var(--f-body);text-decoration:none;border:0;cursor:pointer;transition:transform .15s ease,background .15s ease,box-shadow .15s ease;white-space:nowrap;color:inherit;background:none}
+.btn-lemon{background:var(--lemon);color:var(--ink);box-shadow:var(--sh-btn)}
+.btn-lemon:hover{background:var(--lemon-2);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+.btn-ghost:hover{background:rgba(0,0,0,.05)}
+.bg-char .btn-ghost:hover{background:rgba(255,255,255,.08)}
+.btn-dark{background:var(--ink);color:var(--white)}
+.btn-dark:hover{background:#000}
+.btn-sm{min-height:var(--h-btn-s);padding:0 20px;font-size:15px}
+.btn-full{width:100%}
+.btn .arr{font-family:var(--f-accent);font-style:italic;font-size:20px;margin-top:-2px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+@media (max-width:520px){.ctas--stack .btn{width:100%}}
 
-/* show + bonus */
-.two{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.ilist{list-style:none}
-.ilist li{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--line)}
-.ilist li:first-child{border-top:0}
-.ilist svg{flex:0 0 22px;width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:1.8;margin-top:1px}
-.dark .ilist li{border-color:var(--night-line)}
-.dark .ilist svg{stroke:#fff}
-.bonus-card{background:#fff;border-radius:22px;box-shadow:0 30px 60px -28px rgba(40,30,15,.28),0 0 0 1px var(--line);overflow:hidden}
-.bonus-card .top{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;font-weight:600;font-family:Montserrat,sans-serif;font-size:15px}
-.bonus-card .top span{font-family:Onest,sans-serif;font-weight:500;font-size:13px;color:var(--muted)}
-.bonus-card .body{background:var(--night);color:#fff;padding:22px;display:grid;gap:10px}
-.gift{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.06);border:1px solid var(--night-line);border-radius:14px;padding:14px 16px}
-.gift img{width:56px;height:56px;object-fit:contain;flex:0 0 56px}
-.gift b{display:block;font-weight:600}
-.gift span{font-size:14px;color:rgba(255,255,255,.6)}
-.bonus-card .bottom{padding:16px 22px;font-size:14px;color:var(--muted)}
+/* ---------- бейдж, чипы, отметки ---------- */
+.badge{display:inline-flex;align-items:center;gap:10px;background:var(--white);border-radius:var(--r-pill);padding:8px 16px 8px 10px;font-size:14px;font-weight:500;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(91,163,107,.18)}
+.chip{display:inline-block;font:700 11.5px/1 var(--f-body);letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;border-radius:var(--r-pill);white-space:nowrap;background:var(--paper);color:var(--ink)}
+.chip--lemon{background:var(--lemon)}
+.chip--ink{background:var(--ink);color:var(--white)}
+.tags{display:flex;flex-wrap:wrap;gap:6px 8px;margin:0;padding:0;list-style:none}
+.tags li{padding:6px 12px;border-radius:var(--r-pill);box-shadow:inset 0 0 0 1.5px var(--line);font-size:14px;line-height:1.2;white-space:nowrap}
+.checks{display:grid;gap:10px 22px;margin:0;padding:0;list-style:none}
+.checks li{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.35;font-weight:500}
+.checks li::before{content:"";flex:none;width:18px;height:18px;margin-top:1px;border-radius:50%;background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.3l2.6 2.5L13 6.4' fill='none' stroke='%23F6EEA0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat}
+.dashes{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.dashes li{display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:var(--fs-card);line-height:1.45}
+.dashes li::before{content:"";width:16px;height:2px;background:var(--ink);margin-top:11px}
+.bg-char .dashes li::before{background:var(--lemon)}
 
-/* program cards */
-.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.lesson{background:var(--night-card);border:1px solid var(--night-line);border-radius:20px;padding:24px;display:flex;flex-direction:column}
-.lesson .art{height:170px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.lesson .art img{max-height:170px;width:auto;object-fit:contain}
-.lesson small{font-size:12px;color:rgba(255,255,255,.5);margin-bottom:6px}
-.lesson h3{margin-bottom:8px}
-.lesson p{font-size:15px;color:rgba(255,255,255,.66)}
-.nets{margin-top:56px;padding:28px;border:1px solid var(--night-line);border-radius:20px;background:var(--night-card)}
-.nets h3{margin-bottom:16px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:8px 16px;font-size:15px}
-.cta-line{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;margin-top:40px}
-.cta-line p{color:rgba(255,255,255,.7);max-width:560px}
+/* ---------- шапка ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(235,237,236,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:var(--h-top)}
+.logo{display:flex;align-items:baseline;gap:10px;text-decoration:none;min-width:0}
+.logo b{font:800 19px/1 var(--f-body);letter-spacing:-.02em}
+.logo span{font-size:13px;color:var(--mute);white-space:nowrap}
+.nav{display:flex;gap:26px;font-size:15px;font-weight:500}
+.nav a{text-decoration:none;opacity:.8}
+.nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.top .btn{min-height:var(--h-btn-s);padding:0 20px;font-size:15px}
+@media (max-width:900px){.nav{display:none}.logo span{display:none}}
+@media (max-width:420px){.top .btn{padding:0 16px;font-size:14px}}
 
-/* video */
-.video-box{display:grid;grid-template-columns:1.3fr 1fr;gap:44px;align-items:center}
-#video h2{font-size:clamp(26px,2.6vw,34px);margin-bottom:12px}
-#video p{margin-bottom:0}
-.player{border-radius:22px;overflow:hidden;background:#000;aspect-ratio:16/9;box-shadow:0 30px 60px -30px rgba(40,30,15,.45)}
-.player video{width:100%;height:100%;object-fit:cover}
-.vmeta{display:flex;gap:28px;margin:18px 0 24px}
-.vmeta b{display:block;font-family:Montserrat,sans-serif;font-weight:700;font-size:26px;line-height:1.15;letter-spacing:-.02em}
-.vmeta span{display:block;font-size:14px;line-height:1.35;color:var(--muted)}
+/* ---------- заглавие: название крупной антиквой, курсивная строка под ним ---------- */
+.disp{font-family:var(--f-display);text-transform:uppercase;font-weight:400;font-size:var(--fs-disp);line-height:.86;letter-spacing:-.01em}
+.disp em{display:block;font-size:.5em;line-height:1.05;margin-top:.06em;white-space:nowrap}
+@media (max-width:520px){.disp{font-size:clamp(60px,19vw,86px)}}
 
-/* white cards */
-.cards2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.wcard{background:#fff;border-radius:18px;padding:26px;box-shadow:0 0 0 1px var(--line)}
-.wcard svg{width:24px;height:24px;stroke:var(--ink);fill:none;stroke-width:1.8;margin-bottom:14px}
-.wcard h3{font-size:19px;margin-bottom:8px}
-.wcard p{font-size:15px;color:var(--muted)}
-.wcard.accent{background:var(--night);color:#fff;box-shadow:none}
-.wcard.accent svg{stroke:var(--yellow)}
-.wcard.accent p{color:rgba(255,255,255,.7)}
+/* ---------- рукописная пометка со стрелкой ---------- */
+.sticker{position:absolute;z-index:3}
+.sticker .hand{font-size:clamp(22px,2.1vw,27px);display:block}
+.sticker svg{display:block;overflow:visible;color:var(--ink)}
+.price-tag{position:absolute;z-index:4;background:var(--lemon);border-radius:var(--r-pill);padding:12px 20px;font-weight:700;font-size:15px;transform:rotate(-4deg);box-shadow:0 12px 26px -14px rgba(0,0,0,.4);white-space:nowrap}
 
-/* speed */
-.speed{border-radius:20px;overflow:hidden;box-shadow:0 0 0 1px var(--line);background:#fff}
-.srow{display:grid;grid-template-columns:1fr 110px 100px 170px;column-gap:20px;align-items:center;padding:16px 24px;border-top:1px solid var(--line)}
-.srow:first-child{border-top:0;background:var(--linen);font-size:13px;font-weight:600;color:var(--muted)}
-.srow:first-child span:nth-child(3){grid-column:3/5}
-.srow .m{color:var(--muted);white-space:nowrap}
-.srow .a{font-weight:600;white-space:nowrap}
-.srow .x{justify-self:start;background:var(--yellow);border-radius:999px;padding:3px 12px;font-size:13px;font-weight:600;white-space:nowrap}
-.note{font-size:13px;color:var(--muted);margin-top:14px}
+/* ---------- телефон ---------- */
+.phone{position:relative;margin:0 auto;width:min(54%,290px);aspect-ratio:9/18.6;border-radius:46px;background:#111;padding:9px;box-shadow:0 40px 60px -30px rgba(0,0,0,.45),0 0 0 1px rgba(0,0,0,.2);transform:rotate(2.5deg)}
+.phone .scr{position:relative;width:100%;height:100%;border-radius:38px;overflow:hidden;background:var(--white)}
+.phone .isl{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:84px;height:24px;border-radius:20px;background:#0c0c0c;z-index:2}
+.phone .rec{position:absolute;left:14px;bottom:16px;right:14px;z-index:2;display:flex;align-items:center;gap:8px;background:rgba(248,247,245,.94);border-radius:16px;padding:10px 12px;font-size:12.5px;line-height:1.25;font-weight:600;box-shadow:0 6px 18px -10px rgba(0,0,0,.4)}
+.phone .rec b{display:block;font-weight:500;color:var(--mute);font-size:11.5px}
+.phone .rec i{flex:none;width:30px;height:30px;border-radius:50%;background:var(--lemon);display:grid;place-items:center;font-style:normal;font-size:12px}
 
-/* manifesto */
-.mani{display:grid;grid-template-columns:1fr 280px;gap:56px;align-items:center}
-.mani p{font-size:18px;color:rgba(255,255,255,.78);margin-bottom:16px;max-width:640px}
-.mani b{color:#fff}
-.mani .art img{width:100%;height:auto}
+/* ---------- окно чата ---------- */
+.win{background:var(--white);color:var(--ink);border-radius:var(--r);box-shadow:var(--sh-win);overflow:hidden;min-width:0}
+.win-bar{display:flex;align-items:center;gap:7px;padding:14px 18px;border-bottom:1px solid var(--line);font-size:13px;color:var(--mute);font-weight:500}
+.win-bar i{width:11px;height:11px;border-radius:50%;background:#D7D9D7}
+.win-bar span{margin-left:10px}
+.win-body{padding:clamp(18px,2.6vw,30px);display:grid;gap:16px}
+.win-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px clamp(18px,2.6vw,30px);border-top:1px solid var(--line);background:var(--paper)}
+.msg{max-width:88%;border-radius:20px;padding:14px 18px;font-size:16px;line-height:1.5}
+.msg small{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;opacity:.6}
+.msg.me{justify-self:end;background:var(--char);color:var(--on-char);border-bottom-right-radius:6px}
+.msg.ai{background:var(--paper);border-bottom-left-radius:6px}
+.ptext{margin:0;font:400 15.5px/1.55 var(--f-body);background:var(--paper);border-radius:var(--r-s);padding:16px 18px;white-space:pre-wrap;max-height:320px;overflow:auto}
+.copied{font-size:var(--fs-small);color:var(--mute)}
 
-/* speaker */
-.speaker-grid{display:grid;grid-template-columns:420px 1fr;gap:56px;align-items:center}
-.sp-photo{border-radius:22px;overflow:hidden;aspect-ratio:4/5}
-.sp-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
-.sp-text p{color:rgba(255,255,255,.75);margin-bottom:24px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:22px 0;border-top:1px solid var(--night-line);border-bottom:1px solid var(--night-line)}
-.stats b{display:block;font-family:Montserrat,sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em}
-.stats span{font-size:13px;color:rgba(255,255,255,.6);line-height:1.35;display:block}
-.clients{margin-top:22px;font-size:13px;color:rgba(255,255,255,.55)}
-.clients div{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;color:#fff;font-family:Montserrat,sans-serif;font-weight:600;font-size:14px}
-.gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:48px}
-.gallery div{aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#222}
-.gallery img{width:100%;height:100%;object-fit:cover}
+/* ---------- плитки ---------- */
+.card{background:var(--white);border-radius:var(--r);padding:clamp(24px,3vw,36px);min-width:0}
+.bg-white .card{background:var(--paper)}
+.card h3{font:700 22px/1.25 var(--f-body);letter-spacing:-.01em;margin:0 0 12px}
+.card p{margin:0}
+.card p+p{margin-top:10px}
+.card .tagline{font-family:var(--f-hand);font-size:26px;color:var(--beige);margin:0 0 6px;display:block;line-height:1}
+.outline{display:flex;gap:18px;align-items:flex-start;padding:22px clamp(22px,3vw,36px);border-radius:var(--r);box-shadow:inset 0 0 0 1.5px var(--line)}
+.bg-char .outline{box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
+.outline>b{flex:none;font:700 15px/1.5 var(--f-body)}
+.outline p{margin:0}
+@media (max-width:600px){.outline{flex-direction:column;gap:6px}}
 
-/* certificate */
-.cert{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.cert-img{border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -28px rgba(40,30,15,.3)}
-.cert-img img{width:100%;height:auto}
+/* ---------- реплика-плитка (уголок как у сообщения) ---------- */
+.bubble{position:relative;background:var(--paper);border-radius:22px 22px 22px 6px;padding:22px 24px;min-width:0}
+.bg-white .bubble{background:var(--paper)}
+.bubbles>.bubble:nth-child(3n+2){transform:translateY(14px)}
+@media (max-width:900px){.bubbles>.bubble:nth-child(3n+2){transform:none}}
 
-/* tariffs */
-.tariffs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.tariff{background:#fff;border-radius:22px;padding:34px;box-shadow:0 0 0 1px var(--line);display:flex;flex-direction:column}
-.tariff .name{font-family:Montserrat,sans-serif;font-weight:600;font-size:18px;margin-bottom:4px}
-.tariff .price{font-family:Montserrat,sans-serif;font-weight:700;font-size:44px;letter-spacing:-.03em;margin-bottom:22px}
-.tariff ul{list-style:none;flex:1;margin-bottom:28px}
-.tariff li{display:flex;gap:10px;padding:8px 0;font-size:15px}
-.tariff li svg{flex:0 0 18px;width:18px;height:18px;stroke:var(--ink);fill:none;stroke-width:2.2;margin-top:3px}
-.tariff.vip{background:var(--night);color:#fff;box-shadow:none}
-.tariff.vip li svg{stroke:var(--yellow)}
-.tariff .badge{align-self:flex-start;background:var(--yellow);color:var(--ink);font-size:13px;font-weight:600;border-radius:8px;padding:4px 10px;margin-bottom:14px}
+/* ---------- цифры на угольном ---------- */
+.stats{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:1px;background:var(--line-on-char);border-radius:var(--r);overflow:hidden}
+.stat{background:var(--char);padding:clamp(22px,3vw,34px);min-width:0}
+.stat .num{font-family:var(--f-display);font-size:clamp(46px,5.4vw,76px);line-height:.9;color:var(--lemon);text-transform:uppercase;white-space:nowrap}
+.stat p{margin:14px 0 0;font-size:16px;line-height:1.45}
+.stat small{display:block;margin-top:10px;font-size:13px;color:var(--on-char-mute)}
+@media (max-width:1000px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.stats{grid-template-columns:1fr}}
 
-/* reviews */
-.shots{columns:3 260px;column-gap:16px}
-.shots img{width:100%;break-inside:avoid;margin-bottom:16px;border-radius:16px;box-shadow:0 0 0 1px var(--line);background:#fff}
+/* ---------- постер: лист с перечнем, чуть повёрнут ---------- */
+.poster{position:relative;background:var(--white);padding:clamp(26px,3.4vw,44px);border-radius:6px;box-shadow:var(--sh-paper);transform:rotate(-1.2deg);min-width:0}
+.poster::before{content:"";position:absolute;inset:0;border-radius:6px;background:linear-gradient(115deg,rgba(255,255,255,0) 40%,rgba(0,0,0,.035) 41%,rgba(255,255,255,0) 60%);pointer-events:none}
+.poster .ver{display:inline-block;font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;background:var(--lemon);padding:6px 12px;border-radius:var(--r-pill);margin-bottom:18px}
+.poster ol,.poster ul{list-style:none;padding:0;margin:0;display:grid}
+.poster li{display:grid;grid-template-columns:34px 1fr;gap:10px;padding:14px 0;border-top:1px solid var(--line);font-size:16.5px;line-height:1.45}
+.poster li:first-child{border-top:0}
+.poster li b{font:italic 500 19px/1.3 var(--f-accent);color:var(--beige-ink)}
 
-/* final */
-.final{padding:110px 0 120px}
-.final h2{max-width:560px}
-.final p{color:rgba(255,255,255,.72);max-width:520px;margin-bottom:30px}
-.final svg.chart{position:absolute;left:0;right:0;bottom:0;width:100%;height:46%;pointer-events:none}
+/* ---------- результат-документ ---------- */
+.out{background:var(--white);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.bg-white .out{background:var(--paper)}
+.out .ico{width:54px;height:66px;border-radius:6px;background:var(--paper);position:relative;box-shadow:inset 0 0 0 1.5px var(--line)}
+.bg-white .out .ico{background:var(--white)}
+.out .ico::before,.out .ico::after{content:"";position:absolute;left:10px;right:10px;height:3px;border-radius:2px;background:var(--line)}
+.out .ico::before{top:16px;box-shadow:0 9px 0 var(--line),0 18px 0 var(--line)}
+.out .ico::after{bottom:12px;right:22px;background:var(--lemon);height:8px}
+.out h3{font:700 19px/1.3 var(--f-body);margin:6px 0 0}
+.out p{margin:0;font-size:var(--fs-card);color:var(--mute)}
 
-/* footer */
-footer{background:#0f0e0c;color:rgba(255,255,255,.6);padding:56px 0 34px;font-size:14px}
-.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
-.flogo{margin-bottom:16px}
-.flogo b{color:#fff}
-.flogo small{color:rgba(255,255,255,.5)}
-footer h4{font-family:Montserrat,sans-serif;font-weight:600;font-size:15px;color:#fff;margin-bottom:14px}
-footer ul{list-style:none}
-footer li{margin-bottom:10px}
-footer a{text-decoration:none;color:rgba(255,255,255,.85)}
-footer a:hover{color:var(--yellow)}
-footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
-.fbottom{margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:12px;line-height:1.8;color:rgba(255,255,255,.4)}
+/* ---------- уроки: номер курсивом, линия сверху ---------- */
+.prog{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,4vw,56px)}
+@media (max-width:820px){.prog{grid-template-columns:1fr}}
+.lesson{display:grid;grid-template-columns:58px 1fr;gap:14px;padding:22px 0;border-top:1px solid var(--line);min-width:0}
+.lesson .n{font:italic 400 34px/1 var(--f-accent);color:var(--beige-ink)}
+.lesson h3{font:700 18.5px/1.3 var(--f-body);margin:2px 0 6px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lesson p{margin:0;font-size:var(--fs-card);color:var(--mute)}
+.lesson--bonus .n{font-family:var(--f-display);font-style:normal}
 
-@media (prefers-reduced-motion:no-preference){
-  .hero-text{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
-  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-}
-@media (max-width:960px){
-  section{padding:68px 0}
-  nav{display:none}
-  .hero{display:block;min-height:0}
-  .hero-photo{position:relative;width:100%;height:340px;-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent);mask-image:linear-gradient(180deg,#000 55%,transparent)}
-  .hero .wrap{padding-top:0}
-  .facts{grid-template-columns:1fr 1fr;margin-top:44px}
-  .two,.video-box,.cards2,.mani,.speaker-grid,.cert,.tariffs,.fgrid{grid-template-columns:1fr}
-  .cards3{grid-template-columns:1fr 1fr}
-  .mani .art{display:none}
-  .stats{grid-template-columns:1fr 1fr}
-  .gallery{grid-template-columns:repeat(3,1fr)}
-  .srow{grid-template-columns:auto 1fr;gap:6px 12px;padding:14px 18px}
-  .srow>span:first-child,.srow .m{grid-column:1/-1}
-  .srow:first-child{display:none}
-  .srow .m::before{content:"Вручную: "}
-  .speaker-grid .sp-photo{max-width:420px}
-}
-@media (max-width:600px){
-  header .btn{display:none}
-  .cards3{grid-template-columns:1fr}
-  .facts{grid-template-columns:1fr}
-  .vmeta{flex-direction:column;gap:12px}
+/* ---------- шаги с номером в кружке ---------- */
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:14px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;font-size:var(--fs-body);counter-increment:s}
+.steps li::before{content:counter(s);width:40px;height:40px;border-radius:50%;box-shadow:inset 0 0 0 1.5px currentColor;display:grid;place-items:center;font:italic 500 18px/1 var(--f-accent)}
+.steps b{display:block;font-weight:700}
+
+/* ---------- остановки пути: плитки по времени ---------- */
+.stop{position:relative;padding:26px 24px 28px;border-radius:var(--r);background:var(--paper);min-width:0}
+.stop .when{font-family:var(--f-display);text-transform:uppercase;font-size:30px;line-height:1;margin-bottom:12px}
+.stop p{margin:0;font-size:16px}
+.stop--dark{background:var(--char);color:var(--on-char)}
+.stop--dark .when{color:var(--lemon)}
+.stop .dot{display:block;width:12px;height:12px;border-radius:50%;background:var(--beige);margin-bottom:16px}
+
+/* ---------- таблица «было — стало» ---------- */
+.big-num{font-family:var(--f-display);font-size:clamp(110px,15vw,200px);line-height:.78;letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ctable{background:var(--white);color:var(--ink);border-radius:var(--r);overflow:hidden}
+.crow{display:grid;grid-template-columns:1.25fr 1.6fr .75fr .85fr;gap:16px;padding:18px 26px;border-top:1px solid var(--line);align-items:center;min-width:0}
+.crow:first-child{border-top:0;font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);padding-block:16px}
+.crow .who{font-weight:600;line-height:1.35}
+.crow .task{font-size:var(--fs-card);color:var(--mute);line-height:1.4}
+.crow .was{color:var(--mute);text-decoration:line-through;text-decoration-color:rgba(0,0,0,.35);font-variant-numeric:tabular-nums}
+.crow .now{font-family:var(--f-display);font-size:26px;line-height:1.05;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.crow .now span{background:var(--lemon);padding:2px 8px 0;border-radius:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+@media (max-width:760px){
+  .crow:first-child{display:none}
+  .crow{grid-template-columns:1fr auto;grid-template-areas:"who who" "task task" "was now";gap:8px 14px;padding:20px}
+  .crow .who{grid-area:who}.crow .task{grid-area:task}.crow .was{grid-area:was;align-self:center}.crow .now{grid-area:now;justify-self:end;text-align:right}
 }
 
-/* ===== light iiuniversitet style ===== */
-.dark{background:var(--linen);color:var(--ink)}
-.dark .lead{color:var(--muted)}
-.glow-l::before,.glow-r::before{background:radial-gradient(closest-side,rgba(244,202,26,.18),transparent)}
-.hero.dark{background:linear-gradient(180deg,#fbfaf7 0%,#f2ebe3 100%)}
-.hero p.sub{color:#4a4744}
-.hero-photo{background-image:url("https://iiuniversitet.online/img/hero/work-8.jpg");background-position:50% 30%}
-.btn.o{border-color:var(--ink);color:var(--ink);background:transparent}
-.btn.o:hover{background:var(--ink);color:#fff}
-.fact svg{stroke:var(--ink)}
-.fact span{color:var(--muted)}
-.dark .ilist li{border-color:var(--line)}
-.dark .ilist svg{stroke:var(--ink)}
-.lesson{background:#fff;border-color:var(--line)}
-.lesson small{color:var(--muted)}
-.lesson p{color:#4a4744}
-.chip{border-color:var(--line)}
-.cta-line p{color:#4a4744}
-.mani p{color:#3d3a36}
-.mani b{color:var(--ink)}
-.sp-text p{color:#3d3a36}
-.stats span{color:var(--muted)}
-.clients{color:var(--muted)}
-.clients div{color:var(--ink)}
-.final p{color:#4a4744}
-.final.dark{background:#fff6cf}
-footer{background:var(--linen);color:var(--muted);border-top:1px solid var(--line)}
-.flogo b,footer h4{color:var(--ink)}
-.flogo small,footer li span{color:var(--muted)}
-footer a{color:var(--ink)}
-/* access block */
-.access{background:#fff}
-.access .two{align-items:start}
-.pain{display:grid;gap:12px;margin:26px 0 0}
-.pain div{display:flex;gap:14px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
-.pain b{flex:0 0 32px;height:32px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-family:Montserrat,sans-serif;font-size:14px}
-.pain span{font-size:16px;line-height:1.45}
-.guide{background:var(--night);color:#fff;border-radius:24px;padding:32px;position:relative;overflow:hidden}
-.guide::before{content:"";position:absolute;right:-120px;top:-120px;width:320px;height:320px;border-radius:50%;background:radial-gradient(closest-side,rgba(244,202,26,.35),transparent)}
-.guide>*{position:relative}
-.guide .tag{background:var(--yellow)}
-.guide h3{font-size:28px;line-height:1.15;margin:4px 0 12px}
-.guide p{color:rgba(255,255,255,.75);margin-bottom:18px}
-.guide ul{list-style:none;display:grid;gap:10px;margin-bottom:26px}
-.guide li{display:flex;gap:10px;font-size:16px}
-.guide li svg{flex:0 0 20px;width:20px;height:20px;stroke:var(--yellow);fill:none;stroke-width:2.2;margin-top:2px}
-.guide .btn{width:100%}
-.guide small{display:block;text-align:center;margin-top:12px;color:rgba(255,255,255,.55);font-size:13px}
-@media(max-width:900px){.guide{padding:24px}.guide h3{font-size:24px}}
+/* ---------- цитата ---------- */
+.quiet{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start;padding:26px clamp(22px,3vw,36px);border-radius:var(--r);box-shadow:inset 0 0 0 1.5px var(--line)}
+.quiet .q{font:italic 400 72px/1 var(--f-accent);color:var(--beige);margin-top:-8px}
+.quiet blockquote{margin:0 0 8px;font:italic 400 clamp(20px,2vw,24px)/1.4 var(--f-accent)}
+.quiet p{margin:0;font-size:var(--fs-card)}
+@media (max-width:560px){.quiet{grid-template-columns:1fr;gap:4px}}
 
-/* ===== claude2 style ===== */
-:root{--bg2:#ebedec;--soft:#f8f7f5;--btnY:#f6eea0;--beige:#a8865a}
-body{background:var(--bg2)}
-h1,h2{font-family:Oranienbaum,"Playfair Display",Georgia,serif;font-weight:400;text-transform:uppercase;letter-spacing:-.01em;line-height:.95}
-h1{font-size:clamp(64px,8.4vw,112px)}
-h2{font-size:clamp(38px,5vw,64px);margin-bottom:18px}
-h1 em,h2 em{font-family:"Playfair Display",Georgia,serif;font-style:italic;text-transform:none;letter-spacing:-.02em}
-h1 em{display:block;font-size:.62em;line-height:1.05;margin-top:6px}
-h3{font-family:Onest,"Segoe UI",Arial,sans-serif;font-weight:600;letter-spacing:-.01em}
-.tag,.guide .tag{background:none!important;padding:0;border-radius:0;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
-.guide .tag{color:var(--btnY)}
-.btn{font-weight:700}
-.btn.y{background:var(--btnY)}
-.btn.y:hover{background:#efe48a}
-.dark,.access,.final.dark{background:var(--soft)}
-section[style*="linen"]{background:var(--bg2)!important}
-section[style*="background:#fff"]{background:var(--soft)!important}
-.hero.dark{background:var(--bg2)}
-.glow-l::before,.glow-r::before{display:none}
-.hero{min-height:640px}
-.hero-photo{inset:20px 4% 110px auto;width:46%;background:url("pavel-laptop.jpg") 50% 100%/contain no-repeat;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent),linear-gradient(180deg,transparent,#000 6%,#000 85%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent),linear-gradient(180deg,transparent,#000 6%,#000 85%,transparent);mask-composite:intersect}
-.pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:500;margin-bottom:22px;box-shadow:0 0 0 1px var(--line)}
-.pill i{width:8px;height:8px;border-radius:50%;background:#7bb36a;box-shadow:0 0 0 3px rgba(123,179,106,.2)}
-.h-strong{font-size:clamp(22px,2.2vw,28px);font-weight:700;line-height:1.2;letter-spacing:-.01em;margin:18px 0 10px;max-width:480px}
-.hero p.sub{font-size:17px;color:#4a4744}
-.note{position:absolute;font-family:Caveat,cursive;font-size:26px;color:var(--ink);white-space:nowrap;display:flex;align-items:flex-end;gap:2px}
-.note svg{width:54px;height:28px;fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round}
-.note.n1{left:51%;top:30%;z-index:2;transform:rotate(-6deg);flex-direction:column;align-items:flex-start}
-.note.n2{right:3%;top:14%;z-index:2;transform:rotate(5deg);flex-direction:column;align-items:flex-end}
-.lesson,.wcard,.pain div,.tariff{border-radius:22px}
-.lesson,.pain div{background:#fff}
-.mani .art{display:none}.mani{grid-template-columns:1fr}
-@media(max-width:900px){
-  .hero-photo{position:relative;inset:auto;width:100%;height:420px;margin-top:8px;background-position:50% 100%}
-  .note{font-size:21px}.note.n1{left:3%;top:150px}.note.n2{right:3%;top:90px}
-  h1{font-size:64px}
+/* ---------- лимонный круг с цифрой ---------- */
+.ring{background:var(--lemon);border-radius:50%;aspect-ratio:1;max-width:340px;width:100%;margin:0 auto;display:grid;place-content:center;text-align:center;padding:40px;color:var(--ink)}
+.ring .num{font-family:var(--f-display);font-size:clamp(70px,8vw,104px);line-height:.85}
+.ring p{margin:12px auto 10px;font-size:var(--fs-card);line-height:1.4;max-width:22ch}
+.ring small{font-size:12.5px;opacity:.75}
+
+/* ---------- фото с рукописной подписью ---------- */
+.photo{position:relative;border-radius:var(--r);overflow:hidden;background:#3a3a3a;min-width:0}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo .ph-note{position:absolute;left:18px;bottom:16px;right:18px;color:#fff;font-family:var(--f-hand);font-size:clamp(24px,2.4vw,30px);line-height:1.1;text-shadow:0 2px 14px rgba(0,0,0,.45)}
+
+/* ---------- калькулятор ---------- */
+.field label{display:block;font-weight:600;font-size:16px;margin-bottom:10px}
+.field+.field{margin-top:28px}
+.field .row{display:flex;align-items:center;gap:16px}
+.field input[type=range]{flex:1;min-width:0;accent-color:var(--ink);height:28px}
+.field output{flex:none;min-width:96px;text-align:right;font-family:var(--f-display);font-size:38px;line-height:1;font-variant-numeric:tabular-nums}
+.field small{display:block;margin-top:8px;font-size:var(--fs-small);color:var(--mute)}
+.res{background:var(--char);color:var(--on-char);border-radius:var(--r);padding:clamp(24px,3vw,36px);display:grid;gap:18px;min-width:0;align-content:start}
+.res .line{display:flex;justify-content:space-between;align-items:baseline;gap:14px;border-bottom:1px solid var(--line-on-char);padding-bottom:14px}
+.res .line span{color:var(--on-char-mute);font-size:var(--fs-card)}
+.res .line b{font-family:var(--f-display);font-weight:400;font-size:clamp(30px,3.4vw,42px);line-height:1;color:var(--lemon);white-space:nowrap;font-variant-numeric:tabular-nums}
+.res p{margin:0;color:var(--on-char-mute);font-size:var(--fs-card);line-height:1.5}
+.res p b{color:var(--on-char)}
+
+/* ---------- тарифы ---------- */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);align-items:stretch}
+@media (max-width:980px){.plans{grid-template-columns:1fr;max-width:520px;margin:0 auto}}
+.plan{position:relative;background:var(--char-2);color:var(--on-char);border-radius:var(--r);padding:clamp(26px,3vw,36px);display:flex;flex-direction:column;min-width:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.plan--hit{background:var(--white);color:var(--ink);box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.plan .pname{font-family:var(--f-display);text-transform:uppercase;font-size:clamp(32px,3vw,40px);line-height:1;margin:0 0 14px}
+.plan .pname em{font-family:var(--f-accent);text-transform:none}
+.plan .pfor{font-size:15px;line-height:1.45;color:var(--on-char-mute);margin:0 0 20px}
+.plan--hit .pfor{color:var(--mute)}
+.plan .price{font:800 clamp(32px,3vw,40px)/1 var(--f-body);letter-spacing:-.02em;font-variant-numeric:tabular-nums;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.plan .price s{font-size:16px;font-weight:500;color:var(--on-char-mute);letter-spacing:0}
+.plan--hit .price s{color:var(--mute)}
+.plan .also{font-weight:600;font-size:15px;margin:22px 0 -10px}
+.plan .dashes{margin:24px 0 28px;flex:1;align-content:start}
+.plan--hit .dashes li::before{background:var(--ink)}
+.plan .btn{width:100%}
+.plan:not(.plan--hit) .btn{background:transparent;color:var(--on-char);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.5)}
+.plan:not(.plan--hit) .btn:hover{background:rgba(255,255,255,.08)}
+.plan .after{margin-top:10px;text-align:center;font-size:13.5px;color:var(--on-char-mute)}
+.plan--hit .after{color:var(--mute)}
+.plan .flag{position:absolute;top:-16px;right:24px;background:var(--lemon);color:var(--ink);border-radius:var(--r-pill);padding:9px 16px;font-weight:700;font-size:14px;transform:rotate(-4deg)}
+
+/* ---------- лист письма ---------- */
+.sheet{position:relative;background:var(--sheet) repeating-linear-gradient(0deg,transparent 0 27px,#E3E7EA 27px 28px);padding:clamp(26px,3.6vw,44px);padding-left:clamp(40px,5vw,64px);border-radius:var(--r-paper);box-shadow:var(--sh-paper);transform:rotate(1deg);font-size:16px;line-height:28px;min-width:0}
+.sheet::before{content:"";position:absolute;top:0;bottom:0;left:clamp(24px,3.4vw,44px);width:1.5px;background:#EBC3BC}
+.sheet p{margin:0 0 14px}
+.sheet .subj{font-weight:700}
+.sheet .blank{background:var(--lemon);padding:0 4px;border-radius:3px}
+
+/* ---------- вопросы ---------- */
+.faq{max-width:880px}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:22px 0;font:600 clamp(17px,1.6vw,19.5px)/1.35 var(--f-body)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;width:40px;height:40px;border-radius:50%;background:var(--paper);display:grid;place-items:center;font:400 26px/1 var(--f-body);transition:transform .2s}
+.bg-white .faq summary::after{background:var(--paper)}
+.faq details[open] summary::after{transform:rotate(45deg);background:var(--lemon)}
+.faq .ans{padding:0 56px 24px 0;max-width:72ch}
+.faq .ans p{margin:0}
+.faq .ans a{text-underline-offset:3px}
+@media (max-width:560px){.faq .ans{padding-right:0}}
+
+/* ---------- финал: фото во всю ширину ---------- */
+.final{position:relative;padding:0;background:var(--char);color:#fff;overflow:hidden}
+.final .bgimg{position:absolute;inset:0}
+.final .bgimg img{width:100%;height:100%;object-fit:cover}
+.final .bgimg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,20,19,.88) 0%,rgba(20,20,19,.64) 46%,rgba(20,20,19,.12) 80%)}
+.final .wrap{position:relative;padding-block:clamp(80px,11vw,150px)}
+.final .h2{max-width:13ch;color:#fff}
+.final .h2 em{color:var(--lemon)}
+.final .lead{color:rgba(255,255,255,.85);margin-bottom:32px;max-width:44ch}
+@media (max-width:760px){.final .bgimg::after{background:linear-gradient(180deg,rgba(20,20,19,.25) 0%,rgba(20,20,19,.82) 55%,rgba(20,20,19,.94) 100%)}.final .wrap{padding-top:300px}}
+
+/* ---------- подвал ---------- */
+.foot{padding-block:56px 120px;font-size:14px;color:var(--mute)}
+.foot .made{font-family:var(--f-hand);font-size:26px;color:var(--ink);margin:0 0 26px}
+.foot-grid{display:grid;grid-template-columns:1.3fr repeat(4,minmax(0,1fr));gap:clamp(22px,3vw,40px)}
+.foot-grid>*{min-width:0}
+.foot h3{font:700 14px/1.3 var(--f-body);color:var(--ink);margin:0 0 12px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.foot .req{font-size:12.5px;line-height:1.6}
+.foot .flex{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:26px;margin-top:36px}
+.linkbtn{background:none;border:0;padding:0;color:inherit;font:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:900px){.foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.foot-grid>:first-child{grid-column:1/-1}}
+@media (max-width:480px){.foot-grid{grid-template-columns:1fr}}
+
+/* ---------- нижняя кнопка на телефоне ---------- */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px max(12px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));background:rgba(235,237,236,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(0,0,0,.08);display:none;gap:10px;transform:translateY(110%);transition:transform .25s ease}
+.dock.on{transform:none}
+.dock .btn{flex:1;min-height:52px;padding:0 14px;font-size:16px}
+@media (max-width:760px){.dock{display:flex}}
+
+/* ---------- видео-окошко в углу ----------
+   Слева внизу: ролик играет сам, без звука и по кругу. Клик — большой плеер со звуком, крестик — убрать.
+   На телефоне окошко сжимается в полоску и поднимается над нижней кнопкой. */
+.vw{position:fixed;left:max(24px,env(safe-area-inset-left,0px));bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:45;width:260px;border-radius:var(--r);background:var(--char);color:var(--on-char);box-shadow:var(--sh-pop);animation:vw-in .32s ease-out both;transition:margin-bottom .25s ease}
+.vw[hidden]{display:none}
+@keyframes vw-in{from{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:none}}
+.vw-open{display:block;width:100%;padding:0;border:0;border-radius:inherit;background:none;color:inherit;text-align:left;font:inherit;cursor:pointer;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);transition:box-shadow .2s}
+.vw-open:hover{box-shadow:inset 0 0 0 1.5px var(--lemon)}
+.vw-pic{position:relative;display:block;aspect-ratio:16/9;background:#111;overflow:hidden}
+.vw-pic img,.vw-pic video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vw-play{position:absolute;right:10px;bottom:10px;width:40px;height:40px;border-radius:50%;background:var(--lemon);color:var(--ink);display:grid;place-items:center}
+.vw-play svg{width:16px;height:16px;margin-left:2px}
+.vw-cap{display:grid;gap:4px;padding:12px 16px 14px}
+.vw-cap strong{font:600 15px/1.3 var(--f-body)}
+.vw-cap span{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px;color:var(--on-char-mute)}
+.vw-cap span i{font-style:normal;color:var(--lemon)}
+.vw-x{position:absolute;top:-14px;right:-10px;z-index:1;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:var(--char);color:var(--on-char);display:grid;place-items:center;cursor:pointer;padding:0}
+.vw-x:hover{background:#000}
+.vw-x svg{width:16px;height:16px}
+@media (max-width:760px){
+  .vw{left:max(12px,env(safe-area-inset-left,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));width:min(250px,calc(100vw - 96px))}
+  .vw-open{display:flex;align-items:center}
+  .vw-pic{flex:0 0 96px;aspect-ratio:auto;height:72px}
+  .vw-play{width:26px;height:26px;right:6px;bottom:6px}
+  .vw-play svg{width:11px;height:11px}
+  .vw-cap{min-width:0;padding:10px 12px;gap:2px}
+  .vw-cap strong{font-size:14px}
+  .vw-cap span{white-space:nowrap}
+  .vw-cap span i{display:none}
+  .vw-x{width:30px;height:30px;top:-12px;right:-8px}
+  body.dock-on .vw{margin-bottom:76px}
 }
+
+/* ---------- окна: оплата и большой плеер ----------
+   Закрытое окно скрыто через visibility, а не display: формы оплаты грузятся в него заранее и знают свою высоту. */
+.modal{position:fixed;inset:0;z-index:70;display:flex;align-items:center;justify-content:center;padding:20px;visibility:hidden;opacity:0;pointer-events:none;transition:opacity .18s}
+.modal.is-open{visibility:visible;opacity:1;pointer-events:auto}
+.modal-bg{position:absolute;inset:0;background:rgba(23,23,22,.66);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.modal-box{position:relative;background:var(--white);color:var(--ink);border-radius:var(--r);width:100%;max-width:520px;max-height:calc(100dvh - 40px);overflow:auto;padding:clamp(22px,3vw,32px);box-shadow:var(--sh-pop)}
+.modal-title{font-family:var(--f-display);font-weight:400;text-transform:uppercase;font-size:32px;line-height:1;padding-right:48px;margin-bottom:16px}
+.modal-title em{font-family:var(--f-accent);text-transform:none}
+.modal-x{position:absolute;top:16px;right:16px;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:var(--paper);color:var(--ink);cursor:pointer;display:grid;place-items:center;padding:0}
+.modal-x:hover{background:var(--lemon)}
+.modal-x svg{width:16px;height:16px}
+.gc-stack{display:grid}
+.gc{grid-area:1/1;min-width:0;visibility:hidden}
+.modal.is-open .gc.is-on{visibility:visible}
+.modal-wait,.modal-fail{color:var(--mute);font-size:var(--fs-small);padding:6px 0}
+.modal-fail a{color:var(--ink)}
+.modal-video{position:relative;width:100%;max-width:min(1180px,calc((100dvh - 110px)*1.7778))}
+.modal-video video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:var(--r);background:#000;box-shadow:var(--sh-pop)}
+.modal-video .modal-x{top:-52px;right:0;background:var(--white)}
+.modal-video .modal-fail{background:var(--char);color:var(--on-char-mute);padding:28px 24px;border-radius:var(--r)}
+.modal-video .modal-fail a{color:var(--on-char)}
+/* знак школы в шапке */
+.logo__mark{display:block;flex:none;width:30px;height:33px;align-self:center}
+
+/* ── первый экран ── */
+.hero{padding-block:clamp(36px,6vw,72px) clamp(56px,7vw,96px);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr 1.02fr;gap:clamp(24px,4vw,56px);align-items:center}
+.hero-copy{min-width:0;position:relative;z-index:5}
+.hero .badge{margin-bottom:26px}
+.hero .sub{font:700 var(--fs-h1)/1.22 var(--f-body);letter-spacing:-.015em;margin:28px 0 14px;max-width:27ch;text-wrap:balance}
+.hero .lead{font-size:clamp(17px,1.45vw,19px);max-width:52ch}
+.hero .ctas{margin-top:30px}
+.hero .checks{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:30px;max-width:580px}
+.checks li span{display:block;font-weight:400;color:var(--mute)}
+/* видео крупно и чуть заходит за правый край сетки; подписи — в пустых углах кадра, стрелки не задевают Павла */
+.hero .disp{font-size:clamp(56px,7.4vw,104px)}
+.stage{position:relative;justify-self:start;width:min(560px,calc(100% + 96px));margin:-76px 0 0 -48px}
+.st-1{left:-5%;top:9.6%;transform:rotate(-7deg);max-width:150px}
+.st-2{right:-10%;bottom:9.5%;transform:rotate(4deg);max-width:124px;text-align:right}
+.st-3{right:-4%;top:6.6%;transform:rotate(5deg);max-width:150px;text-align:right}
+.st-3 svg{margin-left:auto;transform:scaleX(-1)}
+.stage .price-tag{left:8%;bottom:20%}
+/* видео: Павел жмёт пробел, из ноутбука вылетают документы и слайды; фон ролика = --paper, края растворяются */
+.hero-vid{position:relative;width:100%;aspect-ratio:720/918;max-width:100%;
+  -webkit-mask-image:linear-gradient(to bottom,transparent,#000 6%,#000 80%,transparent 99%),linear-gradient(to right,transparent,#000 4%,#000 97%,transparent);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to bottom,transparent,#000 6%,#000 80%,transparent 99%),linear-gradient(to right,transparent,#000 4%,#000 97%,transparent);mask-composite:intersect}
+/* снизу неподвижный кадр, над ним два дубля; виден только тот, что играет. Все три начинаются и кончаются одним кадром — смена без шва */
+.hero-vid img,.hero-vid video{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+.hero-vid video{opacity:0}
+.hero-vid video.on{opacity:1}
+/* средние экраны: видео в своей колонке, без захода на текст */
+@media (min-width:901px) and (max-width:1299px){
+  .stage{margin:-40px 0 0;width:100%}
+  .st-1{left:-6%}
+  .st-2{right:-3%}
+  .st-3{right:-2%}
+}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .stage{justify-self:center;width:min(100%,460px);margin:8px 0 0}
+  .st-1{left:0;top:13%}
+  .st-2{right:-1%;bottom:3%}
+  .st-3{right:-1%;top:2%}
+  .stage .price-tag{left:2%;bottom:6%}
+  .hero .sub{max-width:none}
+}
+@media (max-width:520px){
+  .hero .checks{grid-template-columns:1fr}
+  .hero .ctas .btn{width:100%}
+  .sticker .hand{font-size:22px}
+  .st-1,.st-3{max-width:36%}
+  .sticker svg{width:56px}
+}
+
+/* ── доступ ── */
+.access .tags{margin-top:16px}
+.access .src{margin-top:14px}
+.access .steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 28px;margin-top:clamp(26px,3vw,36px);padding-top:clamp(22px,2.6vw,30px);border-top:1px solid var(--line)}
+.access .steps li{font-size:var(--fs-card);color:var(--mute)}
+.access .steps b{color:var(--ink);font-size:17px;margin-bottom:2px}
+@media (max-width:760px){.access .steps{grid-template-columns:1fr}}
+
+/* ── задачи: во сколько раз быстрее ── */
+.task{display:flex;flex-direction:column;gap:10px}
+.task .x{font-family:var(--f-display);font-size:clamp(54px,5.4vw,72px);line-height:.85;letter-spacing:-.01em}
+.task h3{font:700 19px/1.3 var(--f-body);margin:6px 0 0}
+.task p{font-size:var(--fs-card);color:var(--mute)}
+.task dl{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:auto 0 0;padding-top:16px;border-top:1px solid var(--line)}
+.task dt{font-size:13px;color:var(--mute)}
+.task dd{margin:4px 0 0;font-weight:600;font-variant-numeric:tabular-nums}
+.task .was dd{color:var(--mute);text-decoration:line-through;text-decoration-color:rgba(0,0,0,.35);font-weight:500}
+.task .now dd span{background:var(--lemon);padding:1px 8px;border-radius:6px}
+.after{margin-top:clamp(30px,4vw,44px);display:flex;gap:20px 32px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.after p{font-size:clamp(18px,1.6vw,20px);line-height:1.45;font-weight:600;max-width:52ch}
+.bg-char .after p{color:var(--on-char)}
+.tasks .note{margin-top:14px}
+
+/* ── замер по кейсам ── */
+.proof .stats{--n:4}
+.proof .stat .num{font-size:clamp(44px,4.6vw,64px)}
+.proof .ctable{margin-top:clamp(36px,4.6vw,56px)}
+.ctable-cap{font:700 19px/1.3 var(--f-body);margin:clamp(40px,5vw,60px) 0 16px}
+.proof .ctable{margin-top:0}
+.crow{grid-template-columns:1.3fr 1.5fr .8fr .95fr .45fr}
+.crow .x{font-family:var(--f-display);font-size:26px;line-height:1;text-align:right;color:var(--mute)}
+.crow:first-child .x{font:inherit;color:inherit}
+@media (max-width:760px){
+  .crow{grid-template-columns:1fr auto auto;grid-template-areas:"who who who" "task task task" "was now x"}
+  .crow .x{grid-area:x}
+}
+.total{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,3vw,40px);align-items:end;margin-top:clamp(36px,4.6vw,56px)}
+.total .big-num{color:var(--lemon)}
+.total p{font-size:clamp(18px,1.6vw,21px);line-height:1.45;max-width:36ch}
+.proof .how{margin-top:clamp(26px,3vw,36px);max-width:96ch}
+@media (max-width:720px){.total{grid-template-columns:1fr}.total .big-num{font-size:clamp(96px,30vw,150px)}}
+
+/* ── три возраста ── */
+.age .n{display:block;font-family:var(--f-display);font-size:clamp(46px,4.6vw,60px);line-height:.9;margin-bottom:18px}
+.age p{color:var(--mute);font-size:var(--fs-card)}
+.study{margin-top:clamp(40px,5vw,64px);display:grid;grid-template-columns:1.45fr .75fr;gap:var(--gap-col);align-items:center}
+.study>*{min-width:0}
+.study p{font-size:clamp(17px,1.5vw,19px);line-height:1.55;max-width:60ch}
+.study .note{margin-top:14px}
+@media (max-width:860px){.study{grid-template-columns:1fr}}
+
+/* ── программа: уроки карточками с 3D-кубиком (раскладка как на /kurs/claude/) ── */
+.prog-head{position:relative}
+.prog-head .lead{max-width:54ch}
+.st-prog{right:0;bottom:-34px;transform:rotate(-3deg);text-align:right}
+.st-prog .hand{white-space:nowrap}
+.st-prog svg{margin:2px 34px 0 auto}
+.lessons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
+.les{position:relative;display:flex;flex-direction:column;gap:8px;min-width:0;background:var(--white);border-radius:var(--r);padding:clamp(20px,2.3vw,28px)}
+.les-art{flex:none;height:clamp(128px,11.6vw,160px);margin:-6px 0 12px;transform:translate3d(0,calc(var(--drift,0)*1px),0)}
+.les-art img{display:block;height:100%;width:auto;max-width:100%;object-fit:contain;transform-origin:50% 92%;transition:transform .5s cubic-bezier(.2,.9,.25,1.25)}
+.les:hover .les-art img{transform:translateY(-6px) rotate(-4deg) scale(1.04)}
+.les .n{position:absolute;top:clamp(16px,1.9vw,22px);right:clamp(20px,2.3vw,28px);font:italic 400 clamp(38px,3.4vw,48px)/1 var(--f-accent);color:var(--beige-ink)}
+.les h3{font:700 clamp(18px,1.5vw,20px)/1.28 var(--f-body);letter-spacing:-.01em;margin:0;text-wrap:balance}
+.les p{margin:0;font-size:var(--fs-card);color:var(--mute)}
+.les-body{display:flex;flex-direction:column;gap:8px;min-width:0}
+/* первый урок — широкая плитка: кубик слева, текст справа */
+.les--wide{grid-column:span 2;flex-direction:row;align-items:center;gap:clamp(18px,3vw,40px)}
+.les--wide .les-art{height:clamp(176px,16vw,224px);margin:0}
+.les--wide .les-body{display:flex;flex-direction:column;gap:10px;min-width:0;padding-right:clamp(40px,5vw,72px)}
+.les--wide h3{font-size:clamp(21px,2vw,27px);line-height:1.2}
+.les--wide p{max-width:46ch}
+/* бонусы: угольная плитка с подарком и две плитки без картинки */
+.les--gift{background:var(--char);color:var(--on-char);flex-direction:row;align-items:center;gap:6px}
+.les--gift .les-art{height:clamp(128px,11vw,156px);margin:0 0 0 -8px}
+.les .gift-t{margin:0;color:var(--on-char);font:400 clamp(24px,2.2vw,30px)/1 var(--f-display);text-transform:uppercase;letter-spacing:.01em}
+.les .gift-t b{display:block;font-weight:400;font-size:clamp(66px,6.4vw,90px);line-height:.85;color:var(--lemon);margin-bottom:6px}
+.les--bonus{justify-content:flex-end}
+.les--bonus .chip{position:absolute;top:clamp(18px,2vw,24px);left:clamp(20px,2.3vw,28px)}
+.les--bonus h3{margin-top:44px}
+.prog-cta{margin-top:40px}
+@media (max-width:1000px){
+  .lessons{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .les--gift{grid-column:1/-1}
+}
+@media (max-width:1100px){
+  .st-prog{position:static;transform:rotate(-2deg);text-align:left;display:flex;align-items:flex-end;gap:6px;margin-top:14px}
+  .st-prog svg{margin:0 0 -18px;width:46px}
+}
+/* телефон: кубик слева, текст справа — плитки короче, программа не растягивается на десять экранов */
+@media (max-width:640px){
+  .lessons{grid-template-columns:1fr;gap:10px}
+  .les,.les--wide{grid-column:auto;flex-direction:row;align-items:flex-start;gap:14px;padding:18px 18px 20px}
+  .les-art,.les--wide .les-art{height:84px;width:84px;margin:0}
+  .les-art img{margin-inline:auto}
+  .les-body,.les--wide .les-body{display:flex;flex-direction:column;gap:6px;padding-right:0}
+  .les .n{font-size:30px;top:14px;right:16px}
+  .les h3,.les--wide h3{font-size:17.5px;padding-right:34px}
+  .les--gift{align-items:center}
+  .les--gift .les-art{height:104px;width:104px;margin:0}
+  .les--bonus{flex-direction:column;gap:6px}
+  .les--bonus .chip{position:static;align-self:flex-start;margin-bottom:4px}
+  .les--bonus h3{margin-top:0}
+}
+
+/* ── урок в Claude ── */
+.trial .lead{color:var(--on-char)}
+.trial .lead+.lead{margin-top:14px;color:var(--on-char-mute);font-size:var(--fs-body)}
+.win-foot .ctas{gap:10px}
+
+/* ── калькулятор ── */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+.calc>*{min-width:0}
+@media (max-width:860px){.calc{grid-template-columns:1fr}}
+
+/* ── автор ── */
+.author .photo{aspect-ratio:4/5;max-width:460px}
+.author .photo img{object-position:46% 50%}
+.author .ph-note{left:auto;right:18px;bottom:auto;top:18px;text-align:right;max-width:60%;transform:rotate(-3deg)}
+.author .lead{max-width:56ch}
+.facts-num{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px;margin:30px 0 0;padding:26px 0 0;list-style:none;border-top:1px solid var(--line)}
+.facts-num b{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(40px,4vw,54px);line-height:.9;margin-bottom:6px}
+.facts-num span{font-size:var(--fs-card);color:var(--mute)}
+.clients{margin-top:28px;padding-top:22px;border-top:1px solid var(--line)}
+.clients .eyebrow{margin-bottom:12px}
+.clients ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 20px;font:italic 400 clamp(19px,1.7vw,22px)/1.35 var(--f-accent)}
+@media (max-width:860px){.author .photo{aspect-ratio:4/3;max-width:none}.author .photo img{object-position:46% 30%}}
+
+/* ── тарифы ── */
+.tariffs .head{text-align:center}
+.tariffs .head .lead{margin-inline:auto}
+.plan--hit .btn{background:var(--lemon);color:var(--ink);box-shadow:var(--sh-btn)}
+.plan--hit .btn:hover{background:var(--lemon-2)}
+.tariffs .outline{margin-top:28px;max-width:920px;margin-inline:auto}
+.tariffs .outline p{color:var(--on-char-mute)}
+.tariffs .outline b{color:var(--on-char)}
+
+/* ── письмо руководителю ── */
+.boss .ctas{margin-top:26px}
+.boss .copied{display:block;margin-top:12px;min-height:20px}
+
+/* ── вопросы ── */
+.faq-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:var(--gap-col);align-items:start}
+.faq-wrap>*{min-width:0}
+@media (max-width:860px){.faq-wrap{grid-template-columns:1fr}}
+
+/* ── результаты: ролик под заголовком, кубики в карточках ── */
+.results .head{text-align:center;margin-bottom:clamp(24px,3vw,36px)}
+.res-vid{margin:0 auto;max-width:760px}
+.res-vid-open{position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;border:0;border-radius:var(--r);overflow:hidden;background:#111;color:var(--ink);cursor:pointer;box-shadow:var(--sh-win)}
+.res-vid-open img,.res-vid-open video{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+.res-vid-open video{opacity:0;transition:opacity .3s}
+.res-vid-open video.on{opacity:1}
+.res-vid-open::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 0 var(--lemon);transition:box-shadow .2s;pointer-events:none}
+.res-vid-open:hover::after{box-shadow:inset 0 0 0 3px var(--lemon)}
+.res-vid-open:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+.res-vid-btn{position:absolute;left:16px;bottom:16px;display:flex;align-items:center;gap:10px;padding:9px 18px 9px 10px;border-radius:var(--r-pill);background:var(--lemon);font:600 15px/1 var(--f-body);box-shadow:var(--sh-btn);transition:background .2s}
+.res-vid-btn svg{flex:0 0 auto;width:30px;height:30px;padding:8px 7px 8px 9px;border-radius:50%;background:var(--ink);color:var(--lemon);box-sizing:border-box}
+.res-vid-btn small{font-size:13px;font-weight:500;color:rgba(23,23,22,.62)}
+.res-vid-open:hover .res-vid-btn{background:var(--lemon-2)}
+.res-vid figcaption{margin:18px auto 0;max-width:52ch;text-align:center;color:var(--mute);font-size:var(--fs-card)}
+.res-vid figcaption .hand{display:block;margin-bottom:6px;font-size:clamp(26px,2.4vw,31px);color:var(--ink)}
+.results .res-lead{text-align:center;margin:clamp(40px,5vw,60px) auto clamp(28px,3.5vw,40px)}
+.vw.vw-away{animation:none;visibility:hidden;opacity:0}   /* пока ролик блока на экране, окошко с тем же роликом спрятано; вернётся с той же анимацией */
+.out .out-art{width:104px;height:104px;margin:-10px 0 -4px -10px}
+.out .out-art img{display:block;width:100%;height:100%;object-fit:contain}
+@media (max-width:560px){
+  .res-vid-btn{left:10px;bottom:10px;padding:7px 14px 7px 7px;font-size:14px;gap:8px}
+  .res-vid-btn svg{width:26px;height:26px;padding:7px 6px 7px 8px}
+  .res-vid-btn small{display:none}
+}
+
+/* ── финал ── */
+.final .bgimg img{object-position:50% 30%}
+@media (max-width:760px){.final .bgimg img{object-position:64% 0}}
+.final .btn-ghost{color:#fff}
+.final .btn-ghost:hover{background:rgba(255,255,255,.1)}
+
+/* окна поверх страницы прячут окошко видео */
+body.modal-open .vw,body.modal-open .dock{visibility:hidden}
+
+.plans--2{grid-template-columns:repeat(2,minmax(0,1fr));max-width:900px;margin-inline:auto}
+@media (max-width:980px){.plans--2{grid-template-columns:1fr;max-width:520px}}
+.access .card .btn{margin-top:18px}
 </style>
 </head>
 <body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="https://iiuniversitet.online/" aria-label="iiuniversitet, на главную"><img class="logo__mark" src="img/logo.png" alt="" width="30" height="33"><b translate="no">iiuniversitet</b><span>Центр обучения нейросетям</span></a>
+  <nav class="nav" aria-label="Разделы страницы"><a href="#program">Программа</a><a href="#author">Спикер</a><a href="#tariffs">Участие</a><a href="#faq">Вопросы</a></nav>
+  <a class="btn btn-lemon" href="#tariffs">Участвовать бесплатно</a>
+</div></header>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
-  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
-  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4 3.5V17h0A2.5 2.5 0 0 1 4 14.5z"/></symbol>
-  <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3.5" y="8.5" width="17" height="4" rx="1"/><path d="M5 12.5V20h14v-7.5M12 8.5V20M12 8.5S10.5 4 8 4.5 7 8.5 12 8.5zM12 8.5S13.5 4 16 4.5 17 8.5 12 8.5z"/></symbol>
-  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/></symbol>
-  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z" stroke-linejoin="round"/></symbol>
-  <symbol id="i-flow" viewBox="0 0 24 24"><rect x="3" y="4" width="7" height="6" rx="1.5"/><rect x="14" y="14" width="7" height="6" rx="1.5"/><path d="M6.5 10v4.5a2 2 0 0 0 2 2H14"/></symbol>
-  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></symbol>
-  <symbol id="i-cursor" viewBox="0 0 24 24"><path d="M5 4l13 6-5.5 1.5L11 17z" stroke-linejoin="round"/><path d="M13 13l5 5"/></symbol>
-  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z" stroke-linejoin="round"/></symbol>
-  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="3.5" y="7" width="17" height="12.5" rx="2"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3.5 12.5h17"/></symbol>
-  <symbol id="i-mega" viewBox="0 0 24 24"><path d="M4 10v4h3l8 4.5v-13L7 10z" stroke-linejoin="round"/><path d="M18 9.5a3.5 3.5 0 0 1 0 5"/></symbol>
-  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></symbol>
-  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l1-4.5L15.5 5a2 2 0 0 1 3 0l.5.5a2 2 0 0 1 0 3L8.5 19z" stroke-linejoin="round"/></symbol>
-  <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.3"/><path d="M3 19.5a6 6 0 0 1 12 0M16 5.5a3.2 3.2 0 0 1 0 6.2M18 19.5a6 6 0 0 0-2.5-4.9"/></symbol>
-  <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4.5" y="5" width="15" height="10.5" rx="1.5"/><path d="M2.5 19h19"/></symbol>
-</svg>
+<main id="top">
 
-<header>
-  <div class="wrap">
-    <a class="brand" href="https://iiuniversitet.ru/"><img src="https://iiuniversitet.online/kurs-antikrizis/img/logo.png" alt=""><span><b>iiuniversitet.ru</b><small>Центр обучения нейросетям</small></span></a>
-    <nav>
-      <a href="#program">Программа</a>
-      <a href="#speaker">Спикер</a>
-      <a href="#tariffs">Тарифы</a>
-    </nav>
-    <a class="btn w" href="#tariffs">Участвовать бесплатно</a>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero dark glow-l">
-  <div class="hero-photo" role="img" aria-label="Павел Лебедев с ноутбуком"></div>
-  <span class="note n1">опыт не нужен!<svg viewBox="0 0 60 30"><path d="M4 6c14 2 30 8 46 20M50 26l-10 0M50 26l-3-10"/></svg></span>
-  <span class="note n2">видео, сайт, воронка<svg viewBox="0 0 60 30"><path d="M56 6C42 8 26 14 10 26M10 26l10 0M10 26l3-10"/></svg></span>
-  <div class="wrap">
-    <div class="hero-text">
-      <span class="pill"><i></i>Бесплатный мастер-класс · 12 ноября</span>
-      <h1>Claude<br><em>за вечер</em></h1>
-      <p class="h-strong">С нуля, без программирования и&nbsp;блокировок</p>
-      <p class="sub">Как стать ТОП-1% специалистом с самым передовым ИИ человечества. Мастер-класс Павла Лебедева</p>
-      <div class="btns">
-        <a class="btn y" href="#tariffs">Участвовать и получить гайд</a>
-        <a class="btn o" href="#program">Смотреть программу</a>
+<section class="hero" id="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="badge"><i></i>Бесплатный мастер-класс · 12&nbsp;ноября</div>
+      <h1 class="disp"><span translate="no">Claude</span><em>за&nbsp;вечер</em></h1>
+      <p class="sub">С&nbsp;нуля, без&nbsp;программирования и&nbsp;блокировок</p>
+      <p class="lead">Как стать ТОП-1% специалистом с&nbsp;самым передовым ИИ человечества. Мастер-класс Павла Лебедева.</p>
+      <div class="ctas">
+        <a class="btn btn-lemon" href="#tariffs">Участвовать бесплатно <span class="arr">→</span></a>
+        <a class="btn btn-ghost" href="#program">Посмотреть программу</a>
       </div>
-    </div>
-    <div class="facts">
-      <div class="fact"><svg><use href="#i-cal"/></svg><div><b>12 ноября</b><span>в 12:00 по Москве</span></div></div>
-      <div class="fact"><svg><use href="#i-clock"/></svg><div><b>5 результатов</b><span>соберём в прямом эфире</span></div></div>
-      <div class="fact"><svg><use href="#i-chat"/></svg><div><b>Живой эфир</b><span>не запись и не автовебинар</span></div></div>
-      <div class="fact"><svg><use href="#i-gift"/></svg><div><b>Гайд по доступу</b><span>сразу после регистрации</span></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ACCESS -->
-<section class="access" id="access">
-  <div class="wrap two">
-    <div>
-      <span class="tag">Сначала доступ</span>
-      <h2>Как получить <em>доступ</em> к Claude</h2>
-      <p class="lead" style="margin-bottom:0">Это первое, на чём останавливаются почти все. Claude официально не работает в России, и без инструкции легко потерять время, деньги и аккаунт.</p>
-      <div class="pain">
-        <div><b>1</b><span>Не получается зарегистрироваться или пройти верификацию по телефону</span></div>
-        <div><b>2</b><span>Непонятно, как оплатить подписку российской картой</span></div>
-        <div><b>3</b><span>Страшно, что аккаунт заблокируют и пропадут все чаты и файлы</span></div>
-      </div>
-    </div>
-    <div class="guide">
-      <span class="tag">Бонус за регистрацию</span>
-      <h3>Полный гайд: как установить Claude из России</h3>
-      <p>Пошаговая инструкция от команды Павла Лебедева. Придёт сразу после регистрации на эфир.</p>
-      <ul>
-        <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Регистрация и верификация</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Оплата подписки</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Как не потерять аккаунт и данные из-за блокировок</li>
-      </ul>
-      <a class="btn y" href="#tariffs">Участвовать бесплатно и получить гайд</a>
-      <small>На эфире 12 ноября разберём всё вживую и ответим на вопросы</small>
-    </div>
-  </div>
-</section>
-
-<!-- SHOW + BONUSES -->
-<section>
-  <div class="wrap two">
-    <div>
-      <span class="tag">О мастер-классе</span>
-      <h2>Что разберём <em>на эфире</em></h2>
-      <ul class="ilist">
-        <li><svg><use href="#i-spark"/></svg><span>Новый подход к работе с Claude, про который ещё не говорят. Как делегировать всю рутину и почему это не могут делать другие ИИ</span></li>
-        <li><svg><use href="#i-trend"/></svg><span>Новые кейсы, где Claude действительно ускоряет работу и приносит деньги</span></li>
-        <li><svg><use href="#i-bolt"/></svg><span>Создадим в прямом эфире: видео, сайт, исследование конкурентов, карусель, воронку</span></li>
-        <li><svg><use href="#i-target"/></svg><span>Как зарегистрироваться в Claude, пройти верификацию и не потерять данные из-за блокировок</span></li>
+      <ul class="checks">
+        <li><div>12&nbsp;ноября <span>в&nbsp;12:00 по&nbsp;Москве, живой эфир</span></div></li>
+        <li><div>5&nbsp;результатов <span>соберём в&nbsp;прямом эфире</span></div></li>
+        <li><div>Гайд по&nbsp;доступу <span>сразу после регистрации</span></div></li>
+        <li><div>Без&nbsp;программирования <span>задачи ставим обычными словами</span></div></li>
       </ul>
     </div>
-    <div class="bonus-card">
-      <div class="top">Бонусы за регистрацию <span>сразу после записи</span></div>
-      <div class="body">
-        <div class="gift"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l03.webp" alt=""><div><b>Полный гайд по установке Claude</b><span>регистрация, оплата, защита от блокировок</span></div></div>
-        <div class="gift"><img src="https://iiuniversitet.online/kurs-antikrizis/img/p-receipt.webp" alt=""><div><b>2000 бесплатных промптов</b><span>каталог под рабочие задачи</span></div></div>
-        
-        <div class="gift"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l09.webp" alt=""><div><b>7 скиллов ИИ-агента</b><span>гайд «Как заставить агента работать за тебя»</span></div></div>
+
+    <div class="stage" aria-hidden="true">
+      <div class="hero-vid">
+        <img src="img/hero.jpg" alt="" width="720" height="918">
+        <video src="img/hero-1.mp4" width="720" height="918" muted="" playsinline="" preload="auto" class="on"></video>
+        <video src="img/hero-2.mp4" width="720" height="918" muted="" playsinline="" preload="auto"></video>
       </div>
-      <div class="bottom">Плюс рабочая тетрадь, гайды и полезные подборки</div>
+      <div class="sticker st-1"><span class="hand">опыт не&nbsp;нужен!</span><svg width="70" height="44" viewBox="0 0 70 44"><path d="M6 6 C 22 30, 40 38, 62 34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path><path d="M52 27 L63 34 L52 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+      <div class="sticker st-2"><svg width="70" height="44" viewBox="0 0 70 44" style="margin-left:auto"><path d="M64 38 C 50 14, 30 6, 8 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path><path d="M18 3 L7 10 L17 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="hand">в&nbsp;прямом эфире</span></div>
+      <div class="sticker st-3"><span class="hand">видео, сайт, воронка</span><svg width="70" height="40" viewBox="0 0 70 40"><path d="M6 4 C 14 24, 34 34, 60 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path><path d="M49 19 L61 22 L54 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+      <div class="price-tag">бесплатно</div>
     </div>
   </div>
 </section>
 
-<!-- PROGRAM -->
-<section class="dark glow-r" id="program">
-  <div class="wrap">
-    <span class="tag">Программа мастер-класса</span>
-    <h2>Что вы <em>узнаете</em> и получите</h2>
-    <p class="lead">Без программирования и сложных настроек. Всё показываем на реальных задачах</p>
-    <div class="cards3">
-      <div class="lesson"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l01.webp" alt="" loading="lazy"></div><small>Блок 1</small><h3>Новый подход к Claude</h3><p>Подход к работе с Claude, про который ещё не говорят.</p></div>
-      <div class="lesson"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/p-receipt.webp" alt="" loading="lazy"></div><small>Блок 2</small><h3>Вся рутина на Claude</h3><p>Как делегировать рутину целиком и почему другие ИИ так не могут.</p></div>
-      <div class="lesson"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l09.webp" alt="" loading="lazy"></div><small>Блок 3</small><h3>Кейсы, которые приносят деньги</h3><p>Где Claude действительно ускоряет работу и помогает зарабатывать.</p></div>
-      <div class="lesson"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/p-coin.webp" alt="" loading="lazy"></div><small>Блок 4</small><h3>Контент в прямом эфире</h3><p>Видео, карусель и сайт, которые соберём на глазах у зрителей.</p></div>
-      <div class="lesson"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l07.webp" alt="" loading="lazy"></div><small>Блок 5</small><h3>Исследование и воронка</h3><p>Исследование конкурентов и воронка продаж за один эфир.</p></div>
-      <div class="lesson"><div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l06.webp" alt="" loading="lazy"></div><small>Блок 6</small><h3>Claude без блокировок</h3><p>Как зарегистрироваться, пройти верификацию и не потерять данные.</p></div>
-    </div>
-    <div class="cta-line">
-      <p>...и ответы на ваши вопросы в прямом эфире.</p>
-      <a class="btn y" href="#tariffs">Я с вами!</a>
-    </div>
+<section class="sec bg-white access" id="access"><div class="wrap">
+  <div class="head">
+    <p class="eyebrow">Сначала доступ</p>
+    <h2 class="h2">Как&nbsp;получить <em>доступ</em> к&nbsp;Claude</h2>
+    <p class="lead">Это первый вопрос, который нам задают. Поэтому полный гайд по&nbsp;установке придёт сразу после регистрации, а&nbsp;на&nbsp;эфире разберём всё вживую.</p>
   </div>
-</section>
+  <div class="grid-2">
+    <article class="card">
+      <span class="tagline">вы живёте за&nbsp;рубежом</span>
+      <h3>Claude работает официально</h3>
+      <p>Регистрируетесь на&nbsp;свою почту и&nbsp;оплачиваете подписку обычной банковской картой, как&nbsp;любой сервис. Своя страна в&nbsp;списке, значит, никаких обходных путей.</p>
+      <ul class="tags" aria-label="Страны, где Claude работает официально">
+        <li>Казахстан</li><li>Грузия</li><li>Армения</li><li>Сербия</li><li>Турция</li><li>ОАЭ</li><li>Таиланд</li><li>Кипр</li><li>Узбекистан</li><li>Киргизия</li><li>Азербайджан</li><li>Израиль</li><li>Европа и&nbsp;США</li>
+      </ul>
+      <p class="note src">Полный список стран <a href="https://www.anthropic.com/supported-countries" target="_blank" rel="noopener">на&nbsp;сайте Anthropic</a>.</p>
+    </article>
+    <article class="card">
+      <span class="tagline">вы живёте в&nbsp;России</span>
+      <h3>Полный гайд сразу после регистрации</h3>
+      <p>По&nbsp;шагам: как&nbsp;зарегистрироваться, пройти верификацию, оплатить подписку и&nbsp;не&nbsp;потерять данные из-за&nbsp;блокировок.</p>
+      <p>На&nbsp;эфире 12&nbsp;ноября разберём это вживую и&nbsp;ответим на&nbsp;вопросы.</p>
+      <a class="btn btn-lemon" href="#tariffs">Участвовать и&nbsp;получить гайд <span class="arr">→</span></a>
+    </article>
+  </div>
+  <ol class="steps">
+    <li><div><b>Аккаунт</b>Регистрация на&nbsp;вашу почту, около 5&nbsp;минут</div></li>
+    <li><div><b>Подписка</b>Тариф Pro за&nbsp;20&nbsp;долларов в&nbsp;месяц</div></li>
+    <li><div><b>Приложение</b>Программа для&nbsp;macOS или&nbsp;Windows, и&nbsp;можно начинать</div></li>
+  </ol>
+</div></section>
 
-<!-- VIDEO -->
+<section class="sec tasks" id="tasks"><div class="wrap">
+  <div class="head">
+    <p class="eyebrow">Прямой эфир</p>
+    <h2 class="h2">Создадим <em>в&nbsp;прямом эфире</em></h2>
+    <p class="lead">Пять рабочих результатов на&nbsp;глазах у&nbsp;зрителей. Без&nbsp;программирования: Павел ставит задачу обычными словами, а&nbsp;вы повторяете на&nbsp;своих задачах.</p>
+  </div>
+  <div class="grid-3">
+    <article class="card task"><span class="x">01</span><h3>Видео</h3><p>Ролик от&nbsp;сценария до&nbsp;готового результата.</p></article>
+    <article class="card task"><span class="x">02</span><h3>Сайт</h3><p>Работающая страница без&nbsp;программиста и&nbsp;конструктора.</p></article>
+    <article class="card task"><span class="x">03</span><h3>Исследование конкурентов</h3><p>Факты, ссылки на&nbsp;источники и&nbsp;понятный вывод.</p></article>
+    <article class="card task"><span class="x">04</span><h3>Карусель</h3><p>Тексты и&nbsp;оформление для&nbsp;соцсетей.</p></article>
+    <article class="card task"><span class="x">05</span><h3>Воронку</h3><p>От&nbsp;первого касания до&nbsp;заявки.</p></article>
+    <article class="card task"><span class="x">06</span><h3>Ответы на&nbsp;вопросы</h3><p>Разберём ваши задачи в&nbsp;прямом эфире.</p></article>
+    
+  </div>
+  <div class="after">
+    <p>После эфира вы будете знать, как&nbsp;поставить Claude задачу целиком и&nbsp;<span class="mark">забрать готовый результат</span>.</p>
+    <a class="btn btn-lemon" href="#tariffs">Участвовать бесплатно <span class="arr">→</span></a>
+  </div>
+</div></section>
 
-<!-- MANIFESTO -->
-<section class="dark glow-l">
-  <div class="wrap mani">
+<section class="sec bg-char proof" id="proof"><div class="wrap">
+  <div class="head">
+    <p class="eyebrow">Замер, а&nbsp;не&nbsp;обещание</p>
+    <h2 class="h2">Сколько времени <em>уже экономят</em> ученики школы</h2>
+    <p class="lead mute">Мы перечитали все 497 кейсов из&nbsp;базы ii&nbsp;universitet (это больше 370 человек) и&nbsp;выписали только те цифры, которые назвали сами ученики. Это ученики всех курсов школы и&nbsp;работа с&nbsp;разными нейросетями: ChatGPT, Claude и&nbsp;другими.</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="num">73&nbsp;%</div><p>кейсов про сэкономленное время: 362 из&nbsp;497</p></div>
+    <div class="stat"><div class="num">в&nbsp;6,8 раза</div><p>быстрее делается рабочая задача</p><small>медиана по&nbsp;150 кейсам, где названо «было» и&nbsp;«стало»</small></div>
+    <div class="stat"><div class="num">8,8&nbsp;часа</div><p>в&nbsp;неделю освобождает ученик</p><small>медиана по&nbsp;110 ученикам, которые посчитали экономию</small></div>
+    <div class="stat"><div class="num">50&nbsp;%</div><p>кейсов про деньги: 215 учеников сэкономили, 49 заработали больше</p></div>
+  </div>
+  <h3 class="ctable-cap">Было и&nbsp;стало: шесть кейсов из&nbsp;базы</h3>
+  <div class="ctable" role="table" aria-label="Было и стало: шесть кейсов из базы">
+    <div class="crow" role="row"><span role="columnheader">Кто</span><span role="columnheader">Задача</span><span role="columnheader">Было</span><span role="columnheader">Стало</span><span class="x" role="columnheader">Быстрее</span></div>
+    <div class="crow" role="row"><span class="who" role="cell">Татьяна, бухгалтер</span><span class="task" role="cell">Еженедельный отчёт по&nbsp;дебиторской задолженности</span><span class="was" role="cell">60&nbsp;минут</span><span class="now" role="cell"><span>5&nbsp;минут</span></span><span class="x" role="cell">×12</span></div>
+    <div class="crow" role="row"><span class="who" role="cell">Ирина, работает с&nbsp;преподавателями онлайн-школы</span><span class="task" role="cell">Проверка качества занятий за&nbsp;день</span><span class="was" role="cell">6&nbsp;часов</span><span class="now" role="cell"><span>20&nbsp;минут</span></span><span class="x" role="cell">×18</span></div>
+    <div class="crow" role="row"><span class="who" role="cell">Галина, таргетолог</span><span class="task" role="cell">Монтаж рекламного ролика</span><span class="was" role="cell">2–3&nbsp;часа</span><span class="now" role="cell"><span>20–25&nbsp;минут</span></span><span class="x" role="cell">×6</span></div>
+    <div class="crow" role="row"><span class="who" role="cell">Дария, руководитель отдела продаж автошколы</span><span class="task" role="cell">Ежедневная рутина с&nbsp;контентом</span><span class="was" role="cell">2&nbsp;часа</span><span class="now" role="cell"><span>20&nbsp;минут</span></span><span class="x" role="cell">×6</span></div>
+    <div class="crow" role="row"><span class="who" role="cell">Татьяна, менеджер по&nbsp;индивидуальным турам</span><span class="task" role="cell">Первое предложение клиенту по&nbsp;сложному туру</span><span class="was" role="cell">рабочий день</span><span class="now" role="cell"><span>15–20&nbsp;минут</span></span><span class="x" role="cell">×27</span></div>
+    <div class="crow" role="row"><span class="who" role="cell">Елена, делает детские развивающие панели</span><span class="task" role="cell">Разработка одной панели</span><span class="was" role="cell">48&nbsp;часов</span><span class="now" role="cell"><span>4&nbsp;часа</span></span><span class="x" role="cell">×12</span></div>
+  </div>
+  <div class="total">
+    <div class="big-num" data-count="1169">1&nbsp;169</div>
+    <p>часов каждую неделю вернули себе 110 учеников, только те, кто сам посчитал экономию. За&nbsp;год это больше 56&nbsp;000&nbsp;часов.</p>
+  </div>
+  <p class="note how">Как&nbsp;считали: каждый кейс прочитан целиком; планы и&nbsp;прогнозы («ожидаем», «может составить») не&nbsp;считались; 40 кейсов с&nbsp;неправдоподобными цифрами в&nbsp;ускорение и&nbsp;часы не&nbsp;вошли; экономию больше 40&nbsp;часов в&nbsp;неделю на&nbsp;человека не&nbsp;считали. Медиана: значение посередине: половина учеников экономит больше, половина меньше. Замер 20.10.2026.</p>
+</div></section>
+
+<section class="sec bg-white ages" id="ages"><div class="wrap">
+  <div class="head">
+    <p class="eyebrow">В&nbsp;любом возрасте</p>
+    <h2 class="h2">Что&nbsp;Claude даст вам <em>в&nbsp;25, в&nbsp;40 и&nbsp;в&nbsp;55</em></h2>
+    <p class="lead">Нейросеть не&nbsp;заменяет опыт, она забирает рутину. А&nbsp;вот что&nbsp;это меняет, зависит от&nbsp;того, где вы сейчас.</p>
+  </div>
+  <div class="grid-3">
+    <article class="card age"><span class="n">до&nbsp;30</span><h3>Преимущество на&nbsp;работе</h3><p>Начинающих специалистов всё реже нанимают на&nbsp;задачи, которые нейросеть делает сама. Выигрывает тот, кто умеет поставить нейросети задачу и&nbsp;проверить результат: вы быстрее остальных выходите на&nbsp;работу уровнем выше.</p></article>
+    <article class="card age"><span class="n">30–45</span><h3>Больше зарабатывать</h3><p>Вы уже знаете своё дело. Claude берёт на&nbsp;себя отчёты, письма и&nbsp;таблицы и&nbsp;освобождает время на&nbsp;то, за&nbsp;что&nbsp;платят больше: клиентов, проекты, новое направление.</p></article>
+    <article class="card age"><span class="n">45+</span><h3>Делать быстрее и&nbsp;не&nbsp;отстать</h3><p>Ваш опыт: то, чего у&nbsp;нейросети нет: она делает, а&nbsp;вы решаете, что&nbsp;правильно. Программировать не&nbsp;нужно: если умеете написать письмо коллеге, сможете поставить задачу и&nbsp;нейросети.</p></article>
+  </div>
+  <div class="study">
     <div>
-      <span class="tag">Почему Claude</span>
-      <h2>ИИ для текстов <em>уже не</em> преимущество</h2>
-      <p>Большинство используют нейросети как собеседника: спросили, скопировали ответ, доделали руками. С Claude можно работать по-другому: отдавать задачу целиком и получать <b>готовый результат</b>: документ, сайт, исследование, презентацию.</p>
-      <p><b>На эфире Павел покажет новый подход к работе с Claude, про который ещё не говорят,</b> и объяснит, почему другие ИИ так пока не умеют.</p>
+      <p>Стэнфорд, данные по&nbsp;миллионам работников США за&nbsp;2021–2026 годы: в&nbsp;профессиях, где ИИ заменяет задачи человека, занятость 22–25-летних на&nbsp;19&nbsp;% ниже, чем у&nbsp;их ровесников в&nbsp;других профессиях. У&nbsp;опытных работников такого разрыва нет, а&nbsp;там, где нейросеть помогает человеку, занятость держится или&nbsp;растёт.</p>
+      <p class="note">Brynjolfsson, Chandar, Chen. <a href="https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine/" target="_blank" rel="noopener">Canaries in the Coal Mine?</a> Stanford Digital Economy Lab, редакция 12.08.2026.</p>
     </div>
-    <div class="art"><img src="https://iiuniversitet.online/kurs-antikrizis/img/l01.webp" alt="" loading="lazy"></div>
+    <div class="ring"><div class="num">19&nbsp;%</div><p>на&nbsp;столько ниже занятость 22–25-летних там, где ИИ заменяет задачи</p><small>Стэнфорд, 2026</small></div>
   </div>
-</section>
+</div></section>
 
-<!-- SPEED -->
-<section style="background:#fff">
+<section class="sec program" id="program"><div class="wrap">
+  <div class="head prog-head">
+    <p class="eyebrow">Программа мастер-класса</p>
+    <h2 class="h2">Что разберём <em>на&nbsp;эфире</em></h2>
+    <p class="lead">Новый подход к&nbsp;Claude, кейсы, которые приносят деньги, пять результатов в&nbsp;прямом эфире и&nbsp;доступ без&nbsp;блокировок.</p>
+    <div class="sticker st-prog" aria-hidden="true">
+      <span class="hand">без&nbsp;воды</span>
+      <svg width="56" height="58" viewBox="0 0 56 58"><path d="M44 4 C 54 24, 42 44, 12 50" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path><path d="M22 41 L11 50 L23 56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </div>
+  </div>
+  <div class="lessons">
+    <article class="les"><div class="les-art"><img src="img/k-idea.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></div><div class="les-body"><span class="n">01</span><h3>Новый подход к&nbsp;Claude</h3><p>Подход к&nbsp;работе с&nbsp;Claude, про&nbsp;который ещё не&nbsp;говорят.</p></div></article>
+    <article class="les"><div class="les-art"><img src="img/k-papers.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></div><div class="les-body"><span class="n">02</span><h3>Вся рутина на&nbsp;Claude</h3><p>Как делегировать рутину целиком и&nbsp;почему другие ИИ так не&nbsp;могут.</p></div></article>
+    <article class="les"><div class="les-art"><img src="img/k-chart.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></div><div class="les-body"><span class="n">03</span><h3>Кейсы, которые приносят деньги</h3><p>Где Claude действительно ускоряет работу и&nbsp;помогает зарабатывать.</p></div></article>
+    <article class="les"><div class="les-art"><img src="img/k-laptop.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></div><div class="les-body"><span class="n">04</span><h3>Видео, сайт и&nbsp;карусель</h3><p>Соберём их в&nbsp;прямом эфире на&nbsp;глазах у&nbsp;зрителей.</p></div></article>
+    <article class="les"><div class="les-art"><img src="img/k-loupe.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></div><div class="les-body"><span class="n">05</span><h3>Исследование и&nbsp;воронка</h3><p>Исследование конкурентов и&nbsp;воронка продаж за&nbsp;один эфир.</p></div></article>
+    <article class="les"><div class="les-art"><img src="img/k-point.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></div><div class="les-body"><span class="n">06</span><h3>Claude без&nbsp;блокировок</h3><p>Как зарегистрироваться, пройти верификацию и&nbsp;не&nbsp;потерять данные.</p></div></article>
+    
+  </div>
+</div></section>
+
+<section class="sec bg-white author" id="author"><div class="wrap cols">
+  <figure class="photo">
+    <img src="img/author.jpg" alt="Павел Лебедев, с книгой «Ты посмотрел сюда»" width="1280" height="850" loading="lazy">
+    <figcaption class="ph-note">автор трёх книг по&nbsp;ИИ</figcaption>
+  </figure>
+  <div>
+    <p class="eyebrow">Спикер</p>
+    <h2 class="h2">Павел <em>Лебедев</em></h2>
+    <p class="lead">Основатель центра обучения нейросетям <span translate="no">iiuniversitet.ru</span>. С&nbsp;2011 года изучает искусственный интеллект. Проводит корпоративные тренинги и&nbsp;консультирует бизнес по&nbsp;внедрению нейросетей.</p>
+    <ul class="facts-num">
+      <li><b>6 000+</b><span>студентов на&nbsp;платных программах</span></li>
+      <li><b>8 000+</b><span>сотрудников обучили на&nbsp;корпоративных программах</span></li>
+      <li><b>87 000+</b><span>подписчиков на&nbsp;YouTube</span></li>
+      <li><b>15&nbsp;лет</b><span>изучает нейросети</span></li>
+    </ul>
+    <div class="clients">
+      <p class="eyebrow">Корпоративные тренинги проходили</p>
+      <ul><li>Сбер</li><li>Газпром</li><li>РЖД</li><li translate="no">Ozon</li><li>Авито</li><li>Центробанк</li><li>Райффайзенбанк</li><li>Эльдорадо</li><li>М.Видео</li><li translate="no">Kimberly-Clark</li><li translate="no">PepsiCo</li></ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec bg-char tariffs" id="tariffs"><div class="wrap">
+  <div class="head">
+    <p class="eyebrow">Регистрация</p>
+    <h2 class="h2">Выберите <em>формат участия</em></h2>
+    <p class="lead mute">Участие в&nbsp;эфире бесплатное. Запись мастер-класса доступна в&nbsp;тарифе ВИП.</p>
+  </div>
+  <div class="plans plans--2">
+    <article class="plan plan--hit">
+      <h3 class="pname"><em>Стандарт</em></h3>
+      <p class="pfor">Для&nbsp;тех, кто придёт на&nbsp;живой эфир 12&nbsp;ноября в&nbsp;12:00 по&nbsp;Москве.</p>
+      <div class="price">Бесплатно</div>
+      <ul class="dashes"><li>Участие в&nbsp;мастер-классе онлайн</li><li>Полный гайд, как&nbsp;установить Claude из&nbsp;России</li><li>2000 бесплатных промптов</li><li>7&nbsp;скиллов ИИ-агента, гайд «Как заставить агента работать за&nbsp;тебя»</li><li>Диплом участника</li></ul>
+      <a class="btn" href="#reg">Участвовать бесплатно</a>
+      <p class="after">Гайд придёт сразу после регистрации</p>
+    </article>
+    <article class="plan">
+      <h3 class="pname"><em>ВИП</em></h3>
+      <p class="pfor">Для&nbsp;тех, кто хочет пересматривать эфир в&nbsp;удобное время.</p>
+      <div class="price">2&nbsp;499 рублей</div>
+      <p class="also">Всё, что&nbsp;в&nbsp;тарифе «Стандарт», а&nbsp;также:</p>
+      <ul class="dashes"><li>Доступ к&nbsp;записи мастер-класса на&nbsp;3&nbsp;месяца: пересматривайте в&nbsp;любое время</li></ul>
+      <a class="btn" href="#reg">Купить билет</a>
+    </article>
+  </div>
+</div></section>
+
+<section class="sec bg-white" id="faq"><div class="wrap faq-wrap">
+  <div>
+    <h2 class="h2">Частые <em>вопросы</em></h2>
+    <p class="lead">Если у&nbsp;вас остались вопросы, свяжитесь со <a href="https://t.me/pmlebedev_support" target="_blank" rel="noopener">службой заботы</a>.</p>
+  </div>
+  <div class="faq">
+    <details><summary>Участие правда бесплатное?</summary><div class="ans"><p>Да. Участие в&nbsp;эфире бесплатное. Запись мастер-класса доступна в&nbsp;тарифе ВИП.</p></div></details>
+    <details><summary>Нужен ли&nbsp;доступ к&nbsp;Claude заранее?</summary><div class="ans"><p>Нет. Гайд по&nbsp;установке придёт сразу после регистрации, а&nbsp;на&nbsp;эфире разберём регистрацию и&nbsp;верификацию вживую.</p></div></details>
+    <details><summary>Нужно ли&nbsp;уметь программировать?</summary><div class="ans"><p>Нет. Задачи ставим обычными словами, а&nbsp;Claude делает остальное. Всё покажем по&nbsp;шагам.</p></div></details>
+    <details><summary>Мне за&nbsp;45. Не&nbsp;поздно ли&nbsp;разбираться с&nbsp;нейросетями?</summary><div class="ans"><p>Нет. По&nbsp;данным Стэнфорда, нейросети сильнее всего ударили по&nbsp;новичкам 22–25&nbsp;лет, а&nbsp;у&nbsp;опытных работников, которые используют ИИ как&nbsp;помощника, занятость держится или&nbsp;растёт. На&nbsp;эфире начнём с&nbsp;доступа, задачи ставятся обычными словами, а&nbsp;опыт в&nbsp;своём деле как&nbsp;раз то, что&nbsp;нужно, чтобы проверять работу Claude.</p></div></details>
+    <details><summary>Будет ли&nbsp;запись?</summary><div class="ans"><p>Запись мастер-класса доступна в&nbsp;тарифе ВИП на&nbsp;3&nbsp;месяца.</p></div></details>
+  </div>
+</div></section>
+
+<section class="final" id="start">
+  <div class="bgimg"><img src="img/final.jpg" alt="Павел Лебедев в светлом офисе с высокими окнами" width="1920" height="1072" loading="lazy"></div>
   <div class="wrap">
-    <span class="tag">Прямой эфир</span>
-    <h2>Создадим <em>в прямом эфире</em></h2>
-    <p class="lead">Пять рабочих результатов на глазах у зрителей. Без программирования</p>
-    <div class="cards3"><div class="wcard"><svg><use href="#i-flow"/></svg><h3>Видео</h3><p>Соберём ролик от сценария до готового результата.</p></div><div class="wcard"><svg><use href="#i-laptop"/></svg><h3>Сайт</h3><p>Сделаем работающую страницу без программиста и конструктора.</p></div><div class="wcard"><svg><use href="#i-target"/></svg><h3>Исследование конкурентов</h3><p>Claude соберёт и разложит по полочкам, что делают конкуренты.</p></div><div class="wcard"><svg><use href="#i-pen"/></svg><h3>Карусель</h3><p>Подготовим карусель для соцсетей: тексты и оформление.</p></div><div class="wcard"><svg><use href="#i-trend"/></svg><h3>Воронку</h3><p>Выстроим воронку продаж: от первого касания до заявки.</p></div><div class="wcard accent"><svg><use href="#i-star"/></svg><h3>Повторите на своих задачах</h3><p>Покажем всё по шагам, чтобы вы могли сделать так же после эфира.</p></div></div>
-  </div>
-</section>
-
-<section style="background:var(--linen)">
-  <div class="wrap">
-    <span class="tag">Для кого</span>
-    <h2>Кому <em>особенно</em> полезно</h2>
-    <p class="lead">Если вы хотите освоить Claude с нуля и применять его в своём деле</p>
-    <div class="cards3">
-      <div class="wcard"><svg><use href="#i-brief"/></svg><h3>Предпринимателям</h3><p>Отдать Claude рутину, исследования и подготовку материалов.</p></div>
-      <div class="wcard"><svg><use href="#i-mega"/></svg><h3>Маркетологам</h3><p>Делать сайты, карусели и воронки быстрее и без подрядчиков.</p></div>
-      <div class="wcard"><svg><use href="#i-laptop"/></svg><h3>Сотрудникам компаний</h3><p>Ускорить работу с документами, отчётами и презентациями.</p></div>
-      <div class="wcard"><svg><use href="#i-pen"/></svg><h3>Блогерам и авторам</h3><p>Собирать контент, видео и карусели быстрее.</p></div>
-      <div class="wcard"><svg><use href="#i-people"/></svg><h3>Коучам и консультантам</h3><p>Готовить материалы для клиентов и автоматизировать рутину.</p></div>
-      <div class="wcard"><svg><use href="#i-user"/></svg><h3>Фрилансерам</h3><p>Брать новые заказы на сайты, контент и исследования с Claude.</p></div>
-    </div>
-    <p style="margin-top:28px;color:var(--muted)">...а также всем, кто хочет быть в тренде и не пропустить изменения, которые затронут каждого.</p>
-  </div>
-</section>
-
-<!-- SPEAKER -->
-<section class="dark glow-r" id="speaker">
-  <div class="wrap">
-    <div class="speaker-grid">
-      <div class="sp-photo"><img src="https://iiuniversitet.ru/img/40400586_1280_q90.webp" alt="Павел Лебедев" loading="lazy"></div>
-      <div class="sp-text">
-        <span class="tag">Спикер</span>
-        <h2>Павел Лебедев</h2>
-        <p>Основатель Центра обучения нейросетям iiuniversitet.ru. 23 года в маркетинге и презентациях, с 2011 года изучает искусственный интеллект. Автор трёх книг по ИИ, консультирует звёзд и первых лиц, попал в 20 СМИ благодаря кейсу с нейросетями.</p>
-        <div class="stats">
-          <div><b>87 000+</b><span>подписчиков на YouTube</span></div>
-          <div><b>10 000+</b><span>учеников посмотрели обучающие материалы</span></div>
-          <div><b>6 млн+</b><span>просмотров на <a href="https://www.youtube.com/@marketograf" style="color:#fff">YouTube</a></span></div>
-          <div><b>1 млн+</b><span>человек посмотрели бесплатные курсы</span></div>
-        </div>
-        <div class="clients">Клиенты
-          <div><span>Сбер</span><span>Газпром</span><span>РЖД</span><span>Ozon</span><span>Авито</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="gallery">
-      <div><img src="https://iiuniversitet.ru/img/40400699_1280_q90.webp" alt="Павел Лебедев на выступлении" loading="lazy"></div>
-      <div><img src="https://iiuniversitet.ru/img/39491041_1280_q90.webp" alt="Павел Лебедев на выступлении" loading="lazy"></div>
-      <div><img src="https://iiuniversitet.ru/img/40400696_1280_q90.webp" alt="Павел Лебедев на выступлении" loading="lazy"></div>
-      <div><img src="https://iiuniversitet.ru/img/40400643_1280_q90.webp" alt="Павел Лебедев на выступлении" loading="lazy"></div>
-      <div><img src="https://iiuniversitet.ru/img/40415229_1280_q90.webp" alt="Павел Лебедев на выступлении" loading="lazy"></div>
-      <div><img src="https://iiuniversitet.ru/img/40400701_1280_q90.webp" alt="Павел Лебедев на выступлении" loading="lazy"></div>
+    <h2 class="h2">Освойте Claude <em>за&nbsp;один вечер</em></h2>
+    <p class="lead">12&nbsp;ноября в&nbsp;12:00 по&nbsp;Москве. Участие бесплатное, гайд по&nbsp;установке Claude придёт сразу после регистрации.</p>
+    <div class="ctas ctas--stack">
+      <a class="btn btn-lemon" href="#tariffs">Участвовать бесплатно <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="https://t.me/pmlebedev_support" target="_blank" rel="noopener">Задать вопрос</a>
     </div>
   </div>
 </section>
 
-<!-- CERTIFICATE -->
-<section>
-  <div class="wrap cert">
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="foot-grid">
     <div>
-      <span class="tag">Сертификат</span>
-      <h2>Именной <em>сертификат</em></h2>
-      <p class="lead" style="margin-bottom:0">Выдаётся всем участникам, кто пройдёт мастер-класс до конца.</p>
+      <a class="logo" href="https://iiuniversitet.online/" aria-label="iiuniversitet, на главную"><b translate="no">iiuniversitet</b></a>
+      <p class="req">ОГРНИП: 309784729600549 · ИНН: 781133511119<br>ИП Лебедев Павел<br>123308, Москва, Демьяна Бедного ул., дом 2, корп. 5, кв. 102<br>р/с&nbsp;40802810600001646824<br>корр. сч. 30101810145250000974<br>БИК 044525974 в&nbsp;АО «ТБанк»</p>
     </div>
-    <div class="cert-img"><img src="https://iiuniversitet.ru/img/40507549_1280_q90.webp" alt="Именной сертификат о прохождении мастер-класса" loading="lazy"></div>
-      </div>
-</section>
-
-<!-- TARIFFS -->
-<section style="background:var(--linen)" id="tariffs">
-  <div class="wrap">
-    <span class="tag">Тарифы</span>
-    <h2>Выберите <em>формат</em> участия</h2>
-    <p class="lead">Участие в эфире бесплатное. Запись мастер-класса доступна в тарифе ВИП.</p>
-    <div class="tariffs">
-      <div class="tariff">
-        <div class="name">Стандарт</div>
-        <div class="price">Бесплатно</div>
-        <ul>
-          <li><svg><use href="#i-check"/></svg>Участие в мастер-классе онлайн</li>
-          <li><svg><use href="#i-check"/></svg>Бонус: 2000 бесплатных промптов</li>
-          <li><svg><use href="#i-check"/></svg>Бонус: полный гайд, как установить Claude из России</li>
-          <li><svg><use href="#i-check"/></svg>Бонус: 7 скиллов ИИ-агента, гайд «Как заставить агента работать за тебя»</li>
-          <li><svg><use href="#i-check"/></svg>Диплом участника</li>
-        </ul>
-        <!-- ЗАМЕНИТЕ ссылку на свою форму регистрации -->
-        <a class="btn k" href="#REG_LINK">Участвовать бесплатно</a>
-      </div>
-      <div class="tariff vip">
-        <span class="badge">Запись на 3 месяца</span>
-        <div class="name">ВИП</div>
-        <div class="price">2 499 рублей</div>
-        <ul>
-          <li><svg><use href="#i-check"/></svg>Участие в мастер-классе онлайн</li>
-          <li><svg><use href="#i-check"/></svg>Бонус: 2000 бесплатных промптов</li>
-          <li><svg><use href="#i-check"/></svg>Бонус: полный гайд, как установить Claude из России</li>
-          <li><svg><use href="#i-check"/></svg>Бонус: 7 скиллов ИИ-агента, гайд «Как заставить агента работать за тебя»</li>
-          <li><svg><use href="#i-check"/></svg>Диплом участника</li>
-          <li><svg><use href="#i-check"/></svg><span><b>Доступ к записи</b> мастер-класса на 3 месяца: пересматривайте в любое время</span></li>
-        </ul>
-        <!-- ЗАМЕНИТЕ ссылку на свою страницу оплаты -->
-        <a class="btn y" href="#REG_LINK">Купить билет</a>
-      </div>
-    </div>
+    <div><h3>Обучение</h3><ul>
+      <li><a href="https://iiuniversitet.online/kurs_neuroproducer/">Курс «Нейропродюсер»</a></li>
+      <li><a href="https://iiuniversitet.online/content_certificate/">Курс «Контент конвейер»</a></li>
+      <li><a href="https://iiuniversitet.online/gpt_certificate/">Курс «ChatGPT от&nbsp;А&nbsp;до&nbsp;Я»</a></li>
+      <li><a href="https://kurs.iiuniversitet.ru/masterskaya" target="_blank" rel="noopener">Курс «Мастерская презентаций»</a></li>
+      <li><a href="https://iiuniversitet.online/ai_for_scheets/">Нейросети для&nbsp;таблиц и&nbsp;аналитики</a></li>
+      <li><a href="https://iiuniversitet.online/kurs-antikrizis/">Антикризис с&nbsp;ИИ&nbsp;— бесплатно</a></li>
+    </ul></div>
+    <div><h3>Контакты</h3><ul>
+      <li><a href="https://t.me/pmlebedev_support" target="_blank" rel="noopener">Служба заботы&nbsp;— Telegram</a></li>
+      <li><a href="https://t.me/marketograf" target="_blank" rel="noopener">Telegram-канал</a></li>
+      <li><a href="https://youtube.com/@marketograf" target="_blank" rel="noopener">YouTube</a></li>
+      <li><a href="https://instagram.com/pmlebedev" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://vk.com/aiclub" target="_blank" rel="noopener">ВКонтакте</a></li>
+      <li>sales@pmlebedev.ru</li>
+    </ul></div>
+    <div><h3>Сотрудничество</h3><ul>
+      <li><a href="https://iiuniversitet.online/#corporate">Корпоративное обучение</a></li>
+      <li><a href="https://t.me/pmlebedev_support" target="_blank" rel="noopener">Реклама и&nbsp;партнёрство</a></li>
+    </ul></div>
+    <div><h3>Документы</h3><ul>
+      <li><a href="https://kurs.iiuniversitet.ru/policy_privacy" target="_blank" rel="noopener">Политика обработки персональных данных</a></li>
+      <li><a href="https://kurs.iiuniversitet.ru/consent/personal_data" target="_blank" rel="noopener">Согласие на&nbsp;обработку персональных данных</a></li>
+      <li><a href="https://kurs.iiuniversitet.ru/oferta" target="_blank" rel="noopener">Оферта</a></li>
+    </ul></div>
   </div>
-</section>
+  <div class="flex"><span>© 2026 Центр обучения нейросетям iiuniversitet.ru</span><button class="linkbtn" type="button" id="totop">Наверх</button></div>
+</div></footer>
 
-<!-- REVIEWS -->
+<div class="dock" id="dock"><a class="btn btn-lemon" href="#tariffs">Участвовать бесплатно</a></div>
 
-<!-- FINAL CTA -->
-<section class="dark final">
-  <svg class="chart" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true">
-    <defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#f4ca1a" stop-opacity=".15"/><stop offset=".55" stop-color="#d4a046" stop-opacity=".6"/><stop offset="1" stop-color="#fff"/></linearGradient></defs>
-    <polyline fill="none" stroke="url(#gl)" stroke-width="2.5" points="0,250 60,262 120,236 180,258 240,240 300,266 360,232 420,256 480,238 540,260 600,226 660,248 720,214 780,232 840,188 900,206 960,150 1020,168 1080,112 1140,128 1200,70 1260,88 1320,30 1380,44 1440,0"/>
-  </svg>
-  <div class="wrap">
-    <h2>Освойте Claude <em>за один вечер</em></h2>
-    <p>12 ноября в 12:00 по Москве. Участие бесплатное, бонусы придут сразу после регистрации.</p>
-    <a class="btn y" href="#tariffs">Участвовать и получить гайд</a>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="fgrid">
-      <div>
-        <a class="brand flogo" href="https://iiuniversitet.ru/"><img src="https://iiuniversitet.online/kurs-antikrizis/img/logo.png" alt=""><span><b>iiuniversitet.ru</b><small>Центр обучения нейросетям</small></span></a>
-        <p>Центр обучения нейросетям Павла Лебедева. Курсы, мастер-классы и консультации по ИИ для работы и бизнеса.</p>
-      </div>
-      <div>
-        <h4>Навигация</h4>
-        <ul>
-          <li><a href="https://iiuniversitet.ru/">Основной сайт iiuniversitet.ru</a><span>все курсы и программы</span></li>
-          <li><a href="#program">Программа мастер-класса</a></li>
-          <li><a href="#tariffs">Тарифы и регистрация</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Контакты</h4>
-        <ul>
-          <li><a href="https://t.me/pmlebedev_support">Служба заботы в Telegram</a><span>@pmlebedev_support</span></li>
-          <li><a href="mailto:sales@pmlebedev.ru">sales@pmlebedev.ru</a><span>почта службы заботы</span></li>
-          <li><a href="https://t.me/marketograf">Telegram-канал Павла Лебедева</a><span>@marketograf</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="fbottom">
-      ИП Лебедев Павел Михайлович, ОГРНИП 309784729600549, ИНН 781133511119<br>
-      р/с 40802810600001646824, корр. сч 30101810145250000974, БИК 044525974 в АО «ТБанк»<br>
-      © 2026 iiuniversitet.ru
-    </div>
-  </div>
-</footer>
-
-</body>
-</html>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var heroBox = document.querySelector('.hero-vid');
+  if(heroBox && !reduce){
+    var heroVids = heroBox.querySelectorAll('video'), HERO_FIRST = 1500, HERO_PAUSE = 3000;
+    function heroPlay(n){
+      if(document.hidden){ document.addEventListener('visibilitychange', function w(){ if(!document.hidden){ document.removeEventListener('visibilitychange', w); heroPlay(n); } }); return; }
+      var v = heroVids[n];
+      v.currentTime = 0;
+      v.addEventListener('playing', function once(){
+        v.removeEventListener('playing', once);
+        for(var k = 0; k < heroVids.length; k++) heroVids[k].classList.toggle('on', heroVids[k] === v);
+      });
+      var p = v.play(); if(p && p.catch) p.catch(function(){});
+    }
+    for(var h = 0; h < heroVids.length; h++)(function(n){
+      heroVids[n].addEventListener('ended', function(){ setTimeout(function(){ heroPlay((n + 1) % heroVids.length); }, HERO_PAUSE); });
+    })(h);
+    setTimeout(function(){ heroPlay(0); }, HERO_FIRST);
+  }
+  /* программа: кубики чуть плывут при прокрутке — чем дальше от середины экрана, тем больше сдвиг (как на /kurs/claude/) */
+  var arts = [].slice.call(document.querySelectorAll('.les-art'));
+  if(arts.length && !reduce){
+    var artTick = false;
+    function artMove(){
+      artTick = false;
+      var mid = innerHeight / 2;
+      arts.forEach(function(el, i){
+        var r = el.parentElement.getBoundingClientRect();
+        if(r.bottom < -100 || r.top > innerHeight + 100) return;
+        var k = i % 3 === 1 ? .07 : .045;
+        var d = Math.max(-18, Math.min(18, (r.top + r.height / 2 - mid) * k));
+        el.style.setProperty('--drift', d.toFixed(1));
+      });
+    }
+    addEventListener('scroll', function(){ if(!artTick){ artTick = true; requestAnimationFrame(artMove); } }, {passive:true});
+    addEventListener('resize', artMove);
+    artMove();
+  }
+  document.getElementById('totop').addEventListener('click', function(){ window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'}); });
+  var dock=document.getElementById('dock'),hero=document.getElementById('hero'),tariffs=document.getElementById('tariffs');
+  if('IntersectionObserver' in window){
+    var heroOut=false,atPrice=false;function paint(){dock.classList.toggle('on',heroOut&&!atPrice)}
+    new IntersectionObserver(function(e){heroOut=!e[0].isIntersecting;paint()}).observe(hero);
+    new IntersectionObserver(function(e){atPrice=e[0].isIntersecting;paint()}).observe(tariffs);
+  }
+})();
+</script>
+</body></html>
