@@ -237,6 +237,20 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
   .facts{grid-template-columns:1fr}
   .vmeta{flex-direction:column;gap:12px}
 }
+.made-me{font-family:Montserrat,sans-serif;font-weight:700;font-size:22px;line-height:1.3;margin-bottom:8px}
+.made-sign{color:var(--muted);font-size:15px;margin-bottom:26px}
+.chat{background:var(--night);border-radius:22px;padding:20px;box-shadow:0 30px 60px -30px rgba(40,30,10,.5);font-size:15px;line-height:1.45}
+.chat-top{display:flex;align-items:center;gap:6px;padding-bottom:12px;margin-bottom:14px;border-bottom:1px solid rgba(255,255,255,.1)}
+.chat-top span{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.2)}
+.chat-top b{margin-left:8px;font-weight:600;font-size:13px;color:rgba(255,255,255,.7)}
+.msg{max-width:88%;padding:11px 15px;border-radius:16px;margin-bottom:10px;opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s}
+.msg.me{margin-left:auto;background:var(--yellow);color:var(--ink);border-bottom-right-radius:5px}
+.msg.ai{background:rgba(255,255,255,.08);color:#f4ead0;border-bottom-left-radius:5px}
+.chat.go .msg{opacity:1;transform:none}
+.chat.go .msg:nth-child(3){transition-delay:.7s}.chat.go .msg:nth-child(4){transition-delay:1.6s}.chat.go .msg:nth-child(5){transition-delay:2.4s}
+.chat-done{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:13px;font-weight:600;color:var(--yellow);opacity:0;transition:opacity .5s 3.1s}
+.chat.go .chat-done{opacity:1}
+.chat-done svg{width:16px;height:16px;stroke:var(--yellow);fill:none;stroke-width:2.4}
 </style>
 </head>
 <body>
@@ -481,23 +495,23 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
 </section>
 
 <!-- REVIEWS -->
-<section id="reviews">
-  <div class="wrap">
-    <span class="tag">Отзывы</span>
-    <h2>Что пишут участники мастер-класса</h2>
-    <p class="lead">Сообщения от тех, кто уже был на эфире</p>
-    <div class="shots">
-      <img src="https://iiuniversitet.ru/img/40655872_1280_q90.webp" alt="Отзыв участника" loading="lazy">
-      <img src="https://iiuniversitet.ru/img/40655824_1280_q90.webp" alt="Отзыв участника" loading="lazy">
-      <img src="https://iiuniversitet.ru/img/40655813_1280_q90.webp" alt="Отзыв участника" loading="lazy">
-      <img src="https://iiuniversitet.ru/img/40655838_1280_q90.webp" alt="Отзыв участника" loading="lazy">
-      <img src="https://iiuniversitet.ru/img/40656001_1280_q90.webp" alt="Отзыв участника" loading="lazy">
-      <img src="https://iiuniversitet.ru/img/40655867_1280_q90.webp" alt="Отзыв участника" loading="lazy">
-      <img src="https://iiuniversitet.ru/img/40655866_1280_q90.webp" alt="Отзыв участника" loading="lazy">
-      <img src="https://iiuniversitet.ru/img/40655840_1280_q90.webp" alt="Отзыв участника" loading="lazy">
-      <img src="https://iiuniversitet.ru/img/40655818_1280_q90.webp" alt="Отзыв участника" loading="lazy">
-      <img src="https://iiuniversitet.ru/img/40655868_1280_q90.webp" alt="Отзыв участника" loading="lazy">
-      <img src="https://iiuniversitet.ru/img/40655817_1280_q90.webp" alt="Отзыв участника" loading="lazy">
+<section id="made" style="background:var(--linen)">
+  <div class="wrap two">
+    <div>
+      <span class="tag" style="background:#fff">Небольшой секрет</span>
+      <h2>Этот сайт сделан в Claude</h2>
+      <p class="lead" style="margin-bottom:22px">Тексты, оформление, блоки и кнопки. Всё собрано в Claude обычными сообщениями в чате, без программиста и конструктора сайтов.</p>
+      <p class="made-me">На эфире я покажу, как это сделать. Повторите за мной и уйдёте со своим сайтом.</p>
+      <p class="made-sign">Павел Лебедев</p>
+      <a class="btn y" href="#tariffs">Хочу так же</a>
+    </div>
+    <div class="chat" aria-hidden="true">
+      <div class="chat-top"><span></span><span></span><span></span><b>Claude</b></div>
+      <div class="msg me">Сделай лендинг мастер-класса «Claude за вечер» в стиле iiuniversitet: программа, спикер, тарифы</div>
+      <div class="msg ai">Готово. Собрал первый экран с датой эфира, программу из 6 блоков, тарифы и регистрацию.</div>
+      <div class="msg me">Добавь блок «Создадим в прямом эфире» с пятью результатами</div>
+      <div class="msg ai">Добавил: видео, сайт, исследование конкурентов, карусель, воронка. Публикую страницу.</div>
+      <div class="chat-done"><svg><use href="#i-check"/></svg>Сайт опубликован</div>
     </div>
   </div>
 </section>
@@ -547,5 +561,9 @@ footer li span{display:block;font-size:12px;color:rgba(255,255,255,.45)}
   </div>
 </footer>
 
+<script>
+(function(){var c=document.querySelector(".chat");if(!c)return;if(matchMedia("(prefers-reduced-motion: reduce)").matches||!("IntersectionObserver" in window)){c.classList.add("go");return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){c.classList.add("go");io.disconnect()}})},{threshold:.3});io.observe(c)})();
+</script>
 </body>
 </html>
