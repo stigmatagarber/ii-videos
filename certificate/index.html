@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Подарочный сертификат на обучение | iiuniversitet</title>
+<meta name="description" content="Вам подарок от iiuniversitet: сертификат на обучение нейросетям.">
+<meta property="og:title" content="Вам подарок от iiuniversitet">
+<meta property="og:description" content="Откройте конверт: внутри сертификат на обучение.">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oranienbaum&family=Playfair+Display:ital,wght@1,400;1,500&family=Onest:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:#ebedec;--paper:#fbf8f2;--linen:#f2ebe3;--ink:#171716;--mute:#676966;--line:rgba(23,23,22,.12);
+  --lemon:#f6eea0;--gold:#b48c4f;--gold2:#d9b878;--gold3:#f3dc9c;
+  --f-d:Oranienbaum,"Playfair Display",Georgia,serif;--f-i:"Playfair Display",Georgia,serif;--f-b:Onest,"Segoe UI",Arial,sans-serif;--f-h:Caveat,cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-b);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+a{color:inherit}
+
+/* top */
+.top{position:fixed;inset:0 0 auto;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:16px clamp(16px,4vw,40px)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo img{width:26px;height:auto}
+.logo b{font-weight:700;font-size:17px;letter-spacing:-.01em}
+.logo span{font-size:13px;color:var(--mute)}
+@media(max-width:560px){.logo span{display:none}}
+.edit-btn{font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;background:#fff;box-shadow:0 0 0 1px var(--line)}
+
+/* snow */
+#snow{position:fixed;inset:0;pointer-events:none;z-index:1}
+
+/* stage */
+.stage{position:relative;z-index:2;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:90px 16px 40px}
+.intro{text-align:center;margin-bottom:34px;transition:opacity .6s,transform .6s}
+.intro .eyebrow{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.intro h1{font-family:var(--f-d);font-weight:400;text-transform:uppercase;font-size:clamp(40px,7vw,76px);line-height:.95;letter-spacing:-.01em}
+.intro h1 em{display:block;font-family:var(--f-i);font-style:italic;text-transform:none;font-size:.62em;margin-top:6px}
+.opened .intro{opacity:0;transform:translateY(-20px);pointer-events:none}
+
+/* envelope */
+.env-wrap{position:relative;width:min(520px,92vw);aspect-ratio:1.55;perspective:1400px;cursor:pointer;transition:transform .9s cubic-bezier(.2,.7,.2,1),opacity .6s}
+.env-wrap:hover .env{transform:translateY(-4px) rotate(-.6deg)}
+.env{position:absolute;inset:0;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.env-back{position:absolute;inset:0;border-radius:14px;background:linear-gradient(160deg,#efe6d8,#e6dac7);box-shadow:0 40px 70px -30px rgba(70,50,20,.45),0 0 0 1px rgba(150,120,70,.18)}
+.env-front{position:absolute;inset:0;z-index:4;pointer-events:none}
+.env-front svg{width:100%;height:100%;display:block}
+.flap{position:absolute;left:0;right:0;top:0;height:58%;z-index:5;transform-origin:50% 0;transition:transform .8s cubic-bezier(.4,.1,.2,1),z-index 0s .4s}
+.flap svg{width:100%;height:100%;display:block;overflow:visible;filter:drop-shadow(0 6px 8px rgba(70,50,20,.18))}
+.opened .flap{transform:rotateX(180deg);z-index:1}
+.seal{position:absolute;left:50%;top:58%;z-index:6;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#f6e3a8,#c9a35f 45%,#8f6d38 100%);box-shadow:0 8px 18px -6px rgba(90,60,20,.6),inset 0 2px 3px rgba(255,255,255,.5),inset 0 -3px 6px rgba(80,50,10,.4);
+  display:flex;align-items:center;justify-content:center;transition:transform .5s cubic-bezier(.5,-.4,.5,1.4),opacity .4s}
+.seal::before{content:"";position:absolute;inset:7px;border-radius:50%;border:1.5px dashed rgba(255,246,214,.55)}
+.seal img{width:30px;filter:brightness(0) invert(1) sepia(.4) brightness(1.05);opacity:.95}
+.env-wrap:hover .seal{transform:scale(1.06)}
+.opened .seal{transform:scale(.2) rotate(60deg);opacity:0}
+.hint{position:absolute;right:-8px;bottom:-54px;font-family:var(--f-h);font-size:26px;transform:rotate(-4deg);display:flex;align-items:flex-start;gap:4px;pointer-events:none;transition:opacity .4s}
+.hint svg{width:56px;height:40px;fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-top:-26px}
+.opened .hint{opacity:0}
+.to{position:absolute;left:8%;bottom:12%;z-index:5;font-family:var(--f-h);font-size:clamp(20px,3.6vw,28px);color:#6d5532;pointer-events:none;transition:opacity .3s}
+.opened .to{opacity:0}
+
+/* letter inside */
+.letter{position:absolute;left:6%;right:6%;top:8%;height:84%;z-index:2;border-radius:8px;background:var(--paper);box-shadow:0 0 0 1px rgba(150,120,70,.2);transition:transform .9s cubic-bezier(.3,.1,.2,1) .55s}
+.letter::after{content:"";position:absolute;inset:12px;border:1px solid var(--gold2);border-radius:4px}
+.opened .letter{transform:translateY(-62%)}
+.done .env-wrap{transform:translateY(55vh) scale(.9);opacity:0;pointer-events:none}
+
+/* certificate */
+.cert-layer{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:84px 14px 24px;overflow:auto;pointer-events:none;opacity:0;transition:opacity .5s}
+.done .cert-layer{opacity:1;pointer-events:auto}
+.cert{position:relative;width:min(860px,100%);background:var(--paper);border-radius:14px;padding:clamp(18px,3.6vw,46px);overflow:hidden;
+  box-shadow:0 50px 90px -40px rgba(70,50,20,.5),0 0 0 1px rgba(150,120,70,.25);transform:translateY(40px) scale(.92);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.done .cert{transform:none}
+.cert::before{content:"";position:absolute;inset:clamp(8px,1.4vw,16px);border:1px solid var(--gold2);border-radius:8px;pointer-events:none}
+.cert::after{content:"";position:absolute;inset:clamp(13px,2vw,23px);border:1px solid rgba(217,184,120,.45);border-radius:5px;pointer-events:none}
+.cert .glow{position:absolute;right:-18%;top:-30%;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(246,238,160,.6),transparent);pointer-events:none}
+.cert .shine{position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.65) 48%,transparent 60%);transform:translateX(-120%);pointer-events:none}
+.done .cert .shine{animation:shine 1.6s .9s ease-out}
+@keyframes shine{to{transform:translateX(120%)}}
+.c-in{position:relative;display:flex;flex-direction:column;padding:clamp(10px,1.8vw,22px) clamp(10px,2.2vw,28px)}
+.c-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.c-brand{display:flex;align-items:center;gap:10px}
+.c-brand img{width:clamp(22px,3vw,34px)}
+.c-brand b{display:block;font-size:clamp(13px,1.8vw,19px);font-weight:700;letter-spacing:-.01em;line-height:1.1}
+.c-brand small{display:block;font-size:clamp(9px,1.2vw,12px);color:var(--mute)}
+.c-no{font-size:clamp(9px,1.2vw,12px);color:var(--mute);letter-spacing:.1em;text-transform:uppercase;text-align:right}
+.c-main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:clamp(14px,3vw,34px) 0 clamp(16px,3vw,30px)}
+.c-occ{font-family:var(--f-h);font-size:clamp(18px,3vw,30px);color:var(--gold);transform:rotate(-2deg);transform-origin:left;margin-bottom:clamp(2px,.6vw,6px)}
+.c-eye{font-size:clamp(9px,1.2vw,12px);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin-bottom:clamp(4px,1vw,10px)}
+.c-title{font-family:var(--f-d);font-weight:400;text-transform:uppercase;font-size:clamp(32px,6.6vw,74px);line-height:.92;letter-spacing:-.01em}
+.c-title em{display:block;font-family:var(--f-i);font-style:italic;text-transform:none;font-size:.56em;letter-spacing:-.02em;margin-top:4px}
+.c-for{margin-top:clamp(10px,2.2vw,26px);display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.c-for span{font-size:clamp(11px,1.4vw,14px);color:var(--mute)}
+.c-for b{font-family:var(--f-i);font-style:italic;font-weight:400;font-size:clamp(22px,3.8vw,40px);line-height:1.1;border-bottom:1px solid var(--gold2);padding-bottom:2px;min-width:40%}
+.c-rows{display:flex;flex-wrap:wrap;gap:clamp(8px,2vw,22px) clamp(14px,3vw,40px);margin-top:clamp(10px,2vw,22px)}
+.c-row span{display:block;font-size:clamp(9px,1.15vw,12px);color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.c-row b{display:block;font-weight:600;font-size:clamp(12px,1.7vw,18px);margin-top:2px}
+.c-row.amount b{font-family:var(--f-d);font-weight:400;font-size:clamp(20px,3.2vw,34px);line-height:1;background:var(--lemon);padding:2px 10px 3px;border-radius:8px;margin-top:4px}
+.c-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.c-sign .s{font-family:var(--f-h);font-size:clamp(20px,3.2vw,34px);line-height:1;color:var(--ink)}
+.c-sign small{display:block;font-size:clamp(9px,1.15vw,12px);color:var(--mute);border-top:1px solid var(--line);padding-top:4px;margin-top:2px}
+.stamp{width:clamp(56px,9vw,96px);aspect-ratio:1;border-radius:50%;flex:none;position:relative;
+  background:radial-gradient(circle at 35% 30%,#f6e3a8,#c9a35f 45%,#8f6d38 100%);box-shadow:inset 0 2px 3px rgba(255,255,255,.5),inset 0 -3px 6px rgba(80,50,10,.35);display:flex;align-items:center;justify-content:center}
+.stamp::before{content:"";position:absolute;inset:6px;border-radius:50%;border:1.2px dashed rgba(255,246,214,.6)}
+.stamp img{width:38%;filter:brightness(0) invert(1) sepia(.4)}
+
+.actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px;opacity:0;transform:translateY(10px);transition:opacity .5s 1s,transform .5s 1s}
+.done .actions{opacity:1;transform:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:50px;padding:0 24px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-lemon{background:var(--lemon);box-shadow:0 10px 24px -12px rgba(150,130,20,.6)}
+.btn-ghost{box-shadow:inset 0 0 0 1.5px var(--ink)}
+@media(max-width:560px){.btn{height:46px;padding:0 18px;font-size:14px}}
+
+/* editor */
+.panel{position:fixed;right:16px;top:64px;z-index:30;width:min(340px,calc(100vw - 32px));background:#fff;border-radius:18px;padding:18px;box-shadow:0 30px 60px -20px rgba(0,0,0,.3),0 0 0 1px var(--line);display:none}
+.panel.on{display:block}
+.panel h3{font-size:15px;margin-bottom:10px}
+.panel label{display:block;font-size:12px;color:var(--mute);margin:10px 0 4px}
+.panel input{width:100%;height:40px;border-radius:10px;border:1px solid var(--line);padding:0 12px;font:inherit;font-size:14px;background:var(--bg)}
+.panel .row2{display:flex;gap:8px;margin-top:14px}
+.panel .row2 .btn{height:40px;font-size:13px;flex:1;padding:0 12px}
+.panel p{font-size:12px;color:var(--mute);margin-top:10px;line-height:1.4}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:12px;font-size:14px;opacity:0;transition:.3s;z-index:40}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01s!important;animation:none!important}}
+@media print{
+  body{background:#fff}.top,.panel,.actions,#snow,.intro,.env-wrap{display:none!important}
+  .cert-layer{position:static;opacity:1;padding:0}.cert{transform:none;box-shadow:none;width:100%}
+  @page{size:A4 landscape;margin:8mm}
+}
+</style>
+</head>
+<body>
+<canvas id="snow" aria-hidden="true"></canvas>
+
+<header class="top">
+  <a class="logo" href="https://iiuniversitet.online/" aria-label="iiuniversitet"><img src="logo.png" alt=""><b>iiuniversitet</b><span>Центр обучения нейросетям</span></a>
+  <button class="edit-btn" id="editBtn" type="button" hidden>Заполнить сертификат</button>
+</header>
+
+<main class="stage" id="stage">
+  <div class="intro">
+    <p class="eyebrow">Подарок от iiuniversitet</p>
+    <h1>Вам письмо<em>с&nbsp;сюрпризом внутри</em></h1>
+  </div>
+
+  <div class="env-wrap" id="env" role="button" tabindex="0" aria-label="Открыть конверт">
+    <div class="env">
+      <div class="env-back"></div>
+      <div class="letter" aria-hidden="true"></div>
+      <div class="env-front" aria-hidden="true">
+        <svg viewBox="0 0 520 336" preserveAspectRatio="none">
+          <defs><linearGradient id="ef" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3ebdf"/><stop offset="1" stop-color="#e9dcc8"/></linearGradient></defs>
+          <path d="M0 336 L0 0 L250 186 Q260 193 270 186 L520 0 L520 336 Z" fill="url(#ef)"/>
+          <path d="M0 336 L232 186 M520 336 L288 186" stroke="rgba(150,120,70,.22)" stroke-width="1.2" fill="none"/>
+        </svg>
+      </div>
+      <div class="flap" aria-hidden="true">
+        <svg viewBox="0 0 520 195" preserveAspectRatio="none">
+          <defs><linearGradient id="fl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ece1d0"/><stop offset="1" stop-color="#e2d3bc"/></linearGradient></defs>
+          <path d="M0 0 H520 L276 186 Q260 197 244 186 Z" fill="url(#fl)" stroke="rgba(150,120,70,.25)" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="seal" aria-hidden="true"><img src="logo.png" alt=""></div>
+      <div class="to" id="envTo">для вас</div>
+    </div>
+    <div class="hint" aria-hidden="true"><svg viewBox="0 0 56 40"><path d="M50 36 C 40 20, 26 10, 8 8"/><path d="M17 2 L7 8 L16 15"/></svg>нажмите, чтобы открыть</div>
+  </div>
+</main>
+
+<section class="cert-layer" id="certLayer" aria-live="polite">
+  <article class="cert" id="cert">
+    <div class="glow"></div>
+    <div class="c-in">
+      <div class="c-head">
+        <div class="c-brand"><img src="logo.png" alt=""><div><b>iiuniversitet</b><small>Центр обучения нейросетям</small></div></div>
+        <div class="c-no" id="cNo">Сертификат</div>
+      </div>
+      <div class="c-main">
+        <div class="c-occ" id="cOcc">С Новым годом!</div>
+        <div class="c-eye">Подарочный сертификат</div>
+        <h2 class="c-title">На&nbsp;обучение <em>в&nbsp;iiuniversitet</em></h2>
+        <div class="c-for"><span>Для</span><b id="cName">вас</b></div>
+        <div class="c-rows" id="cRows">
+          <div class="c-row" id="rCourse"><span>Обучение</span><b id="cCourse">Курс на выбор</b></div>
+          <div class="c-row amount" id="rAmount"><span>Номинал</span><b id="cAmount"></b></div>
+          <div class="c-row" id="rUntil"><span>Действует до</span><b id="cUntil"></b></div>
+        </div>
+      </div>
+      <div class="c-foot">
+        <div class="c-sign"><div class="s">Павел Лебедев</div><small>основатель iiuniversitet</small></div>
+        <div class="stamp" aria-hidden="true"><img src="logo.png" alt=""></div>
+      </div>
+    </div>
+    <div class="shine"></div>
+  </article>
+  <div class="actions">
+    <a class="btn btn-lemon" id="goBtn" href="https://iiuniversitet.online/" target="_blank" rel="noopener">Выбрать курс <span aria-hidden="true">→</span></a>
+    <button class="btn btn-ghost" id="saveBtn" type="button">Сохранить картинкой</button>
+    <button class="btn btn-ghost" id="againBtn" type="button">Открыть заново</button>
+  </div>
+</section>
+
+<aside class="panel" id="panel" aria-label="Заполнить сертификат">
+  <h3>Данные сертификата</h3>
+  <label for="fName">Кому</label><input id="fName" placeholder="Например, Анне Смирновой">
+  <label for="fCourse">Обучение</label><input id="fCourse" placeholder="Курс на выбор">
+  <label for="fAmount">Номинал (пусто, чтобы скрыть)</label><input id="fAmount" placeholder="Например, 10 000 рублей">
+  <label for="fUntil">Действует до (пусто, чтобы скрыть)</label><input id="fUntil" placeholder="Например, 31 марта 2027">
+  <label for="fOcc">Повод</label><input id="fOcc" placeholder="С Новым годом!">
+  <label for="fNo">Номер</label><input id="fNo" placeholder="Например, NY-0001">
+  <div class="row2"><button class="btn btn-lemon" id="copyLink" type="button">Скопировать ссылку</button><button class="btn btn-ghost" id="closePanel" type="button">Готово</button></div>
+  <p>Ссылка открывает конверт уже с этими данными. Отправьте её получателю.</p>
+</aside>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+<script>
+(function(){
+  var $=function(s){return document.querySelector(s)};
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var q=new URLSearchParams(location.search);
+  var F={name:'fName',course:'fCourse',amount:'fAmount',until:'fUntil',occ:'fOcc',no:'fNo'};
+  var D={name:'',course:'',amount:'',until:'',occ:'С Новым годом!',no:''};
+  var data={};Object.keys(D).forEach(function(k){data[k]=q.has(k)?q.get(k):D[k]});
+
+  function paint(){
+    $('#cName').textContent=data.name||'вас';
+    $('#envTo').textContent=data.name?('для '+data.name):'для вас';
+    $('#cCourse').textContent=data.course||'Курс на выбор';
+    $('#cAmount').textContent=data.amount;$('#rAmount').hidden=!data.amount;
+    $('#cUntil').textContent=data.until;$('#rUntil').hidden=!data.until;
+    $('#cOcc').textContent=data.occ;$('#cOcc').hidden=!data.occ;
+    $('#cNo').textContent=data.no?('Сертификат № '+data.no):'Сертификат';
+    document.title=(data.name?data.name+', вам':'Вам')+' подарок от iiuniversitet';
+  }
+  paint();
+
+  /* open */
+  var stage=document.body,env=$('#env'),opening=false;
+  function open(){
+    if(opening)return;opening=true;
+    stage.classList.add('opened');
+    setTimeout(function(){stage.classList.add('done');burst()},reduce?50:1600);
+  }
+  function reset(){stage.classList.remove('done');setTimeout(function(){stage.classList.remove('opened');opening=false},reduce?0:500);window.scrollTo(0,0)}
+  env.addEventListener('click',open);
+  env.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});
+  $('#againBtn').addEventListener('click',reset);
+  if(q.has('open'))open();
+
+  /* snow + golden confetti */
+  var cv=$('#snow'),cx=cv.getContext('2d'),W,H,dpr=Math.min(devicePixelRatio||1,2),flakes=[],bits=[];
+  function size(){W=cv.width=innerWidth*dpr;H=cv.height=innerHeight*dpr;cv.style.width=innerWidth+'px';cv.style.height=innerHeight+'px'}
+  size();addEventListener('resize',size);
+  var N=reduce?0:Math.round(Math.min(90,innerWidth/14));
+  for(var i=0;i<N;i++)flakes.push({x:Math.random(),y:Math.random(),r:.8+Math.random()*2.2,s:.15+Math.random()*.45,w:Math.random()*6.28});
+  function burst(){
+    if(reduce)return;var cols=['#d9b878','#f3dc9c','#f6eea0','#b48c4f','#ffffff'];
+    for(var i=0;i<110;i++){var a=Math.random()*Math.PI*2,v=4+Math.random()*9;bits.push({x:W/2,y:H*.45,vx:Math.cos(a)*v*dpr,vy:(Math.sin(a)*v-6)*dpr,r:(2+Math.random()*4)*dpr,c:cols[i%cols.length],t:Math.random()*6.28,life:1})}
+  }
+  function tick(){
+    cx.clearRect(0,0,W,H);
+    cx.fillStyle='rgba(255,255,255,.9)';
+    flakes.forEach(function(f){f.y+=f.s/innerHeight*1.6;f.w+=.01;if(f.y>1.02){f.y=-.02;f.x=Math.random()}
+      cx.beginPath();cx.arc((f.x+Math.sin(f.w)*.01)*W,f.y*H,f.r*dpr,0,6.28);cx.fill()});
+    for(var i=bits.length-1;i>=0;i--){var b=bits[i];b.vy+=.28*dpr;b.vx*=.985;b.x+=b.vx;b.y+=b.vy;b.t+=.2;b.life-=.008;
+      if(b.life<=0||b.y>H+20){bits.splice(i,1);continue}
+      cx.save();cx.globalAlpha=Math.max(0,b.life);cx.translate(b.x,b.y);cx.rotate(b.t);cx.fillStyle=b.c;cx.fillRect(-b.r,-b.r/2,b.r*2,b.r);cx.restore()}
+    requestAnimationFrame(tick);
+  }
+  if(!reduce)tick();
+
+  /* save as image */
+  function toast(t){var el=$('#toast');el.textContent=t;el.classList.add('on');setTimeout(function(){el.classList.remove('on')},2400)}
+  $('#saveBtn').addEventListener('click',function(){
+    if(!window.html2canvas){window.print();return}
+    var c=$('#cert');c.style.transform='none';
+    html2canvas(c,{scale:2,backgroundColor:null,useCORS:true}).then(function(canvas){
+      var a=document.createElement('a');a.download='sertifikat-iiuniversitet.png';a.href=canvas.toDataURL('image/png');a.click();toast('Картинка сохранена');
+    }).catch(function(){window.print()});
+  });
+
+  /* editor: ?edit */
+  if(q.has('edit')){
+    var btn=$('#editBtn'),panel=$('#panel');btn.hidden=false;
+    Object.keys(F).forEach(function(k){var el=document.getElementById(F[k]);el.value=data[k];el.addEventListener('input',function(){data[k]=el.value.trim();paint()})});
+    btn.addEventListener('click',function(){panel.classList.toggle('on')});
+    $('#closePanel').addEventListener('click',function(){panel.classList.remove('on')});
+    $('#copyLink').addEventListener('click',function(){
+      var p=new URLSearchParams();Object.keys(D).forEach(function(k){if(data[k]&&data[k]!==D[k])p.set(k,data[k])});if(!data.occ)p.set('occ','');
+      var url=location.origin+location.pathname+(p.toString()?'?'+p.toString():'');
+      (navigator.clipboard?navigator.clipboard.writeText(url):Promise.reject()).then(function(){toast('Ссылка скопирована')},function(){prompt('Ссылка на сертификат',url)});
+    });
+    panel.classList.add('on');
+  }
+})();
+</script>
+</body></html>
