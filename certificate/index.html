@@ -72,11 +72,12 @@ a{color:inherit}
 .done .env-wrap{transform:translateY(55vh) scale(.9);opacity:0;pointer-events:none}
 
 /* certificate */
-.cert-layer{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:84px 14px 24px;overflow:auto;pointer-events:none;opacity:0;transition:opacity .5s}
+.cert-layer{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:84px 14px 24px;overflow:auto;pointer-events:none;opacity:0;transition:opacity .5s}
 .done .cert-layer{opacity:1;pointer-events:auto}
 .cert{position:relative;width:min(860px,100%);background:var(--paper);border-radius:14px;padding:clamp(18px,3.6vw,46px);overflow:hidden;
   box-shadow:0 50px 90px -40px rgba(70,50,20,.5),0 0 0 1px rgba(150,120,70,.25);transform:translateY(40px) scale(.92);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
 .done .cert{transform:none}
+.cert-layer>.cert{margin-top:auto;flex:none}.cert-layer>.actions{margin-bottom:auto}
 .cert::before{content:"";position:absolute;inset:clamp(8px,1.4vw,16px);border:1px solid var(--gold2);border-radius:8px;pointer-events:none}
 .cert::after{content:"";position:absolute;inset:clamp(13px,2vw,23px);border:1px solid rgba(217,184,120,.45);border-radius:5px;pointer-events:none}
 .cert .glow{position:absolute;right:-18%;top:-30%;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(246,238,160,.6),transparent);pointer-events:none}
@@ -284,10 +285,12 @@ a{color:inherit}
   function toast(t){var el=$('#toast');el.textContent=t;el.classList.add('on');setTimeout(function(){el.classList.remove('on')},2400)}
   $('#saveBtn').addEventListener('click',function(){
     if(!window.html2canvas){window.print();return}
-    var c=$('#cert');c.style.transform='none';
-    html2canvas(c,{scale:2,backgroundColor:null,useCORS:true}).then(function(canvas){
-      var a=document.createElement('a');a.download='sertifikat-iiuniversitet.png';a.href=canvas.toDataURL('image/png');a.click();toast('Картинка сохранена');
-    }).catch(function(){window.print()});
+    var c=$('#cert').cloneNode(true);c.removeAttribute('id');
+    c.style.cssText='position:absolute;left:-10000px;top:0;width:1100px;transform:none;box-shadow:none;margin:0';
+    c.querySelector('.shine').remove();document.body.appendChild(c);
+    html2canvas(c,{scale:2,backgroundColor:null,useCORS:true,windowWidth:1400,windowHeight:c.offsetHeight+200,scrollX:0,scrollY:0}).then(function(canvas){
+      c.remove();var a=document.createElement('a');a.download='sertifikat-iiuniversitet.png';a.href=canvas.toDataURL('image/png');a.click();toast('Картинка сохранена');
+    }).catch(function(){c.remove();window.print()});
   });
 
   /* editor: ?edit */
